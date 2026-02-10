@@ -347,6 +347,19 @@
 
 👉 [查看详细进度](PROGRESS.md)
 
+## 🆕 OpenClaw 最新版本
+
+**当前最新版本**：openclaw 2026.2.9（2026年2月9日）
+
+**主要更新**：
+- ✅ iOS 支持（alpha 版本）
+- ✅ Grok (xAI) 作为 web_search 提供商
+- ✅ Agent 管理 RPC 方法（Web UI 可管理 agents）
+- ✅ 改进的 Telegram 支持
+- ✅ 多项安全性修复
+
+👉 [查看完整更新日志](https://github.com/openclaw/openclaw/releases)
+
 ## 🔗 相关项目
 
 - **OpenClaw官方**：https://github.com/openclaw/openclaw
@@ -363,7 +376,7 @@
 **最后更新**：2026年2月10日  
 **教程版本**：v1.0.1（已更新为OpenClaw最新版本）  
 **总字数**：251,000字  
-**适用OpenClaw版本**：2026.1.30+
+**适用OpenClaw版本**：2026.2.9+（最新版本）
 
 ---
 

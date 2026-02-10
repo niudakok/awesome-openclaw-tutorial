@@ -22,9 +22,20 @@ OpenClaw是一个**开源的本地AI助手**，它可以：
 OpenClaw由几个核心组件组成：
 
 1. **OpenClaw Core**：核心AI引擎，负责理解和执行你的指令
-2. **Gateway**：网关服务，连接各个平台和服务
+2. **Gateway 网关**：会话、路由和渠道连接的唯一事实来源
+   - 连接各个聊天平台（WhatsApp、Telegram、Discord、iMessage等）
+   - 管理会话和消息路由
+   - 默认地址：`http://127.0.0.1:18789/`
+   - 配置文件：`~/.openclaw/openclaw.json`
 3. **Skills**：技能系统，扩展OpenClaw的能力
 4. **ClawHub**：技能市场，可以下载和分享Skills
+
+> 💡 **Gateway 网关是什么？**  
+> Gateway 是 OpenClaw 的核心服务，它像一个"中央调度站"，负责：
+> - 接收来自不同平台的消息（微信、飞书、Web等）
+> - 将消息转发给 AI 处理
+> - 把 AI 的回复发送回对应平台
+> - 管理所有的会话和上下文
 
 ### 与在线AI的本质区别
 

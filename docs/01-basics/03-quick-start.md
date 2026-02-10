@@ -757,6 +757,198 @@ openclaw gateway restart
 "请切换到Sonnet模型"
 ```
 
+## 3.5 Gateway 网关配置（进阶）
+
+> 💡 **什么时候需要配置 Gateway？**  
+> - 想要限制访问权限（只允许特定用户）
+> - 需要配置群组提及规则
+> - 想要自定义网关行为
+
+### Gateway 配置文件位置
+
+配置文件位于：`~/.openclaw/openclaw.json`
+
+### 基础配置说明
+
+如果你**不做任何修改**，OpenClaw 将：
+- 使用内置的 Pi 二进制文件以 RPC 模式运行
+- 按发送者创建独立会话
+- 接受所有用户的消息
+
+### 访问控制配置
+
+#### 限制 WhatsApp 访问
+
+```json
+{
+  "channels": {
+    "whatsapp": {
+      "allowFrom": ["+15555550123", "+8613800138000"],
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      }
+    }
+  }
+}
+```
+
+**说明**：
+- `allowFrom`：只允许这些号码访问
+- `requireMention`：群组中需要 @ 提及才会响应
+
+#### 配置提及规则
+
+```json
+{
+  "messages": {
+    "groupChat": {
+      "mentionPatterns": ["@openclaw", "@小龙虾", "@助手"]
+    }
+  }
+}
+```
+
+**说明**：
+- 群组中使用这些关键词可以触发响应
+- 支持多个提及模式
+
+### 远程访问配置
+
+#### 使用 Tailscale 远程访问
+
+如果你想在外网访问 Gateway：
+
+1. **安装 Tailscale**：
+   ```bash
+   # macOS
+   brew install tailscale
+   
+   # Linux
+   curl -fsSL https://tailscale.com/install.sh | sh
+   ```
+
+2. **启动 Tailscale**：
+   ```bash
+   sudo tailscale up
+   ```
+
+3. **获取 Tailscale IP**：
+   ```bash
+   tailscale ip -4
+   ```
+
+4. **通过 Tailscale IP 访问**：
+   ```
+   http://你的Tailscale-IP:18789/
+   ```
+
+**优势**：
+- ✅ 安全的点对点连接
+- ✅ 无需公网 IP
+- ✅ 无需配置防火墙
+- ✅ 支持多设备访问
+
+### 完整配置示例
+
+```json
+{
+  "channels": {
+    "whatsapp": {
+      "allowFrom": ["+8613800138000"],
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      }
+    }
+  },
+  "messages": {
+    "groupChat": {
+      "mentionPatterns": ["@openclaw", "@助手"]
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "deepseek/deepseek-chat"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com",
+        "apiKey": "sk-你的密钥",
+        "auth": "api-key",
+        "api": "openai-chat"
+      }
+    }
+  }
+}
+```
+
+### 配置生效
+
+修改配置后，重启 Gateway：
+
+```bash
+openclaw gateway restart
+```
+
+### 常见配置场景
+
+#### 场景1：家庭使用
+
+```json
+{
+  "channels": {
+    "whatsapp": {
+      "allowFrom": ["+8613800138000", "+8613800138001"]
+    }
+  }
+}
+```
+
+#### 场景2：团队使用
+
+```json
+{
+  "channels": {
+    "whatsapp": {
+      "groups": {
+        "工作群": {
+          "requireMention": true,
+          "mentionPatterns": ["@openclaw"]
+        },
+        "家庭群": {
+          "requireMention": false
+        }
+      }
+    }
+  }
+}
+```
+
+#### 场景3：公开服务
+
+```json
+{
+  "channels": {
+    "whatsapp": {
+      "allowFrom": ["*"],
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      }
+    }
+  }
+}
+```
+
 ## 本章小结
 
 通过本章，你应该已经：
