@@ -245,7 +245,7 @@
 - **GitHub**: [@xianyu110](https://github.com/xianyu110)
 - **Clawbot项目**: [700+ Stars](https://github.com/xianyu110/clawbot)
 - **CSDN专栏**: [OpenClaw从入门到精通](https://blog.csdn.net/xianyu120/category_13126767.html)
-- **B站**: [@卡兹克](https://space.bilibili.com/399102586)
+- **B站**: [@MaynorAI](https://space.bilibili.com/399102586)
 - **两万人AI社区主理人**
 
 ## 💖 支持项目
