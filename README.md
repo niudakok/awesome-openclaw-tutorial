@@ -107,7 +107,7 @@
   - 文件自动整理
   - 硬盘清理优化
 
-- [第5章：知识库管理](docs/02-core-features/05-knowledge-base.md)
+- [第5章：知识库管理](docs/02-core-features/05-knowledge-management.md)
   - 网页文章存档
   - GitHub项目管理
   - 论文笔记整理
@@ -119,7 +119,7 @@
   - 批量日程导入
   - 提醒设置技巧
 
-- [第7章：自动化工作流](docs/02-core-features/07-automation.md)
+- [第7章：自动化工作流](docs/02-core-features/07-automation-workflow.md)
   - 定时任务设置
   - 网站监控实战
   - 日报自动推送
@@ -127,25 +127,25 @@
 
 ### 第三部分：进阶应用
 
-- [第8章：Skills扩展](docs/03-advanced/08-skills.md)
+- [第8章：Skills扩展](docs/03-advanced/08-skills-extension.md)
   - ClawHub技能市场
   - 必装Skills推荐
   - 自定义Skills开发
   - Skills管理技巧
 
-- [第9章：多平台集成](docs/03-advanced/09-platform-integration.md)
+- [第9章：多平台集成](docs/03-advanced/09-multi-platform-integration.md)
   - 企业微信Bot配置
   - 钉钉Bot配置
   - 飞书Bot配置
   - QQ Bot配置
 
-- [第10章：API服务封装](docs/03-advanced/10-api-integration.md)
+- [第10章：API服务集成](docs/03-advanced/10-api-service-integration.md)
   - Banana绘图集成
   - Notion数据同步
   - 视频生成服务
   - 语音合成接入
 
-- [第11章：高级配置](docs/03-advanced/11-advanced-config.md)
+- [第11章：高级配置](docs/03-advanced/11-advanced-configuration.md)
   - Antigravity Manager配置
   - 多模型切换策略
   - 成本优化方案
@@ -153,19 +153,19 @@
 
 ### 第四部分：实战案例
 
-- [第12章：个人效率提升](docs/04-cases/12-personal-productivity.md)
+- [第12章：个人效率提升](docs/04-practical-cases/12-personal-productivity.md)
   - 知识工作者的一天
   - 程序员的开发助手
   - 内容创作者的工作流
   - 学生的学习助手
 
-- [第13章：团队协作场景](docs/04-cases/13-team-collaboration.md)
+- [第13章：团队协作场景](docs/04-practical-cases/13-team-collaboration.md)
   - 项目管理自动化
   - 文档协作优化
   - 会议记录整理
   - 团队知识库建设
 
-- [第14章：创意应用探索](docs/04-cases/14-creative-applications.md)
+- [第14章：创意应用探索](docs/04-practical-cases/14-creative-applications.md)
   - AI绘画工作流
   - 视频脚本生成
   - 多语言翻译助手
@@ -173,13 +173,13 @@
 
 ### 第五部分：问题解决
 
-- [第15章：常见问题与解决](docs/05-troubleshooting/15-common-issues.md)
+- [第15章：常见问题与解决](docs/05-troubleshooting/15-common-problems.md)
   - 安装配置问题
   - API连接问题
   - Skills加载问题
   - 性能优化问题
 
-- [第16章：避坑指南](docs/05-troubleshooting/16-pitfalls.md)
+- [第16章：避坑指南](docs/05-troubleshooting/16-best-practices.md)
   - 新手常犯的10个错误
   - 模型选择避坑
   - 成本控制避坑
@@ -246,15 +246,15 @@
 - [批量重命名：根据内容自动命名文件](docs/02-core-features/04-file-management.md#场景3批量重命名文件)
 
 ### 知识管理
-- [网页存档：一键保存技术文章到备忘录](docs/02-core-features/05-knowledge-base.md#核心原理)
-- [论文阅读：自动总结PDF论文](docs/02-core-features/05-knowledge-base.md#实际使用)
+- [网页存档：一键保存技术文章到备忘录](docs/02-core-features/05-knowledge-management.md#核心原理)
+- [论文阅读：自动总结PDF论文](docs/02-core-features/05-knowledge-management.md#实际使用)
 
 ### 日程管理
 - [微信截图识别：自动创建日历事件](docs/02-core-features/06-schedule-management.md#微信截图识别)
 
 ### 自动化
-- [网站监控：Claude 5发布立即通知](docs/02-core-features/07-automation.md#场景3网站监控)
-- [AI日报：每天9点推送行业资讯](docs/02-core-features/07-automation.md#场景2定时推送日报)
+- [网站监控：Claude 5发布立即通知](docs/02-core-features/07-automation-workflow.md#场景3网站监控)
+- [AI日报：每天9点推送行业资讯](docs/02-core-features/07-automation-workflow.md#场景2定时推送日报)
 
 ## 🌟 特色功能
 
