@@ -16,13 +16,14 @@
 ### 8.1.1 什么是ClawHub
 
 **定义**：
-ClawHub是OpenClaw的官方技能市场，类似于App Store，提供各种扩展功能。
+ClawHub是OpenClaw的官方技能市场（https://clawhub.com），类似于App Store，提供各种扩展功能。
 
 **核心价值**：
 - 🎯 **扩展能力**：让OpenClaw能做更多事情
 - 🚀 **快速部署**：一键安装，即刻使用
 - 🌍 **社区驱动**：开发者共享优质Skills
 - 🔄 **持续更新**：Skills不断优化升级
+- 📦 **统一管理**：安装、更新、备份一站式
 
 **与其他AI的区别**：
 
@@ -34,19 +35,112 @@ ClawHub是OpenClaw的官方技能市场，类似于App Store，提供各种扩�
 | 社区生态 | ✅ | ✅ | ❌ |
 | 免费使用 | ✅ | 部分付费 | ❌ |
 
-### 8.1.2 ClawHub介绍
+### 8.1.2 Skills加载机制
+
+**Skills加载位置**：
+
+OpenClaw从三个位置加载Skills，优先级从高到低：
+
+```
+1. 工作区Skills：<workspace>/skills（最高优先级）
+   - 单智能体专用
+   - 项目特定的Skills
+   
+2. 托管/本地Skills：~/.openclaw/skills
+   - 所有智能体共享
+   - 用户自定义Skills
+   
+3. 内置Skills：随安装包发布（最低优先级）
+   - OpenClaw官方Skills
+   - 基础功能Skills
+```
+
+**优先级规则**：
+
+```
+如果同名Skills存在于多个位置：
+工作区Skills > 托管/本地Skills > 内置Skills
+
+示例：
+- 内置Skills：file-search v1.0
+- 本地Skills：file-search v1.2（自定义版本）
+- 工作区Skills：file-search v2.0（项目专用）
+
+最终加载：工作区的 v2.0 版本
+```
+
+**额外Skills目录**：
+
+可以通过配置添加额外的Skills文件夹：
+
+```json
+{
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "/path/to/shared-skills",
+        "/path/to/team-skills"
+      ]
+    }
+  }
+}
+```
+
+### 8.1.3 ClawHub使用指南
 
 **访问方式**：
 
 ```bash
-# 方式1：命令行访问
-openclaw hub
-
-# 方式2：网页访问
+# 方式1：网页访问（推荐）
 https://clawhub.com
+
+# 方式2：命令行工具
+clawhub --help
 
 # 方式3：OpenClaw内访问
 你：打开ClawHub
+```
+
+**常用命令**：
+
+```bash
+# 搜索Skills
+clawhub search <关键词>
+
+# 查看Skills详情
+clawhub info <skill-slug>
+
+# 安装Skills到工作区
+clawhub install <skill-slug>
+
+# 安装到指定目录
+clawhub install <skill-slug> --dir /path/to/skills
+
+# 更新单个Skills
+clawhub update <skill-slug>
+
+# 更新所有Skills
+clawhub update --all
+
+# 同步（扫描+发布更新）
+clawhub sync --all
+
+# 列出已安装的Skills
+clawhub list
+
+# 卸载Skills
+clawhub uninstall <skill-slug>
+```
+
+**安装位置说明**：
+
+```bash
+# 默认安装到当前工作目录
+clawhub install nano-banana-pro
+# 安装到：./skills/nano-banana-pro/
+
+# 如果不在工作目录，回退到配置的工作区
+# 安装到：<workspace>/skills/nano-banana-pro/
 ```
 
 **界面布局**：
@@ -679,110 +773,312 @@ openclaw docs
 openclaw examples
 ```
 
-### 8.3.2 开发环境搭建
+### 8.3.2 Skills文件格式（AgentSkills兼容）
 
-**系统要求**：
+**基本格式**：
+
+OpenClaw使用兼容AgentSkills的Skills文件夹。每个Skills是一个包含`SKILL.md`的目录。
+
+**最小示例**：
+
+```markdown
+---
+name: nano-banana-pro
+description: Generate or edit images via Gemini 3 Pro Image
+---
+
+# Nano Banana Pro
+
+这个Skills可以生成和编辑图片。
+
+## 使用方法
+
+发送：画一只可爱的猫
+```
+
+**完整示例**：
+
+```markdown
+---
+name: gemini
+description: Use Gemini CLI for coding assistance and Google search lookups.
+homepage: https://github.com/example/gemini-skill
+user-invocable: true
+disable-model-invocation: false
+metadata: {
+  "openclaw": {
+    "emoji": "♊️",
+    "requires": {
+      "bins": ["gemini"],
+      "env": ["GEMINI_API_KEY"]
+    },
+    "primaryEnv": "GEMINI_API_KEY",
+    "install": [
+      {
+        "id": "brew",
+        "kind": "brew",
+        "formula": "gemini-cli",
+        "bins": ["gemini"],
+        "label": "Install Gemini CLI (brew)"
+      }
+    ]
+  }
+}
+---
+
+# Gemini Skills
+
+使用Gemini CLI进行编程辅助和Google搜索。
+
+## 功能
+
+- 代码生成
+- 问题解答
+- 网络搜索
+
+## 使用方法
+
+发送：用Gemini搜索最新的AI新闻
+```
+
+**Frontmatter字段说明**：
+
+| 字段 | 必填 | 说明 |
+|------|------|------|
+| `name` | ✅ | Skills名称（唯一标识） |
+| `description` | ✅ | Skills描述 |
+| `homepage` | ❌ | 项目主页URL |
+| `user-invocable` | ❌ | 是否作为斜杠命令暴露（默认true） |
+| `disable-model-invocation` | ❌ | 是否从模型提示词中排除（默认false） |
+| `command-dispatch` | ❌ | 命令调度模式（tool=直接调度到工具） |
+| `command-tool` | ❌ | 要调用的工具名称 |
+| `command-arg-mode` | ❌ | 参数模式（raw=原始字符串） |
+| `metadata` | ❌ | 元数据（单行JSON对象） |
+
+**注意事项**：
 
 ```
-- Node.js >= 16.0.0
-- npm >= 8.0.0
-- Git
-- 代码编辑器（推荐VSCode）
+⚠️ 重要：
+1. 内嵌智能体的解析器仅支持单行frontmatter键
+2. metadata必须是单行JSON对象
+3. 在说明中使用{baseDir}引用Skills文件夹路径
 ```
 
-**创建第一个Skill**：
+### 8.3.3 Skills门控（加载时过滤）
 
+**什么是门控**：
+
+门控是指在加载时根据条件过滤Skills，只加载满足条件的Skills。
+
+**门控配置**：
+
+通过`metadata.openclaw`配置门控条件：
+
+```markdown
+---
+name: nano-banana-pro
+description: Generate or edit images
+metadata: {
+  "openclaw": {
+    "requires": {
+      "bins": ["uv"],
+      "env": ["GEMINI_API_KEY"],
+      "config": ["browser.enabled"]
+    },
+    "primaryEnv": "GEMINI_API_KEY",
+    "os": ["darwin", "linux"]
+  }
+}
+---
+```
+
+**门控字段说明**：
+
+| 字段 | 说明 | 示例 |
+|------|------|------|
+| `always` | 始终包含（跳过其他门控） | `"always": true` |
+| `os` | 限制操作系统 | `"os": ["darwin", "linux"]` |
+| `requires.bins` | 必需的二进制文件（全部） | `"bins": ["uv", "python"]` |
+| `requires.anyBins` | 必需的二进制文件（任一） | `"anyBins": ["npm", "yarn"]` |
+| `requires.env` | 必需的环境变量 | `"env": ["API_KEY"]` |
+| `requires.config` | 必需的配置项 | `"config": ["browser.enabled"]` |
+| `primaryEnv` | 主要环境变量名 | `"primaryEnv": "GEMINI_API_KEY"` |
+
+**门控示例**：
+
+```markdown
+# 示例1：仅macOS可用
+metadata: {
+  "openclaw": {
+    "os": ["darwin"]
+  }
+}
+
+# 示例2：需要特定工具
+metadata: {
+  "openclaw": {
+    "requires": {
+      "bins": ["ffmpeg", "imagemagick"]
+    }
+  }
+}
+
+# 示例3：需要API密钥
+metadata: {
+  "openclaw": {
+    "requires": {
+      "env": ["OPENAI_API_KEY"]
+    },
+    "primaryEnv": "OPENAI_API_KEY"
+  }
+}
+
+# 示例4：需要配置启用
+metadata: {
+  "openclaw": {
+    "requires": {
+      "config": ["features.experimental"]
+    }
+  }
+}
+```
+
+### 8.3.4 Skills安装器配置
+
+**什么是安装器**：
+
+安装器定义了如何安装Skills所需的依赖（二进制文件、包等）。
+
+**支持的安装器类型**：
+
+1. **Homebrew**（macOS/Linux）
+2. **Node包管理器**（npm/pnpm/yarn/bun）
+3. **Go**
+4. **UV**（Python）
+5. **Download**（直接下载）
+
+**安装器示例**：
+
+```markdown
+---
+name: gemini
+metadata: {
+  "openclaw": {
+    "install": [
+      {
+        "id": "brew",
+        "kind": "brew",
+        "formula": "gemini-cli",
+        "bins": ["gemini"],
+        "label": "Install Gemini CLI (brew)",
+        "os": ["darwin", "linux"]
+      },
+      {
+        "id": "npm",
+        "kind": "node",
+        "package": "gemini-cli",
+        "bins": ["gemini"],
+        "label": "Install Gemini CLI (npm)",
+        "global": true
+      }
+    ]
+  }
+}
+---
+```
+
+**安装器字段说明**：
+
+| 字段 | 说明 |
+|------|------|
+| `id` | 安装器唯一标识 |
+| `kind` | 安装器类型（brew/node/go/uv/download） |
+| `formula` | Homebrew formula名称 |
+| `package` | npm包名称 |
+| `bins` | 安装后的二进制文件列表 |
+| `label` | 显示给用户的标签 |
+| `os` | 支持的操作系统 |
+| `global` | 是否全局安装（Node） |
+
+**Download安装器**：
+
+```markdown
+metadata: {
+  "openclaw": {
+    "install": [
+      {
+        "id": "download-mac",
+        "kind": "download",
+        "url": "https://example.com/tool-mac.tar.gz",
+        "archive": "tar.gz",
+        "extract": true,
+        "stripComponents": 1,
+        "targetDir": "~/.openclaw/tools/my-tool",
+        "bins": ["my-tool"],
+        "label": "Download for macOS",
+        "os": ["darwin"]
+      }
+    ]
+  }
+}
+```
+
+**安装器选择逻辑**：
+
+```
+1. 如果列出多个安装器，Gateway会选择首选选项：
+   - 优先选择brew（如果可用）
+   - 其次选择node
+   - 最后选择其他
+
+2. 如果所有安装器都是download类型：
+   - OpenClaw会列出每个条目
+   - 让用户选择适合的构件
+
+3. Node安装遵循配置：
+   - skills.install.nodeManager（默认npm）
+   - 选项：npm/pnpm/yarn/bun
+```
+
+### 8.3.5 项目结构
+
+**标准Skills目录结构**：
+
+```
+my-skill/
+├── SKILL.md              # Skills定义（必需）
+├── README.md             # 说明文档
+├── tools/                # 工具脚本
+│   ├── setup.sh         # 安装脚本
+│   └── cleanup.sh       # 清理脚本
+├── examples/             # 示例
+│   └── example.md
+└── assets/               # 资源文件
+    └── icon.png
+```
+
+**SKILL.md引用文件**：
+
+在SKILL.md中可以使用`{baseDir}`引用Skills文件夹路径：
+
+```markdown
+---
+name: my-skill
+description: My custom skill
+---
+
+# My Skill
+
+## 安装
+
+运行安装脚本：
 ```bash
-# 1. 创建Skill项目
-openclaw skill create my-first-skill
-
-# 2. 进入项目目录
-cd my-first-skill
-
-# 3. 安装依赖
-npm install
-
-# 4. 启动开发服务器
-npm run dev
+bash {baseDir}/tools/setup.sh
 ```
 
-**项目结构**：
+## 示例
 
-```
-my-first-skill/
-├── src/
-│   ├── index.ts          # 入口文件
-│   ├── handlers/         # 处理函数
-│   ├── utils/            # 工具函数
-│   └── types/            # 类型定义
-├── tests/                # 测试文件
-├── docs/                 # 文档
-├── package.json          # 项目配置
-├── tsconfig.json         # TypeScript配置
-└── README.md             # 说明文档
-```
-
-### 8.3.3 Skills结构详解
-
-**基本结构**：
-
-```typescript
-// src/index.ts
-import { Skill, SkillConfig } from '@openclaw/sdk';
-
-export default class MyFirstSkill extends Skill {
-  // Skill配置
-  config: SkillConfig = {
-    name: 'my-first-skill',
-    version: '1.0.0',
-    description: '我的第一个Skill',
-    author: '你的名字',
-    keywords: ['示例', '教程'],
-    permissions: ['file:read', 'file:write']
-  };
-
-  // 初始化方法
-  async onInit() {
-    console.log('Skill初始化');
-  }
-
-  // 处理用户输入
-  async onMessage(message: string) {
-    // 你的逻辑
-    return '处理结果';
-  }
-
-  // 清理资源
-  async onDestroy() {
-    console.log('Skill销毁');
-  }
-}
-```
-
-**API接口设计**：
-
-```typescript
-// src/handlers/hello.ts
-export async function sayHello(name: string) {
-  return `Hello, ${name}!`;
-}
-
-// src/handlers/calculate.ts
-export async function add(a: number, b: number) {
-  return a + b;
-}
-
-// src/index.ts
-import { sayHello } from './handlers/hello';
-import { add } from './handlers/calculate';
-
-export default class MyFirstSkill extends Skill {
-  // 注册API
-  async onInit() {
-    this.registerAPI('sayHello', sayHello);
-    this.registerAPI('add', add);
-  }
-}
+查看示例：{baseDir}/examples/example.md
 ```
 
 由于内容较长，让我先提交当前进度，然后继续完成剩余章节。
@@ -1101,169 +1397,423 @@ openclaw skill feedback
 
 ## 8.4 Skills管理技巧
 
-### 8.4.1 Skills安装和卸载
+### 8.4.1 配置覆盖（~/.openclaw/openclaw.json）
 
-**安装Skills**：
+**配置Skills**：
+
+内置/托管Skills可以通过配置文件进行切换和配置：
+
+```json
+{
+  "skills": {
+    "entries": {
+      "nano-banana-pro": {
+        "enabled": true,
+        "apiKey": "GEMINI_KEY_HERE",
+        "env": {
+          "GEMINI_API_KEY": "GEMINI_KEY_HERE"
+        },
+        "config": {
+          "endpoint": "https://example.invalid",
+          "model": "nano-pro"
+        }
+      },
+      "peekaboo": {
+        "enabled": true
+      },
+      "sag": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
+**配置规则**：
+
+```
+1. 配置键默认匹配Skills名称
+2. 如果Skills名称包含连字符，用引号括起键名
+3. 如果Skills定义了metadata.openclaw.skillKey，使用该键
+
+示例：
+- Skills名称：file-search
+- 配置键："file-search"（需要引号）
+```
+
+**配置字段说明**：
+
+| 字段 | 说明 | 示例 |
+|------|------|------|
+| `enabled` | 启用/禁用Skills | `true` / `false` |
+| `apiKey` | API密钥（便捷字段） | `"your-api-key"` |
+| `env` | 环境变量 | `{"KEY": "value"}` |
+| `config` | 自定义配置 | `{"model": "gpt-4"}` |
+
+**环境变量注入规则**：
+
+```
+1. env中的变量仅在进程中尚未设置时注入
+2. apiKey为声明primaryEnv的Skills提供便捷配置
+3. config用于自定义单Skills字段
+4. 环境变量在智能体运行时注入，运行结束后恢复
+```
+
+**示例配置**：
+
+```json
+{
+  "skills": {
+    "entries": {
+      // 配置Gemini Skills
+      "gemini": {
+        "enabled": true,
+        "apiKey": "your-gemini-key",
+        "config": {
+          "model": "gemini-pro",
+          "temperature": 0.7
+        }
+      },
+      
+      // 配置Banana绘图
+      "nano-banana-pro": {
+        "enabled": true,
+        "env": {
+          "GEMINI_API_KEY": "your-key",
+          "BANANA_ENDPOINT": "https://api.banana.dev"
+        }
+      },
+      
+      // 禁用某个Skills
+      "unwanted-skill": {
+        "enabled": false
+      }
+    },
+    
+    // 仅允许特定内置Skills（可选）
+    "allowBundled": [
+      "file-search",
+      "calendar-sync",
+      "web-clipper"
+    ]
+  }
+}
+```
+
+**allowBundled白名单**：
+
+```json
+{
+  "skills": {
+    "allowBundled": [
+      "file-search",
+      "note-sync"
+    ]
+  }
+}
+```
+
+说明：
+- 如果设置了`allowBundled`，只有列表中的内置Skills才有资格
+- 托管/工作区Skills不受影响
+- 用于限制内置Skills的加载
+
+### 8.4.2 Skills监视器（自动刷新）
+
+**什么是Skills监视器**：
+
+Skills监视器会监视Skills文件夹，当SKILL.md文件更改时自动更新Skills快照。
+
+**配置监视器**：
+
+```json
+{
+  "skills": {
+    "load": {
+      "watch": true,              // 启用监视器（默认true）
+      "watchDebounceMs": 250      // 防抖延迟（毫秒）
+    }
+  }
+}
+```
+
+**工作原理**：
+
+```
+1. OpenClaw在会话开始时对有资格的Skills进行快照
+2. 监视器监视Skills文件夹的变化
+3. 当SKILL.md更改时，刷新Skills列表
+4. 刷新后的列表在下一个智能体轮次生效
+```
+
+**使用场景**：
+
+```
+✅ 开发Skills时实时测试
+✅ 修改Skills配置后立即生效
+✅ 添加新Skills后自动加载
+```
+
+### 8.4.3 安全注意事项
+
+**⚠️ 重要安全提醒**：
+
+```
+1. 将第三方Skills视为不受信任的代码
+2. 启用前请仔细阅读Skills内容
+3. 对于不受信任的输入和高风险工具，使用沙箱隔离
+4. 保护API密钥，不要泄露到日志中
+```
+
+**安全最佳实践**：
+
+**1. 审查Skills代码**
 
 ```bash
-# 方式1：通过名称安装
-openclaw skill install file-search
+# 安装前查看Skills内容
+cat ~/.openclaw/skills/my-skill/SKILL.md
 
-# 方式2：通过URL安装
-openclaw skill install https://github.com/user/skill
-
-# 方式3：从本地安装
-openclaw skill install ./my-skill
-
-# 方式4：批量安装
-openclaw skill install file-search note-sync calendar-sync
+# 检查Skills权限要求
+grep "requires" ~/.openclaw/skills/my-skill/SKILL.md
 ```
 
-**卸载Skills**：
+**2. 使用沙箱隔离**
+
+```json
+{
+  "agents": {
+    "defaults": {
+      "sandbox": {
+        "enabled": true,
+        "docker": {
+          "image": "openclaw/sandbox:latest"
+        }
+      }
+    }
+  }
+}
+```
+
+**3. 保护API密钥**
+
+```json
+{
+  "skills": {
+    "entries": {
+      "my-skill": {
+        "apiKey": "your-secret-key",  // ✅ 通过配置文件
+        "env": {
+          "API_KEY": "your-key"       // ✅ 通过环境变量
+        }
+      }
+    }
+  }
+}
+```
+
+❌ **不要**：
+```markdown
+---
+name: my-skill
+description: My skill with API key: sk-1234567890  # ❌ 不要在SKILL.md中暴露密钥
+---
+```
+
+**4. 限制Skills权限**
+
+```json
+{
+  "skills": {
+    "entries": {
+      "untrusted-skill": {
+        "enabled": true,
+        "config": {
+          "allowedPaths": ["/safe/path"],  // 限制文件访问
+          "allowedCommands": ["ls", "cat"]  // 限制命令执行
+        }
+      }
+    }
+  }
+}
+```
+
+**5. 定期审计**
 
 ```bash
-# 卸载单个Skill
-openclaw skill uninstall file-search
+# 列出所有已安装的Skills
+openclaw skill list
 
-# 卸载多个Skills
-openclaw skill uninstall file-search note-sync
+# 检查Skills配置
+cat ~/.openclaw/openclaw.json | grep -A 10 "skills"
 
-# 卸载所有Skills
-openclaw skill uninstall --all
+# 查看Skills日志
+openclaw logs --skill my-skill
 ```
 
-### 8.4.2 Skills配置管理
+### 8.4.4 性能优化
 
-**查看Skills配置**：
+**Token影响（Skills列表）**：
 
-```bash
-# 查看所有Skills配置
-openclaw skill config list
+当Skills有资格时，OpenClaw将可用Skills的紧凑XML列表注入到系统提示词中。
 
-# 查看指定Skill配置
-openclaw skill config show file-search
-```
-
-**修改Skills配置**：
-
-```bash
-# 修改配置
-openclaw skill config set file-search.maxResults 100
-
-# 重置配置
-openclaw skill config reset file-search
-```
-
-**配置文件位置**：
+**成本计算**：
 
 ```
-~/.openclaw/skills/
-├── file-search/
-│   ├── config.json
-│   └── data/
-├── note-sync/
-│   ├── config.json
-│   └── data/
-└── calendar-sync/
-    ├── config.json
-    └── data/
-```
+基础开销（仅当≥1个Skills时）：195字符
 
-### 8.4.3 Skills冲突解决
+每个Skills：97字符 + XML转义的字段长度
+- name（转义后）
+- description（转义后）
+- location（转义后）
 
-**常见冲突类型**：
+公式：
+total = 195 + Σ (97 + len(name) + len(description) + len(location))
 
-**1. 命令冲突**
-```
-两个Skills都响应同一个命令
-
-解决方案：
-- 禁用其中一个Skill
-- 修改命令关键词
-- 设置优先级
-```
-
-**2. 资源冲突**
-```
-两个Skills都要访问同一个文件
-
-解决方案：
-- 使用文件锁
-- 设置访问顺序
-- 使用不同的文件
-```
-
-**3. 端口冲突**
-```
-两个Skills都要使用同一个端口
-
-解决方案：
-- 修改端口配置
-- 使用动态端口
-- 禁用其中一个Skill
-```
-
-**冲突检测**：
-
-```bash
-# 检测Skills冲突
-openclaw skill check
-
-# 输出示例：
-检测到2个冲突：
-
-⚠️ 命令冲突：
-- file-search 和 file-finder 都响应"搜索文件"
-  建议：禁用file-finder或修改命令
-
-⚠️ 端口冲突：
-- web-server 和 api-server 都使用端口3000
-  建议：修改其中一个端口
-
-是否自动修复？[Y/n]
-```
-
-### 8.4.4 Skills性能优化
-
-**性能监控**：
-
-```bash
-# 查看Skills性能
-openclaw skill perf
-
-# 输出示例：
-Skills性能报告：
-
-file-search:
-- 平均响应时间：120ms
-- 内存占用：45MB
-- CPU使用率：2%
-- 评分：⭐⭐⭐⭐
-
-note-sync:
-- 平均响应时间：350ms
-- 内存占用：120MB
-- CPU使用率：5%
-- 评分：⭐⭐⭐
-
-calendar-sync:
-- 平均响应时间：80ms
-- 内存占用：30MB
-- CPU使用率：1%
-- 评分：⭐⭐⭐⭐⭐
+Token估算（OpenAI风格）：
+~4字符/token，所以每个Skills ≈ 24 token + 字段长度
 ```
 
 **优化建议**：
 
 ```
-1. 减少不必要的计算
-2. 使用缓存
-3. 异步处理
-4. 延迟加载
-5. 资源复用
+1. 保持Skills描述简洁
+   ❌ 差：This is a very detailed and comprehensive skill that can do many things including...
+   ✅ 好：Generate images via Gemini API
+
+2. 使用简短的Skills名称
+   ❌ 差：super-advanced-image-generation-tool
+   ✅ 好：nano-banana-pro
+
+3. 禁用不需要的Skills
+   {
+     "skills": {
+       "entries": {
+         "unused-skill": { "enabled": false }
+       }
+     }
+   }
+
+4. 使用allowBundled限制内置Skills
+   {
+     "skills": {
+       "allowBundled": ["file-search", "calendar-sync"]
+     }
+   }
 ```
 
-### 8.4.5 Skills备份和恢复
+**性能监控**：
+
+```bash
+# 查看Skills加载时间
+openclaw skill perf
+
+# 输出示例：
+Skills加载统计：
+- 总Skills数：15
+- 加载时间：120ms
+- Token消耗：约450 tokens
+- 内存占用：2.3MB
+```
+
+### 8.4.5 多智能体Skills管理
+
+**单智能体 vs 共享Skills**：
+
+```
+单智能体Skills：
+- 位置：<workspace>/skills
+- 作用域：仅该智能体可用
+- 用途：项目特定功能
+
+共享Skills：
+- 位置：~/.openclaw/skills
+- 作用域：所有智能体可见
+- 用途：通用功能
+```
+
+**多智能体配置示例**：
+
+```json
+{
+  "agents": {
+    "list": [
+      {
+        "id": "main",
+        "workspace": "/home/user/main-agent",
+        "skills": {
+          "entries": {
+            "file-search": { "enabled": true }
+          }
+        }
+      },
+      {
+        "id": "assistant",
+        "workspace": "/home/user/assistant-agent",
+        "skills": {
+          "entries": {
+            "calendar-sync": { "enabled": true }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+**共享Skills文件夹**：
+
+```json
+{
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "/shared/team-skills",      // 团队共享
+        "/shared/company-skills"    // 公司共享
+      ]
+    }
+  }
+}
+```
+
+### 8.4.6 远程macOS节点（Linux Gateway）
+
+**跨平台Skills支持**：
+
+如果Gateway运行在Linux上但连接了macOS节点，OpenClaw可以将仅限macOS的Skills视为有资格。
+
+**配置示例**：
+
+```json
+{
+  "nodes": {
+    "macos-node": {
+      "host": "192.168.1.100",
+      "platform": "darwin",
+      "allowSystemRun": true
+    }
+  }
+}
+```
+
+**工作原理**：
+
+```
+1. Linux Gateway检测到macOS节点
+2. 检查节点上的二进制文件
+3. 将macOS专用Skills标记为可用
+4. 通过nodes工具执行Skills
+```
+
+**注意事项**：
+
+```
+⚠️ 如果macOS节点离线：
+- Skills仍然可见
+- 调用可能失败
+- 直到节点重新连接
+```
+
+### 8.4.7 Skills备份和恢复
 
 **备份Skills**：
 
@@ -1301,7 +1851,17 @@ openclaw skill restore ~/backups/skills-2026-02-11.zip
 共恢复3个Skills
 ```
 
-### 8.4.6 常见问题排查
+**手动备份**：
+
+```bash
+# 备份Skills文件夹
+cp -r ~/.openclaw/skills ~/backups/skills-$(date +%Y%m%d)
+
+# 备份配置文件
+cp ~/.openclaw/openclaw.json ~/backups/openclaw-$(date +%Y%m%d).json
+```
+
+### 8.4.8 常见问题排查
 
 **问题1：Skill无法加载**
 
@@ -1315,7 +1875,10 @@ openclaw skill restore ~/backups/skills-2026-02-11.zip
 2. 查看错误日志
    openclaw skill logs file-search
 
-3. 重新安装
+3. 检查门控条件
+   cat ~/.openclaw/skills/file-search/SKILL.md | grep "requires"
+
+4. 重新安装
    openclaw skill reinstall file-search
 ```
 
@@ -1333,6 +1896,9 @@ openclaw skill restore ~/backups/skills-2026-02-11.zip
 
 3. 清理缓存
    openclaw skill cache clear file-search
+
+4. 检查依赖
+   which uv python
 ```
 
 **问题3：Skill配置错误**
@@ -1344,11 +1910,33 @@ openclaw skill restore ~/backups/skills-2026-02-11.zip
 1. 检查配置文件
    openclaw skill config show file-search
 
-2. 重置配置
+2. 验证环境变量
+   echo $GEMINI_API_KEY
+
+3. 重置配置
    openclaw skill config reset file-search
 
-3. 查看文档
+4. 查看文档
    openclaw skill docs file-search
+```
+
+**问题4：Skills冲突**
+
+```
+症状：多个Skills响应同一命令
+
+排查步骤：
+1. 检测冲突
+   openclaw skill check
+
+2. 查看优先级
+   openclaw skill priority
+
+3. 禁用冲突的Skills
+   openclaw config set skills.entries.conflicting-skill.enabled false
+
+4. 修改命令关键词
+   编辑SKILL.md，修改触发词
 ```
 
 ---
