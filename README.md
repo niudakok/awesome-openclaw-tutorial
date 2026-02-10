@@ -1,1 +1,273 @@
-# penclaw-tutorial
+# 🦞 Awesome OpenClaw Tutorial
+
+> 从零开始玩转OpenClaw：最全面的中文教程，涵盖安装、配置、实战案例和避坑指南
+
+[![GitHub stars](https://img.shields.io/github/stars/xianyu110/awesome-openclaw-tutorial?style=social)](https://github.com/xianyu110/awesome-openclaw-tutorial)
+[![GitHub forks](https://img.shields.io/github/forks/xianyu110/awesome-openclaw-tutorial?style=social)](https://github.com/xianyu110/awesome-openclaw-tutorial)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+## 📖 关于本教程
+
+这是一份**完全免费、持续更新**的OpenClaw中文教程，基于：
+- ✅ **43篇实战文章**：来自真实使用经验
+- ✅ **20+篇官方教程**：腾讯云官方教程体系
+- ✅ **60+个实战案例**：可直接应用到工作中
+- ✅ **700+ Stars项目经验**：[Clawbot项目](https://github.com/xianyu110/clawbot)
+- ✅ **两万人社区验证**：经过大量用户实践
+
+## 🎯 适合人群
+
+- 🔰 **完全新手**：从零开始，手把手教你安装配置
+- 💼 **效率达人**：学习如何用OpenClaw提升10倍工作效率
+- 👨‍💻 **开发者**：深入了解Skills开发和API集成
+- 🏢 **团队管理者**：探索团队协作和自动化方案
+
+## 🚀 快速开始
+
+### 新手推荐路径
+
+1. **[第1章：认识OpenClaw](docs/01-basics/01-introduction.md)** - 了解OpenClaw是什么
+2. **[第2章：环境搭建](docs/01-basics/02-installation.md)** - 5分钟完成安装（推荐云端部署）
+3. **[第3章：快速上手](docs/01-basics/03-quick-start.md)** - 发送第一条消息
+
+### 云端一键部署（最简单）
+
+如果你是新手，强烈推荐使用**腾讯云一键部署**：
+- ⚡ **秒级部署**：点几下鼠标就完成
+- 💰 **成本低**：20元/月起
+- 📱 **手机可用**：随时随地访问
+- 🎥 **视频教程**：跟着视频操作
+
+👉 [查看云端部署教程](docs/01-basics/02-installation.md#云端一键部署)
+
+## 📚 教程目录
+
+### 第一部分：基础入门
+
+- [第1章：认识OpenClaw](docs/01-basics/01-introduction.md)
+  - 什么是OpenClaw
+  - 核心优势
+  - 与其他AI助手对比
+  - 适用场景分析
+
+- [第2章：环境搭建](docs/01-basics/02-installation.md)
+  - 系统要求
+  - 云端一键部署（推荐）
+  - 本地安装教程
+  - API配置指南（国产大模型为主）
+  - 常见问题解决
+
+- [第3章：快速上手](docs/01-basics/03-quick-start.md)
+  - 第一次对话
+  - 基本命令使用
+  - 人设配置技巧
+  - 模型选择指南
+
+### 第二部分：核心功能
+
+- [第4章：本地文件管理](docs/02-core-features/04-file-management.md)
+  - 智能文件搜索
+  - 批量文件处理
+  - 文件自动整理
+  - 硬盘清理优化
+
+- [第5章：知识库管理](docs/02-core-features/05-knowledge-base.md)
+  - 网页文章存档
+  - GitHub项目管理
+  - 论文笔记整理
+  - 跨设备同步方案
+
+- [第6章：日程与任务管理](docs/02-core-features/06-schedule-management.md)
+  - 日历自动创建
+  - 微信截图识别
+  - 批量日程导入
+  - 提醒设置技巧
+
+- [第7章：自动化工作流](docs/02-core-features/07-automation.md)
+  - 定时任务设置
+  - 网站监控实战
+  - 日报自动推送
+  - 循环任务配置
+
+### 第三部分：进阶应用
+
+- [第8章：Skills扩展](docs/03-advanced/08-skills.md)
+  - ClawHub技能市场
+  - 必装Skills推荐
+  - 自定义Skills开发
+  - Skills管理技巧
+
+- [第9章：多平台集成](docs/03-advanced/09-platform-integration.md)
+  - 企业微信Bot配置
+  - 钉钉Bot配置
+  - 飞书Bot配置
+  - QQ Bot配置
+
+- [第10章：API服务封装](docs/03-advanced/10-api-integration.md)
+  - Banana绘图集成
+  - Notion数据同步
+  - 视频生成服务
+  - 语音合成接入
+
+- [第11章：高级配置](docs/03-advanced/11-advanced-config.md)
+  - Antigravity Manager配置
+  - 多模型切换策略
+  - 成本优化方案
+  - 性能调优技巧
+
+### 第四部分：实战案例
+
+- [第12章：个人效率提升](docs/04-cases/12-personal-productivity.md)
+  - 知识工作者的一天
+  - 程序员的开发助手
+  - 内容创作者的工作流
+  - 学生的学习助手
+
+- [第13章：团队协作场景](docs/04-cases/13-team-collaboration.md)
+  - 项目管理自动化
+  - 文档协作优化
+  - 会议记录整理
+  - 团队知识库建设
+
+- [第14章：创意应用探索](docs/04-cases/14-creative-applications.md)
+  - AI绘画工作流
+  - 视频脚本生成
+  - 多语言翻译助手
+  - 数据分析自动化
+
+### 第五部分：问题解决
+
+- [第15章：常见问题与解决](docs/05-troubleshooting/15-common-issues.md)
+  - 安装配置问题
+  - API连接问题
+  - Skills加载问题
+  - 性能优化问题
+
+- [第16章：避坑指南](docs/05-troubleshooting/16-pitfalls.md)
+  - 新手常犯的10个错误
+  - 模型选择避坑
+  - 成本控制避坑
+  - 安全隐私注意事项
+
+### 附录
+
+- [附录A：命令速查表](docs/appendix/a-commands.md)
+- [附录B：常用Skills清单](docs/appendix/b-skills.md)
+- [附录C：API服务商对比](docs/appendix/c-api-providers.md)
+- [附录D：社区资源导航](docs/appendix/d-resources.md)
+
+## 🎥 官方视频教程
+
+腾讯云官方提供了多个视频教程，强烈推荐观看：
+
+- [云上OpenClaw一键部署并接入企微和QQ](https://cloud.tencent.com/developer/video/85003)
+- [云上OpenClaw一键部署并接入飞书和钉钉](https://cloud.tencent.com/developer/video/85055)
+- [OpenClaw安装并使用Skills](https://cloud.tencent.com/developer/video/85061)
+
+## 🔗 官方资源
+
+- **OpenClaw官方文档**：https://docs.openclaw.ai
+- **ClawHub技能广场**：https://clawhub.ai
+- **Moltbook AI社交平台**：https://www.moltbook.com
+- **腾讯云官方教程**：[查看完整列表](docs/appendix/d-resources.md#腾讯云官方教程)
+
+## 💡 实战案例精选
+
+### 文件管理
+- [找发票：从1000张图片中找到跑步机发票](docs/02-core-features/04-file-management.md#场景1找文件)
+- [整理发票：自动填写报销单Excel](docs/02-core-features/04-file-management.md#场景2整理发票报销)
+- [批量重命名：根据内容自动命名文件](docs/02-core-features/04-file-management.md#场景3批量重命名文件)
+
+### 知识管理
+- [网页存档：一键保存技术文章到备忘录](docs/02-core-features/05-knowledge-base.md#核心原理)
+- [论文阅读：自动总结PDF论文](docs/02-core-features/05-knowledge-base.md#实际使用)
+
+### 日程管理
+- [微信截图识别：自动创建日历事件](docs/02-core-features/06-schedule-management.md#微信截图识别)
+
+### 自动化
+- [网站监控：Claude 5发布立即通知](docs/02-core-features/07-automation.md#场景3网站监控)
+- [AI日报：每天9点推送行业资讯](docs/02-core-features/07-automation.md#场景2定时推送日报)
+
+## 🌟 特色功能
+
+### 1. 本地文件管理神器
+- 智能搜索：根据内容找文件
+- 批量处理：一次处理100+文件
+- 自动整理：智能分类和重命名
+
+### 2. 个人知识库
+- 网页剪藏：自动总结并存储
+- 论文管理：PDF自动解析
+- 跨设备同步：Mac、iPhone无缝衔接
+
+### 3. 日程管理
+- 微信截图识别：自动提取时间地点
+- 日历自动创建：同步到iPhone
+- 智能提醒：不错过任何重要事项
+
+### 4. 自动化工作流
+- 定时任务：每天自动执行
+- 网站监控：内容更新立即通知
+- 日报推送：聚合多个信息源
+
+### 5. 多平台集成
+- 企业微信：团队协作
+- 钉钉：办公自动化
+- 飞书：项目管理
+- QQ：个人助手
+
+## 📊 成本对比
+
+| 方案 | 月费用 | 适用场景 |
+|------|--------|----------|
+| 云端部署（腾讯云） | 20元起 | 新手推荐 |
+| 云端部署（火山引擎） | 9.9元起 | 飞书用户 |
+| 本地部署 | 0元 | 有Mac电脑 |
+| API费用（DeepSeek） | 5-30元 | 日常使用 |
+| API费用（Kimi） | 10-50元 | 长文档处理 |
+| API费用（Claude） | 50-200元 | 重度使用 |
+
+💡 **省钱技巧**：使用国产大模型（DeepSeek、Kimi）可以节省50%-70%成本
+
+## 🤝 贡献指南
+
+欢迎贡献你的经验和案例！
+
+1. Fork本仓库
+2. 创建你的分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交你的修改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 提交Pull Request
+
+## 📮 联系方式
+
+- **GitHub**: [@xianyu110](https://github.com/xianyu110)
+- **Clawbot项目**: [700+ Stars](https://github.com/xianyu110/clawbot)
+- **CSDN专栏**: [OpenClaw从入门到精通](https://blog.csdn.net/xianyu120/category_13126767.html)
+- **B站**: [@卡兹克](https://space.bilibili.com/399102586)
+- **两万人AI社区主理人**
+
+## 💖 支持项目
+
+如果这个教程对你有帮助，请：
+- ⭐ 给项目点个Star
+- 🔄 分享给更多需要的人
+- 💬 加入交流群一起讨论
+
+## 📄 许可证
+
+本项目采用 [MIT License](LICENSE)
+
+---
+
+**最后更新**：2026年2月10日  
+**教程版本**：v1.0  
+**适用OpenClaw版本**：2026.1.25+
+
+---
+
+<div align="center">
+  <p>用心制作 | 持续更新 | 完全免费</p>
+  <p>⭐ 如果觉得有用，请给个Star支持一下 ⭐</p>
+</div>
