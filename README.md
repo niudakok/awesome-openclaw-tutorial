@@ -8,8 +8,6 @@
 [![Version](https://img.shields.io/badge/version-v1.0-green.svg)](https://github.com/xianyu110/awesome-openclaw-tutorial)
 [![Status](https://img.shields.io/badge/status-完成-success.svg)](PROJECT-SUMMARY.md)
 
-> 推荐使用中转API，一个地址就能使用国内外三百多个大模型：https://s.apifox.cn/1dd2f97d-5021-4d82-8e03-a232cc3f63eb/doc-8138201
-
 ## 🎉 项目完成公告
 
 **本教程已全部完成！** 🎊
@@ -47,6 +45,20 @@
 - 🏢 **团队管理者**：探索团队协作和自动化方案
 
 ## 🚀 快速开始
+
+### 💡 推荐：中转API服务
+
+**一个地址访问300+国内外大模型**
+
+使用中转API，无需配置多个API密钥，一站式访问所有主流大模型：
+- 🌍 支持 GPT-4、Claude、Gemini 等国际模型
+- 🇨🇳 支持 Kimi、DeepSeek、GLM-4 等国产模型
+- 💰 统一计费，成本更低
+- ⚡ 国内访问速度快，稳定可靠
+
+👉 **[查看中转API文档](https://s.apifox.cn/1dd2f97d-5021-4d82-8e03-a232cc3f63eb/doc-8138201)**
+
+---
 
 ### 新手推荐路径
 

@@ -22,6 +22,18 @@ title: 首页
 
 ## 🚀 快速开始
 
+### 💡 推荐：中转API服务
+
+**一个地址访问300+国内外大模型**
+
+使用中转API，无需配置多个API密钥，一站式访问所有主流大模型：
+- 🌍 支持 GPT-4、Claude、Gemini 等国际模型
+- 🇨🇳 支持 Kimi、DeepSeek、GLM-4 等国产模型
+- 💰 统一计费，成本更低
+- ⚡ 国内访问速度快，稳定可靠
+
+👉 [查看中转API文档](https://s.apifox.cn/1dd2f97d-5021-4d82-8e03-a232cc3f63eb/doc-8138201)
+
 ### 新手推荐路径
 
 1. [第1章：认识OpenClaw](docs/01-basics/01-introduction.md) - 了解OpenClaw是什么
