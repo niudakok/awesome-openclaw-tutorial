@@ -1,8 +1,8 @@
 # Site settings
 title: Awesome OpenClaw Tutorial
 description: 从零开始玩转OpenClaw：最全面的中文教程
-baseurl: "/awesome-openclaw-tutorial"
-url: "https://xianyu110.github.io"
+baseurl: ""
+url: "https://awesome.tryopenclaw.asia"
 repository: xianyu110/awesome-openclaw-tutorial
 
 # Theme
