@@ -239,6 +239,981 @@ OpenClaw在Mac上体验最好，因为：
 - 通过QQ、企微、飞书等平台
 - 详见[第9章：多平台集成](../03-advanced/09-platform-integration.md)
 
+## Docker 部署
+
+> 🐳 **推荐开发者使用**：Docker 部署简单、隔离性好、易于管理。
+
+### 为什么选择 Docker？
+
+| 优势 | 说明 |
+|------|------|
+| 🔒 **环境隔离** | 不影响系统环境，干净整洁 |
+| 📦 **一键部署** | 无需配置依赖，开箱即用 |
+| 🔄 **易于更新** | 一条命令完成更新 |
+| 🌐 **跨平台** | Windows/macOS/Linux 统一方案 |
+| 🚀 **快速启动** | 5分钟完成部署 |
+
+### 前置要求
+
+**安装 Docker**：
+
+**macOS**：
+```bash
+# 下载 Docker Desktop
+# 访问：https://www.docker.com/products/docker-desktop
+
+# 或使用 Homebrew
+brew install --cask docker
+```
+
+**Windows**：
+```bash
+# 下载 Docker Desktop
+# 访问：https://www.docker.com/products/docker-desktop
+
+# 安装 WSL2（如果还没安装）
+wsl --install
+```
+
+**Linux (Ubuntu)**：
+```bash
+# 安装 Docker
+curl -fsSL https://get.docker.com | sh
+
+# 启动 Docker 服务
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# 添加当前用户到 docker 组
+sudo usermod -aG docker $USER
+```
+
+**验证安装**：
+```bash
+docker --version
+# 应显示：Docker version 24.x.x
+```
+
+### 快速开始
+
+#### 方式一：使用官方镜像（推荐）
+
+```bash
+# 拉取最新镜像
+docker pull openclaw/openclaw:latest
+
+# 创建数据目录
+mkdir -p ~/.openclaw
+
+# 运行容器
+docker run -d \
+  --name openclaw \
+  -p 18789:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  --restart unless-stopped \
+  openclaw/openclaw:latest
+```
+
+#### 方式二：使用 Docker Compose
+
+创建 `docker-compose.yml` 文件：
+
+```yaml
+version: '3.8'
+
+services:
+  openclaw:
+    image: openclaw/openclaw:latest
+    container_name: openclaw
+    ports:
+      - "18789:18789"
+    volumes:
+      - ~/.openclaw:/root/.openclaw
+    environment:
+      - NODE_ENV=production
+      - OPENCLAW_PORT=18789
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+```
+
+启动服务：
+```bash
+# 启动
+docker-compose up -d
+
+# 查看日志
+docker-compose logs -f
+
+# 停止
+docker-compose down
+```
+
+### 配置 OpenClaw
+
+#### 1. 进入容器配置
+
+```bash
+# 进入容器
+docker exec -it openclaw bash
+
+# 运行配置向导
+openclaw onboard
+```
+
+按照提示完成配置（与本地安装相同）。
+
+#### 2. 直接编辑配置文件
+
+```bash
+# 编辑配置文件（在宿主机上）
+nano ~/.openclaw/openclaw.json
+```
+
+添加 API 配置：
+```json
+{
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com",
+        "apiKey": "sk-你的API密钥",
+        "auth": "api-key",
+        "api": "openai-chat",
+        "models": [
+          {
+            "id": "deepseek-chat",
+            "name": "DeepSeek Chat",
+            "contextWindow": 64000,
+            "maxTokens": 4096
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "deepseek/deepseek-chat"
+      }
+    }
+  }
+}
+```
+
+重启容器：
+```bash
+docker restart openclaw
+```
+
+### 访问 Web UI
+
+打开浏览器访问：
+```
+http://localhost:18789/
+```
+
+### 常用命令
+
+```bash
+# 查看容器状态
+docker ps
+
+# 查看日志
+docker logs -f openclaw
+
+# 重启容器
+docker restart openclaw
+
+# 停止容器
+docker stop openclaw
+
+# 启动容器
+docker start openclaw
+
+# 删除容器
+docker rm -f openclaw
+
+# 更新到最新版本
+docker pull openclaw/openclaw:latest
+docker stop openclaw
+docker rm openclaw
+# 然后重新运行 docker run 命令
+```
+
+### 数据持久化
+
+Docker 容器的数据存储在 `~/.openclaw` 目录：
+
+```bash
+~/.openclaw/
+├── openclaw.json      # 配置文件
+├── logs/              # 日志文件
+├── data/              # 数据文件
+└── cache/             # 缓存文件
+```
+
+**备份数据**：
+```bash
+# 备份配置和数据
+tar -czf openclaw-backup-$(date +%Y%m%d).tar.gz ~/.openclaw
+
+# 恢复数据
+tar -xzf openclaw-backup-20260210.tar.gz -C ~/
+```
+
+### 环境变量配置
+
+可以通过环境变量配置 OpenClaw：
+
+```bash
+docker run -d \
+  --name openclaw \
+  -p 18789:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  -e OPENCLAW_PORT=18789 \
+  -e NODE_ENV=production \
+  -e DEEPSEEK_API_KEY=sk-xxx \
+  --restart unless-stopped \
+  openclaw/openclaw:latest
+```
+
+支持的环境变量：
+- `OPENCLAW_PORT` - Gateway 端口（默认 18789）
+- `NODE_ENV` - 运行环境（production/development）
+- `DEEPSEEK_API_KEY` - DeepSeek API Key
+- `MOONSHOT_API_KEY` - Kimi API Key
+- `OPENAI_API_KEY` - OpenAI API Key
+
+### 多容器部署
+
+如果需要运行多个 OpenClaw 实例：
+
+```bash
+# 实例1 - 个人使用
+docker run -d \
+  --name openclaw-personal \
+  -p 18789:18789 \
+  -v ~/.openclaw-personal:/root/.openclaw \
+  openclaw/openclaw:latest
+
+# 实例2 - 工作使用
+docker run -d \
+  --name openclaw-work \
+  -p 18790:18789 \
+  -v ~/.openclaw-work:/root/.openclaw \
+  openclaw/openclaw:latest
+```
+
+### Docker 部署常见问题
+
+**Q1: 容器无法启动**
+```bash
+# 查看详细日志
+docker logs openclaw
+
+# 检查端口是否被占用
+lsof -i :18789
+
+# 更换端口
+docker run -d \
+  --name openclaw \
+  -p 18790:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  openclaw/openclaw:latest
+```
+
+**Q2: 数据丢失**
+- 确保使用了 `-v` 参数挂载数据目录
+- 定期备份 `~/.openclaw` 目录
+
+**Q3: 性能问题**
+```bash
+# 限制资源使用
+docker run -d \
+  --name openclaw \
+  -p 18789:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  --memory="2g" \
+  --cpus="2" \
+  openclaw/openclaw:latest
+```
+
+**Q4: 网络问题**
+```bash
+# 使用 host 网络模式
+docker run -d \
+  --name openclaw \
+  --network host \
+  -v ~/.openclaw:/root/.openclaw \
+  openclaw/openclaw:latest
+```
+
+### Docker 部署优势总结
+
+✅ **环境隔离**：不影响系统环境  
+✅ **快速部署**：5分钟完成  
+✅ **易于管理**：一条命令更新  
+✅ **跨平台**：统一部署方案  
+✅ **可扩展**：支持多实例部署  
+
+---
+
+## Fly.io 云端部署
+
+> ☁️ **推荐开发者使用**：Fly.io 提供免费额度，全球 CDN，部署简单。
+
+### 为什么选择 Fly.io？
+
+| 优势 | 说明 |
+|------|------|
+| 💰 **免费额度** | 每月免费 3 个小型应用 |
+| 🌍 **全球 CDN** | 自动选择最近节点 |
+| 🚀 **快速部署** | 一条命令完成部署 |
+| 📊 **自动扩展** | 根据负载自动扩容 |
+| 🔒 **HTTPS 免费** | 自动配置 SSL 证书 |
+
+### 前置要求
+
+**安装 Fly CLI**：
+
+**macOS/Linux**：
+```bash
+curl -L https://fly.io/install.sh | sh
+```
+
+**Windows**：
+```powershell
+iwr https://fly.io/install.ps1 -useb | iex
+```
+
+**验证安装**：
+```bash
+flyctl version
+```
+
+### 快速开始
+
+#### 1. 注册并登录
+
+```bash
+# 注册账号（会打开浏览器）
+flyctl auth signup
+
+# 或登录已有账号
+flyctl auth login
+```
+
+#### 2. 创建应用
+
+```bash
+# 创建新应用
+flyctl apps create openclaw-app
+
+# 或使用随机名称
+flyctl apps create
+```
+
+#### 3. 配置应用
+
+创建 `fly.toml` 文件：
+
+```toml
+app = "openclaw-app"
+primary_region = "hkg"  # 香港节点，国内访问快
+
+[build]
+  image = "openclaw/openclaw:latest"
+
+[env]
+  OPENCLAW_PORT = "8080"
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 18789
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
+
+[[mounts]]
+  source = "openclaw_data"
+  destination = "/root/.openclaw"
+```
+
+#### 4. 创建存储卷
+
+```bash
+# 创建 1GB 存储卷
+flyctl volumes create openclaw_data \
+  --region hkg \
+  --size 1
+```
+
+#### 5. 部署应用
+
+```bash
+# 部署
+flyctl deploy
+
+# 查看状态
+flyctl status
+
+# 查看日志
+flyctl logs
+```
+
+#### 6. 配置 API
+
+```bash
+# 设置环境变量
+flyctl secrets set DEEPSEEK_API_KEY=sk-your-api-key
+
+# 或编辑配置文件
+flyctl ssh console
+nano ~/.openclaw/openclaw.json
+```
+
+### 访问应用
+
+```bash
+# 获取应用 URL
+flyctl info
+
+# 打开应用
+flyctl open
+```
+
+应用地址格式：`https://openclaw-app.fly.dev`
+
+### 自定义域名
+
+```bash
+# 添加自定义域名
+flyctl certs add your-domain.com
+
+# 配置 DNS
+# 添加 CNAME 记录：your-domain.com -> openclaw-app.fly.dev
+```
+
+### 扩容和缩容
+
+```bash
+# 增加内存
+flyctl scale memory 1024
+
+# 增加 CPU
+flyctl scale vm shared-cpu-2x
+
+# 增加实例数量
+flyctl scale count 2
+
+# 查看当前配置
+flyctl scale show
+```
+
+### 常用命令
+
+```bash
+# 查看应用列表
+flyctl apps list
+
+# 查看应用状态
+flyctl status
+
+# 查看日志
+flyctl logs
+
+# 重启应用
+flyctl apps restart
+
+# SSH 连接
+flyctl ssh console
+
+# 删除应用
+flyctl apps destroy openclaw-app
+```
+
+### 成本估算
+
+**免费额度**：
+- 3 个共享 CPU 应用
+- 每个应用 256MB 内存
+- 3GB 存储
+- 160GB 出站流量
+
+**付费价格**（超出免费额度）：
+- CPU：$0.02/小时
+- 内存：$0.0000022/MB/小时
+- 存储：$0.15/GB/月
+- 流量：$0.02/GB
+
+**月成本估算**：
+- 轻度使用：$0（免费额度内）
+- 中度使用：$5-10/月
+- 重度使用：$10-20/月
+
+### Fly.io 部署常见问题
+
+**Q1: 部署失败**
+```bash
+# 查看详细日志
+flyctl logs
+
+# 检查配置
+flyctl config validate
+```
+
+**Q2: 应用无法访问**
+```bash
+# 检查健康状态
+flyctl checks list
+
+# 重启应用
+flyctl apps restart
+```
+
+**Q3: 数据丢失**
+- 确保创建了存储卷
+- 定期备份数据
+
+**Q4: 国内访问慢**
+- 选择香港节点（hkg）
+- 或使用自定义域名 + CDN
+
+---
+
+## Railway 云端部署
+
+> 🚂 **推荐新手使用**：Railway 界面友好，一键部署，免费额度充足。
+
+### 为什么选择 Railway？
+
+| 优势 | 说明 |
+|------|------|
+| 🎨 **界面友好** | 可视化操作，无需命令行 |
+| 💰 **免费额度** | 每月 $5 免费额度 |
+| 🚀 **一键部署** | 从 GitHub 直接部署 |
+| 📊 **自动构建** | Git push 自动部署 |
+| 🔗 **数据库集成** | 一键添加 PostgreSQL/Redis |
+
+### 快速开始
+
+#### 方式一：从模板部署（最简单）
+
+1. **访问 Railway**：
+   ```
+   https://railway.app/
+   ```
+
+2. **登录账号**：
+   - 使用 GitHub 账号登录
+   - 授权 Railway 访问
+
+3. **创建项目**：
+   - 点击 "New Project"
+   - 选择 "Deploy from Docker Image"
+   - 输入镜像：`openclaw/openclaw:latest`
+
+4. **配置环境变量**：
+   ```
+   OPENCLAW_PORT=18789
+   NODE_ENV=production
+   DEEPSEEK_API_KEY=sk-your-api-key
+   ```
+
+5. **部署**：
+   - 点击 "Deploy"
+   - 等待部署完成（约 2-3 分钟）
+
+6. **访问应用**：
+   - 点击 "Generate Domain"
+   - 获得公网地址：`https://openclaw-app.up.railway.app`
+
+#### 方式二：从 GitHub 部署
+
+1. **Fork 仓库**：
+   ```
+   https://github.com/openclaw/openclaw
+   ```
+
+2. **连接 Railway**：
+   - 在 Railway 中选择 "Deploy from GitHub"
+   - 选择你 fork 的仓库
+
+3. **自动部署**：
+   - Railway 自动检测配置
+   - 自动构建和部署
+
+4. **配置环境变量**：
+   - 在 Railway 控制台添加环境变量
+   - 保存后自动重新部署
+
+### 添加数据库
+
+如果需要持久化存储：
+
+```bash
+# 在 Railway 控制台
+1. 点击 "New" -> "Database"
+2. 选择 "PostgreSQL"
+3. 自动创建并连接
+```
+
+Railway 会自动设置环境变量：
+- `DATABASE_URL`
+- `POSTGRES_HOST`
+- `POSTGRES_PORT`
+- `POSTGRES_USER`
+- `POSTGRES_PASSWORD`
+
+### 自定义域名
+
+```bash
+# 在 Railway 控制台
+1. 进入项目设置
+2. 点击 "Domains"
+3. 点击 "Add Domain"
+4. 输入你的域名
+5. 配置 DNS CNAME 记录
+```
+
+### 查看日志
+
+```bash
+# 在 Railway 控制台
+1. 进入项目
+2. 点击 "Deployments"
+3. 选择最新部署
+4. 查看实时日志
+```
+
+### 环境变量管理
+
+```bash
+# 在 Railway 控制台
+1. 进入项目设置
+2. 点击 "Variables"
+3. 添加/编辑变量
+4. 保存后自动重新部署
+```
+
+常用环境变量：
+```
+OPENCLAW_PORT=18789
+NODE_ENV=production
+DEEPSEEK_API_KEY=sk-xxx
+MOONSHOT_API_KEY=sk-xxx
+LOG_LEVEL=info
+```
+
+### 成本估算
+
+**免费额度**：
+- $5/月免费额度
+- 512MB 内存
+- 1GB 存储
+- 100GB 出站流量
+
+**付费价格**（超出免费额度）：
+- 按使用量计费
+- 约 $0.000463/GB-秒
+
+**月成本估算**：
+- 轻度使用：$0（免费额度内）
+- 中度使用：$5-10/月
+- 重度使用：$10-20/月
+
+### Railway CLI（可选）
+
+**安装 CLI**：
+```bash
+# macOS/Linux
+npm install -g @railway/cli
+
+# 或使用 Homebrew
+brew install railway
+```
+
+**使用 CLI**：
+```bash
+# 登录
+railway login
+
+# 初始化项目
+railway init
+
+# 部署
+railway up
+
+# 查看日志
+railway logs
+
+# 打开控制台
+railway open
+```
+
+### Railway 部署常见问题
+
+**Q1: 部署失败**
+- 检查 Dockerfile 或 railway.json 配置
+- 查看构建日志
+- 确认环境变量正确
+
+**Q2: 应用无法访问**
+- 检查端口配置（必须使用 Railway 提供的 PORT 环境变量）
+- 检查健康检查配置
+
+**Q3: 超出免费额度**
+- 查看使用量统计
+- 优化资源使用
+- 考虑升级付费计划
+
+**Q4: 数据丢失**
+- 使用 Railway 提供的数据库服务
+- 定期备份数据
+
+---
+
+## 更新和维护
+
+> 🔄 **保持最新**：定期更新 OpenClaw 以获得新功能和安全修复。
+
+### 检查更新
+
+```bash
+# 检查当前版本
+openclaw --version
+
+# 检查最新版本
+curl -s https://api.github.com/repos/openclaw/openclaw/releases/latest | grep tag_name
+```
+
+### 本地安装更新
+
+```bash
+# 方式一：使用安装脚本
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+# 方式二：手动更新
+cd ~/openclaw
+git pull origin main
+pnpm install
+pnpm build
+```
+
+### Docker 更新
+
+```bash
+# 拉取最新镜像
+docker pull openclaw/openclaw:latest
+
+# 停止并删除旧容器
+docker stop openclaw
+docker rm openclaw
+
+# 启动新容器
+docker run -d \
+  --name openclaw \
+  -p 18789:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  --restart unless-stopped \
+  openclaw/openclaw:latest
+```
+
+### Fly.io 更新
+
+```bash
+# 更新应用
+flyctl deploy
+
+# 或指定新镜像
+flyctl deploy --image openclaw/openclaw:latest
+```
+
+### Railway 更新
+
+**自动更新**：
+- Railway 会自动检测 GitHub 仓库更新
+- 自动触发重新部署
+
+**手动更新**：
+```bash
+# 在 Railway 控制台
+1. 进入项目
+2. 点击 "Deployments"
+3. 点击 "Redeploy"
+```
+
+### 备份数据
+
+**本地安装备份**：
+```bash
+# 备份配置和数据
+tar -czf openclaw-backup-$(date +%Y%m%d).tar.gz ~/.openclaw
+
+# 恢复数据
+tar -xzf openclaw-backup-20260210.tar.gz -C ~/
+```
+
+**Docker 备份**：
+```bash
+# 备份数据卷
+docker run --rm \
+  -v ~/.openclaw:/data \
+  -v $(pwd):/backup \
+  alpine tar czf /backup/openclaw-backup-$(date +%Y%m%d).tar.gz /data
+
+# 恢复数据
+docker run --rm \
+  -v ~/.openclaw:/data \
+  -v $(pwd):/backup \
+  alpine tar xzf /backup/openclaw-backup-20260210.tar.gz -C /
+```
+
+**云端备份**：
+```bash
+# Fly.io 备份存储卷
+flyctl volumes snapshots create openclaw_data
+
+# Railway 备份数据库
+# 在控制台导出数据库
+```
+
+### 回滚版本
+
+**本地安装回滚**：
+```bash
+# 查看历史版本
+git tag
+
+# 回滚到指定版本
+git checkout v2026.2.8
+pnpm install
+pnpm build
+```
+
+**Docker 回滚**：
+```bash
+# 使用指定版本镜像
+docker run -d \
+  --name openclaw \
+  -p 18789:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  openclaw/openclaw:v2026.2.8
+```
+
+### 监控和日志
+
+**查看日志**：
+```bash
+# 本地安装
+tail -f ~/.openclaw/logs/gateway.log
+
+# Docker
+docker logs -f openclaw
+
+# Fly.io
+flyctl logs
+
+# Railway
+# 在控制台查看
+```
+
+**监控指标**：
+```bash
+# 查看系统状态
+openclaw gateway status
+
+# 查看资源使用
+openclaw stats
+
+# 查看 API 消耗
+openclaw stats api
+```
+
+### 故障排查
+
+**常见问题**：
+
+1. **Gateway 无法启动**
+   ```bash
+   # 查看日志
+   openclaw logs
+   
+   # 检查端口占用
+   lsof -i :18789
+   
+   # 重启 Gateway
+   openclaw gateway restart
+   ```
+
+2. **API 连接失败**
+   ```bash
+   # 测试 API 连接
+   openclaw test api
+   
+   # 检查 API Key
+   openclaw config get models.providers
+   ```
+
+3. **性能问题**
+   ```bash
+   # 清理缓存
+   openclaw cache clear
+   
+   # 重启服务
+   openclaw gateway restart
+   ```
+
+### 卸载
+
+**本地安装卸载**：
+```bash
+# 停止服务
+openclaw gateway stop
+
+# 删除文件
+rm -rf ~/.openclaw
+rm -rf ~/openclaw
+
+# 删除命令
+npm uninstall -g openclaw
+```
+
+**Docker 卸载**：
+```bash
+# 停止并删除容器
+docker stop openclaw
+docker rm openclaw
+
+# 删除镜像
+docker rmi openclaw/openclaw
+
+# 删除数据
+rm -rf ~/.openclaw
+```
+
+**云端卸载**：
+```bash
+# Fly.io
+flyctl apps destroy openclaw-app
+
+# Railway
+# 在控制台删除项目
+```
+
+---
+
 ## 本地安装教程
 
 > 如果你有Mac电脑，或者想完全本地部署，可以选择本地安装。
