@@ -8,6 +8,8 @@
 [![Version](https://img.shields.io/badge/version-v1.0-green.svg)](https://github.com/xianyu110/awesome-openclaw-tutorial)
 [![Status](https://img.shields.io/badge/status-完成-success.svg)](PROJECT-SUMMARY.md)
 
+> 推荐使用中转API，一个地址就能使用国内外三百多个大模型：https://s.apifox.cn/1dd2f97d-5021-4d82-8e03-a232cc3f63eb/doc-8138201
+
 ## 🎉 项目完成公告
 
 **本教程已全部完成！** 🎊
