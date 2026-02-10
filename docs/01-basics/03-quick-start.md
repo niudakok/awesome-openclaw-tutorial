@@ -31,12 +31,12 @@
 
 1. **检查Gateway状态**：
    ```bash
-   clawdbot channels status
+   openclaw channels status
    ```
 
 2. **打开Web UI**：
    ```bash
-   clawdbot dashboard
+   openclaw dashboard
    ```
    
    或直接访问：
@@ -263,7 +263,7 @@ https://docs.openclaw.ai
 
 ```bash
 # 编辑配置文件
-nano ~/.clawdbot/agents/main/boot.md
+nano ~/.openclaw/agents/main/boot.md
 ```
 
 在文件开头添加人设描述：
@@ -693,7 +693,7 @@ nano ~/.clawdbot/agents/main/boot.md
 
 ```bash
 # 编辑配置文件
-nano ~/.clawdbot/clawdbot.json
+nano ~/.openclaw/openclaw.json
 ```
 
 修改主模型：
@@ -711,7 +711,7 @@ nano ~/.clawdbot/clawdbot.json
 
 重启Gateway：
 ```bash
-clawdbot gateway restart
+openclaw gateway restart
 ```
 
 #### 配置多个模型
@@ -750,8 +750,8 @@ clawdbot gateway restart
 
 ```bash
 # 方法1：命令行切换
-clawdbot config set agents.defaults.model.primary "maynor/claude-sonnet-4-5"
-clawdbot gateway restart
+openclaw config set agents.defaults.model.primary "maynor/claude-sonnet-4-5"
+openclaw gateway restart
 
 # 方法2：在对话中切换
 "请切换到Sonnet模型"

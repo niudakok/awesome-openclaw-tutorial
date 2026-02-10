@@ -239,25 +239,38 @@ nvm alias default 22
 node --version  # 应显示 v22.x.x
 ```
 
-#### 第二步：使用官方安装脚本
+#### 第二步：使用官方一键安装脚本
+
+OpenClaw官方提供了一行代码的一键安装脚本，它会自动帮你把环境依赖都搞定：
 
 ```bash
 # 一键安装
-curl -fsSL https://clawd.bot/install.sh | bash
+curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 安装过程说明：
 - 自动检测系统环境
-- 安装依赖包（约1010个包）
+- 安装依赖包
 - 构建TypeScript代码
 - 构建Web UI
 - 安装命令行工具
 
-#### 第三步：初始化配置
+#### 第三步：验证安装
+
+安装完后，输入下面这行命令，看看OpenClaw是否已经成功安装：
+
+```bash
+# 检查版本
+openclaw --version
+```
+
+如果显示版本号，说明安装成功！
+
+#### 第四步：初始化配置
 
 ```bash
 # 运行配置向导
-clawdbot onboard
+openclaw onboard
 ```
 
 配置向导流程：
@@ -285,11 +298,11 @@ clawdbot onboard
    - Gateway服务自动启动
    - 获取Web UI访问链接
 
-#### 第四步：验证安装
+#### 第五步：验证安装
 
 ```bash
 # 检查Gateway状态
-clawdbot channels status
+openclaw channels status
 
 # 应该显示：
 # Gateway reachable.
@@ -311,13 +324,20 @@ clawdbot channels status
 
 ```cmd
 # 使用PowerShell运行
-irm https://clawd.bot/install.ps1 | iex
+irm https://openclaw.ai/install.ps1 | iex
 ```
 
-#### 第三步：初始化配置
+#### 第三步：验证安装
 
 ```cmd
-clawdbot onboard
+# 检查版本
+openclaw --version
+```
+
+#### 第四步：初始化配置
+
+```cmd
+openclaw onboard
 ```
 
 按照提示完成配置（与macOS相同）。
@@ -338,13 +358,20 @@ node --version
 #### 第二步：安装OpenClaw
 
 ```bash
-curl -fsSL https://clawd.bot/install.sh | bash
+curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-#### 第三步：初始化配置
+#### 第三步：验证安装
 
 ```bash
-clawdbot onboard
+# 检查版本
+openclaw --version
+```
+
+#### 第四步：初始化配置
+
+```bash
+openclaw onboard
 ```
 
 ## API配置指南
@@ -384,7 +411,7 @@ OpenClaw本身不包含AI模型，需要连接第三方API：
 3. **配置到OpenClaw**：
    ```bash
    # 编辑配置文件
-   nano ~/.clawdbot/clawdbot.json
+   nano ~/.openclaw/openclaw.json
    ```
 
    添加配置：
@@ -421,7 +448,7 @@ OpenClaw本身不包含AI模型，需要连接第三方API：
 
 4. **重启Gateway**：
    ```bash
-   clawdbot gateway restart
+   openclaw gateway restart
    ```
 
 **成本估算**：
@@ -540,7 +567,7 @@ nvm use 22
 **Q2: 权限错误**
 ```bash
 # macOS/Linux
-sudo chown -R $USER ~/.clawdbot
+sudo chown -R $USER ~/.openclaw
 
 # Windows
 # 以管理员身份运行PowerShell
@@ -573,10 +600,10 @@ sudo chown -R $USER ~/.clawdbot
 **Q1: Gateway无法启动**
 ```bash
 # 查看日志
-tail -f ~/.clawdbot/logs/gateway.log
+tail -f ~/.openclaw/logs/gateway.log
 
 # 重启Gateway
-clawdbot gateway restart
+openclaw gateway restart
 ```
 
 **Q2: 端口被占用**
@@ -585,7 +612,7 @@ clawdbot gateway restart
 lsof -i :18789
 
 # 修改端口
-clawdbot config set gateway.port 18790
+openclaw config set gateway.port 18790
 ```
 
 ## 本章小结

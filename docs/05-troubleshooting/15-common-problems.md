@@ -683,11 +683,9 @@ openclaw plugins configure feishu
 ```bash
 Error: Plugin manifest file not found
 Expected: openclaw.plugin.json
-Found: clawdbot.plugin.json
 ```
 
 **原因分析**：
-- OpenClaw从Clawdbot改名，部分插件未更新
 - 插件文件名不符合规范
 - 插件版本过旧
 
