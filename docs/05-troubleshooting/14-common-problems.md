@@ -1129,4 +1129,4 @@ openclaw gateway restart
 
 ---
 
-**下一章预告**：第16章将介绍OpenClaw的避坑指南，分享实际使用中的经验和技巧，帮助你更高效地使用OpenClaw。
+**下一章预告**：第15章将介绍OpenClaw的避坑指南，分享实际使用中的经验和技巧，帮助你更高效地使用OpenClaw。

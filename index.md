@@ -70,8 +70,8 @@ title: 首页
 
 ### 第五部分：问题解决
 
-- [第15章：常见问题与解决](docs/05-troubleshooting/15-common-problems.md)
-- [第16章：避坑指南](docs/05-troubleshooting/16-best-practices.md)
+- [第14章：常见问题与解决](docs/05-troubleshooting/14-common-problems.md)
+- [第15章：避坑指南](docs/05-troubleshooting/15-best-practices.md)
 
 ### 附录
 
