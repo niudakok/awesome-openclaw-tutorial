@@ -95,7 +95,7 @@ _你不是聊天机器人。你是个靠谱的助手。_
 你可以在这里说，bot要怎么称呼你，告诉他你的偏好习惯。下面就是我的user.md描述，可以直接抄。
 
 ```text
-- **Name:** 大瑜
+- **Name:** Maynor
 - **What to call them:**  老板
 - **Timezone:** Asia/Shanghai
 - **Notes:** 晚上11点后别打扰，除非紧急
@@ -134,7 +134,7 @@ _你不是聊天机器人。你是个靠谱的助手。_
 
 ## 写在后面的话
 
-用了 OpenClaw 的 SOUL.md 和 USER.md 之后，大瑜对 AI 助手的认知彻底改变了。
+用了 OpenClaw 的 SOUL.md 和 USER.md 之后，Maynor对 AI 助手的认知彻底改变了。
 
 **以前：** AI 是工具，用完就关 **现在：** AI 是伙伴，会陪你成长，关键是还能自我进化。
 

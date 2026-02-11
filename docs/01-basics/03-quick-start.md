@@ -388,7 +388,7 @@ _你不是聊天机器人。你是个靠谱的助手。_
 ### USER.md 配置示例
 
 ```markdown
-- **Name:** 大瑜
+- **Name:** Maynor
 - **What to call them:** 老板
 - **Timezone:** Asia/Shanghai
 - **Notes:** 晚上11点后别打扰，除非紧急
