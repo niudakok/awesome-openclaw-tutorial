@@ -2059,7 +2059,7 @@ grep "requires" ~/.openclaw/skills/my-skill/SKILL.md
 ```markdown
 ---
 name: my-skill
-description: My skill with API key: sk-1234567890  # ❌ 不要在SKILL.md中暴露密钥
+description: My skill with API key: sk-xxx7890  # ❌ 不要在SKILL.md中暴露密钥
 ---
 ```
 

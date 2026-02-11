@@ -4,7 +4,7 @@
     "providers": {
       "local-antigravity": {
         "baseUrl": "http://49.51.195.85:8045/v1",
-        "apiKey": "sk-123456",
+        "apiKey": "sk-xxx",
         "auth": "api-key",
         "api": "openai-completions",
         "models": [

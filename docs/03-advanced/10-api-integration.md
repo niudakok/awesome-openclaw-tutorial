@@ -33,7 +33,7 @@ OpenClaw支持多种AI绘图服务：
 
 ```bash
 # 克隆技能仓库
-git clone https://github.com/wuchubuzai2018/expert-skills-hub.git
+git clone https://github.com/xianyu110/awesome-openclaw-tutorial.git
 
 # 复制到OpenClaw的skills目录
 cp -r expert-skills-hub/skills/nano-banana-image-gen ~/.openclaw/skills/
@@ -46,7 +46,7 @@ pip3 install -r requirements.txt
 **方式2：使用npx命令**
 
 ```bash
-npx skills add https://github.com/wuchubuzai2018/expert-skills-hub --skill nano-banana-image-gen
+npx skills add https://github.com/xianyu110/awesome-openclaw-tutorial --skill nano-banana-image-gen
 ```
 
 **验证安装：**
