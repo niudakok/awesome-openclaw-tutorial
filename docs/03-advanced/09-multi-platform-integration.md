@@ -104,36 +104,25 @@ https://work.weixin.qq.com/
 
 ### 9.1.4 配置OpenClaw
 
-**方式1：云端部署（推荐）**
+> 💡 **前置要求**：请先完成 OpenClaw 的基础安装和配置，详见 [第2章：环境搭建](../01-basics/02-installation.md)。
 
-参考腾讯云官方教程：
+**云端部署（推荐）**
+
+如果使用云端部署，参考腾讯云官方教程可一键完成企微接入：
 ```
 https://cloud.tencent.com/developer/article/2625147
 ```
 
-**方式2：本地配置**
+**本地配置**
 
-**步骤1：安装企微Skills**
 ```bash
+# 安装企微Skills
 openclaw skill install wework-bot
-```
 
-**步骤2：配置应用信息**
-```bash
-# 配置企业ID
+# 配置应用信息
 openclaw config set wework.corpId "your-corp-id"
-
-# 配置应用ID
 openclaw config set wework.agentId "your-agent-id"
-
-# 配置应用密钥
 openclaw config set wework.secret "your-secret"
-```
-
-**步骤3：启动服务**
-```bash
-# 启动OpenClaw
-openclaw start
 
 # 启动企微Bot
 openclaw wework start
@@ -317,9 +306,11 @@ https://open.dingtalk.com/
 
 ### 9.2.3 配置OpenClaw
 
+> 💡 **前置要求**：请先完成 OpenClaw 的基础安装和配置，详见 [第2章：环境搭建](../01-basics/02-installation.md)。
+
 **云端部署（推荐）**
 
-参考腾讯云官方教程：
+参考腾讯云官方教程可一键完成钉钉接入：
 ```
 https://cloud.tencent.com/developer/article/2626553
 ```
@@ -327,19 +318,11 @@ https://cloud.tencent.com/developer/article/2626553
 **本地配置**
 
 ```bash
-# 安装钉钉Skills
+# 安装钉钉Skills并配置
 openclaw skill install dingtalk-bot
-
-# 配置AppKey
 openclaw config set dingtalk.appKey "your-app-key"
-
-# 配置AppSecret
 openclaw config set dingtalk.appSecret "your-app-secret"
-
-# 配置AgentId
 openclaw config set dingtalk.agentId "your-agent-id"
-
-# 启动服务
 openclaw dingtalk start
 ```
 
@@ -1041,9 +1024,11 @@ https://q.qq.com/
 
 ### 9.4.3 配置OpenClaw
 
+> 💡 **前置要求**：请先完成 OpenClaw 的基础安装和配置，详见 [第2章：环境搭建](../01-basics/02-installation.md)。
+
 **云端部署（推荐）**
 
-参考官方教程：
+参考官方教程可一键完成QQ接入：
 ```
 https://cloud.tencent.com/developer/article/2626045
 
@@ -1054,19 +1039,11 @@ https://cloud.tencent.com/developer/video/85003
 **本地配置**
 
 ```bash
-# 安装QQ Skills
+# 安装QQ Skills并配置
 openclaw skill install qq-bot
-
-# 配置AppID
 openclaw config set qq.appId "your-app-id"
-
-# 配置Token
 openclaw config set qq.token "your-token"
-
-# 配置AppSecret
 openclaw config set qq.appSecret "your-app-secret"
-
-# 启动服务
 openclaw qq start
 ```
 
