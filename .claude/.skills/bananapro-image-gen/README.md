@@ -1,149 +1,91 @@
-# Nano Banana Image Generation - 快速开始
+# Banana Pro Image Generation Skill
 
-使用 Chat Completions 格式生成图片的 OpenClaw Skill。
+> 使用 Gemini 3 Pro Image 生成图片的 AI Skill，支持白板图、Logo设计、社交媒体配图等多种场景。
 
-## 🚀 快速开始（3步）
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/xianyu110/awesome-openclaw-tutorial)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Compatibility](https://img.shields.io/badge/compatibility-claude--code%20%7C%20cursor%20%7C%20copilot-orange.svg)](SKILL.md)
 
-### 第1步：测试生成
+## ✨ 特性
+
+- 🎨 **文生图**：根据文字描述生成各种风格的图片
+- 📝 **白板图**：生成手写风格的概念图、流程图
+- 🖼️ **Logo设计**：创建简约现代的Logo和图标
+- 📱 **社交媒体配图**：生成适合各平台的配图
+- 🌏 **中文支持**：完美支持中文提示词
+- ⚡ **快速响应**：10-30秒生成
+- 💰 **成本低廉**：$0.04-0.16/张
+
+## 🚀 快速开始
+
+### 安装
 
 ```bash
-cd skills/bananapro-image-gen
+# 通过 npx（推荐）
+npx skills add xianyu110/awesome-openclaw-tutorial@bananapro-image-gen
 
-# 生成一张图片
+# 或手动克隆
+git clone https://github.com/xianyu110/awesome-openclaw-tutorial.git
+cd .claude/.skills/bananapro-image-gen
+pip install -r requirements.txt
+```
+
+### 配置
+
+```bash
+# 设置 API Key
+export NEXTAI_API_KEY="your-api-key-here"
+```
+
+### 使用
+
+```bash
+# 生成图片
 python scripts/generate_image.py \
   --prompt "画一只可爱的橙色猫咪" \
   --filename "cat.png"
-```
 
-### 第2步：查看结果
-
-```bash
-# macOS
-open cat.png
-
-# Linux
-xdg-open cat.png
-```
-
-### 第3步：生成白板图
-
-```bash
+# 生成白板图
 python scripts/generate_image.py \
-  --prompt "生成一张白板图片，手写字体风格，内容是OpenClaw核心概念" \
+  --prompt "生成一张白板图片，展示OpenClaw核心架构，手写字体风格" \
   --filename "whiteboard.png"
+
+# 生成高清Logo
+python scripts/generate_image.py \
+  --prompt "设计一个AI助手Logo，蓝色渐变，现代简约" \
+  --filename "logo.png" \
+  --resolution 2K
 ```
 
-## 📋 常用命令
+## 📖 使用场景
 
-### 基础生成
-
-```bash
-python scripts/generate_image.py -p "画只猫" -f "cat.png"
-```
-
-### 指定分辨率
-
-```bash
-python scripts/generate_image.py -p "画只猫" -f "cat.png" -r 2K
-```
-
-### 指定模型
-
-```bash
-python scripts/generate_image.py -p "画只猫" -m "gpt-4o-image" -f "cat.png"
-```
-
-## 🎨 实用示例
-
-### 1. 社交媒体配图
+### 1. 教程配图
 
 ```bash
 python scripts/generate_image.py \
-  -p "科技感的社交媒体封面，AI助手主题，蓝色渐变" \
-  -f "social_cover.png" \
-  -r 2K
+  --prompt "生成一张白板图片，手写字体风格，总结OpenClaw核心要点" \
+  --filename "tutorial.png"
 ```
 
-### 2. Logo 设计
+### 2. Logo设计
 
 ```bash
 python scripts/generate_image.py \
-  -p "极简AI机器人Logo，蓝白配色，线条简洁" \
-  -f "logo.png"
+  --prompt "设计一个超级个体Logo，蓝色和橙色，现代科技感" \
+  --filename "logo.png" \
+  --resolution 2K
 ```
 
-### 3. 概念白板图
+### 3. 社交媒体配图
 
 ```bash
 python scripts/generate_image.py \
-  -p "白板图，手写字体，OpenClaw vs ChatGPT对比表格" \
-  -f "comparison.png"
+  --prompt "生成小红书配图，主题是AI效率提升，9:16竖版" \
+  --filename "social.png" \
+  --resolution 2K
 ```
 
-### 4. 流程图
-
-```bash
-python scripts/generate_image.py \
-  -p "流程图，手绘风格，展示OpenClaw工作流程，包含5个步骤" \
-  -f "workflow.png"
-```
-
-## ⚙️ 配置说明
-
-### 默认配置（无需设置）
-
-脚本已内置 API 配置，可直接使用。
-
-### 自定义配置（可选）
-
-```bash
-# 设置环境变量
-export NEXTAI_API_KEY="your-api-key"
-
-# 或使用命令行参数
-python scripts/generate_image.py -p "画只猫" -k "your-api-key"
-```
-
-## 📊 参数说明
-
-| 参数 | 说明 | 示例 |
-|------|------|------|
-| `-p` | 图片描述（必需） | "画只猫" |
-| `-f` | 输出文件名 | "cat.png" |
-| `-m` | 模型名称 | "gpt-4o-image" |
-| `-r` | 分辨率 | "1K", "2K", "4K" |
-| `-k` | API Key | "sk-xxx" |
-
-## 🐛 常见问题
-
-### 问题1：生成失败
-
-**解决方案**：
-- 检查网络连接
-- 确认 API Key 有效
-- 简化提示词重试
-
-### 问题2：图片质量不理想
-
-**解决方案**：
-- 使用更详细的提示词
-- 指定风格和细节
-- 尝试不同的模型
-
-### 问题3：生成速度慢
-
-**说明**：
-- 正常情况 10-30 秒
-- 复杂图片可能需要 1-2 分钟
-- 请耐心等待
-
-## 📚 更多信息
-
-- 完整文档：[SKILL.md](SKILL.md)
-- 提示词技巧：查看 SKILL.md 中的"提示词技巧"章节
-- 实战案例：查看 SKILL.md 中的"实战案例"章节
-
-## 💡 提示词技巧
+## 📝 提示词技巧
 
 ### 白板图模板
 
@@ -152,26 +94,52 @@ python scripts/generate_image.py -p "画只猫" -k "your-api-key"
 - 标题：[主题]
 - 要点1：[内容]
 - 要点2：[内容]
-使用箭头和框图
+使用箭头、框图等手绘元素
 ```
 
-### 对比表格模板
+### Logo设计模板
 
 ```
-生成对比表格图片，清晰易读：
-- 标题：[A vs B]
-- 对比维度：[维度1、维度2]
-- 对比结果
+设计一个[主题]Logo，要求：
+- 形状：[圆形/方形]
+- 颜色：[主色调]
+- 风格：[现代/简约]
+- 用途：[社交媒体/网站]
 ```
 
-## 🎯 下一步
+## 🛠️ 参数说明
 
-1. ✅ 阅读完整文档：[SKILL.md](SKILL.md)
-2. ✅ 尝试不同的提示词
-3. ✅ 生成自己的图片
-4. ✅ 集成到 OpenClaw 工作流
+| 参数 | 说明 | 默认值 |
+|------|------|--------|
+| `--prompt` | 图片描述（必需） | - |
+| `--filename` | 输出文件名 | 自动生成 |
+| `--resolution` | 分辨率（1K/2K/4K） | 1K |
+| `--api-key` | API密钥 | 环境变量 |
 
-## 📞 需要帮助？
+## 💰 成本参考
 
-- GitHub Issues: [提交问题](https://github.com/xianyu110/awesome-openclaw-tutorial/issues)
-- 完整教程：[OpenClaw 超级个体实战指南](https://github.com/xianyu110/awesome-openclaw-tutorial)
+- 1K 分辨率：~$0.04/张
+- 2K 分辨率：~$0.08/张
+- 4K 分辨率：~$0.16/张
+
+## 📚 文档
+
+- [完整文档](SKILL.md) - 详细的使用指南和示例
+- [教程](https://github.com/xianyu110/awesome-openclaw-tutorial) - OpenClaw 超级个体实战指南
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📄 许可证
+
+MIT License - 详见 [LICENSE](LICENSE)
+
+## 👤 作者
+
+- GitHub: [@xianyu110](https://github.com/xianyu110)
+- 项目: [OpenClaw 超级个体实战指南](https://github.com/xianyu110/awesome-openclaw-tutorial)
+
+---
+
+⭐ 如果觉得有用，请给个 Star 支持一下！
