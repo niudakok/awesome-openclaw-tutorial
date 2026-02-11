@@ -2475,3 +2475,543 @@ A：使用`openclaw skill backup`定期备份。
 ---
 
 **下一章预告**：第9章将学习多平台集成，包括企业微信、钉钉、飞书、QQ Bot配置等内容。
+
+
+---
+
+## 8.8 百度千帆Skills生态
+
+### 8.8.1 为什么选择百度千帆Skills？
+
+**核心优势**：
+```
+✅ 官方支持：百度官方维护，稳定可靠
+✅ 中文优化：针对中文场景深度优化
+✅ 免费使用：大部分Skills免费
+✅ 易于集成：一键安装，无需复杂配置
+✅ 生态完善：覆盖搜索、学术、办公等场景
+```
+
+**与其他Skills对比**：
+
+| 特性 | 百度千帆Skills | 国际Skills | 社区Skills |
+|------|---------------|-----------|-----------|
+| 中文支持 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| 稳定性 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| 免费程度 | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ |
+| 文档质量 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| 更新频率 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+
+### 8.8.2 百度搜索系列Skills
+
+#### 1. 百度搜索（Baidu Search）
+
+**功能介绍**：
+- 实时网络搜索
+- 智能结果筛选
+- 自动摘要生成
+- 支持多种搜索类型
+
+**安装方法**：
+```bash
+# 云端部署自带，无需安装
+# 本地部署需要安装
+openclaw skills install baidu-search
+```
+
+**适用场景**：
+- 实时信息查询
+- 行业动态追踪
+- 竞品分析
+- 内容创作素材收集
+
+#### 2. 百度百科（Baidu Baike）
+
+**功能介绍**：
+- 权威知识查询
+- 概念解释
+- 历史背景
+- 相关词条推荐
+
+**适用场景**：
+- 学习新概念
+- 写作背景调研
+- 知识科普
+- 术语解释
+
+#### 3. 百度学术（Baidu Scholar）
+
+**功能介绍**：
+- 学术论文搜索
+- 引用分析
+- 作者查询
+- 期刊信息
+
+**适用场景**：
+- 文献调研
+- 论文阅读
+- 学术研究
+- 毕业论文写作
+
+### 8.8.3 百度办公系列Skills
+
+#### 4. 百度智能PPT（Baidu Smart PPT）
+
+**功能介绍**：
+- 自动生成PPT
+- 智能排版
+- 配图推荐
+- 模板选择
+
+**适用场景**：
+- 产品介绍
+- 工作汇报
+- 培训教材
+- 商业提案
+
+### 8.8.4 获取百度API Key
+
+**步骤1：注册百度智能云账号**
+1. 访问：https://cloud.baidu.com
+2. 点击"注册"
+3. 填写手机号和验证码
+4. 完成实名认证
+
+**步骤2：开通千帆大模型服务**
+1. 进入控制台
+2. 搜索"千帆大模型"
+3. 点击"立即开通"
+4. 同意服务协议
+
+**步骤3：获取API Key**
+1. 进入"访问管理"
+2. 点击"安全认证"
+3. 选择"Access Key"
+4. 点击"创建Access Key"
+5. 保存Access Key ID和Secret Access Key
+
+![获取API Key](https://upload.maynor1024.live/file/1770782712874_image_17.jpg)
+
+### 8.8.5 百度千帆MCP广场
+
+**什么是MCP广场？**
+
+MCP（Model Context Protocol）广场是百度千帆推出的应用连接平台，提供丰富的MCP Server，让OpenClaw可以连接各种应用和服务。
+
+**访问地址**：https://cloud.baidu.com/product/qianfan_mcp.html
+
+**支持的应用**：
+- 办公协作：飞书、钉钉、企业微信
+- 知识管理：Notion、语雀、印象笔记
+- 开发工具：GitHub、GitLab、Jenkins
+- 数据分析：Tableau、Power BI
+
+### 8.8.6 效率提升数据
+
+**使用百度Skills前后对比**：
+
+| 任务类型 | 使用前 | 使用后 | 节省时间 | 提升比例 |
+|---------|--------|--------|----------|----------|
+| 信息搜索 | 30分钟 | 2分钟 | 28分钟 | 93.3% |
+| 概念查询 | 15分钟 | 1分钟 | 14分钟 | 93.3% |
+| 论文检索 | 60分钟 | 5分钟 | 55分钟 | 91.7% |
+| PPT制作 | 120分钟 | 10分钟 | 110分钟 | 91.7% |
+| **平均** | **225分钟** | **18分钟** | **207分钟** | **92%** |
+
+---
+
+## 相关资源
+
+- 百度千帆官网：https://cloud.baidu.com/product/qianfan.html
+- 百度千帆Skills文档：https://cloud.baidu.com/doc/qianfan/s/Mmlda41a2
+- 百度千帆MCP广场：https://cloud.baidu.com/product/qianfan_mcp.html
+- API Key获取：https://console.bce.baidu.com/iam/#/iam/apikey/list
+
+
+---
+
+## 8.9 API服务Skills
+
+> 💡 **本节目标**：学会将第三方API服务封装为Skills，实现AI绘图、数据同步、视频生成、语音合成等功能。
+
+### 8.9.1 为什么需要API服务Skills
+
+**使用场景**：
+- 🎨 **AI绘图**：Banana、Midjourney、DALL-E
+- 📝 **数据同步**：Notion、Airtable、语雀
+- 🎬 **视频生成**：SeeDream、可灵（Kling）
+- 🔊 **语音合成**：海螺TTS、MiniMax Music
+- 🌐 **Web服务**：各类API接口
+
+**优势**：
+- 统一管理：所有API都是Skills
+- 易于使用：一条命令安装
+- 自动更新：跟随Skills更新
+- 社区共享：开发者贡献
+
+### 8.9.2 AI绘图Skills：Banana
+
+#### 什么是Banana
+
+**Banana介绍**：
+- Nano Banana Pro是一款AI绘图工具
+- 支持文生图、图生图、图片编辑
+- 质量高、速度快、价格便宜
+
+**为什么选择Banana**：
+- ✅ 质量优秀：媲美Midjourney
+- ✅ 速度快：10秒出图
+- ✅ 价格低：$0.02/张
+- ✅ 易集成：API简单易用
+
+#### 安装和配置
+
+```bash
+# 安装Banana Skills
+openclaw skill install banana-draw
+
+# 配置API Key
+openclaw config set banana.apiKey "your-api-key"
+
+# 测试
+你：用Banana画一只可爱的猫
+OpenClaw：正在生成图片...
+[图片]
+```
+
+#### 实战案例
+
+**案例1：手机上画图**
+
+```text
+场景：在飞书上用OpenClaw画图
+
+步骤：
+1. 打开飞书
+2. 找到OpenClaw
+3. 发送：画一个赛博朋克风格的城市
+4. 等待10秒
+5. 收到图片
+
+优势：
+- 无需打开电脑
+- 随时随地画图
+- 自动保存到相册
+```
+
+**案例2：批量生成图片**
+
+```text
+你：帮我生成3张图片：
+1. 科技感的办公室
+2. 未来城市
+3. AI机器人
+
+OpenClaw：正在生成...
+[图片1]
+[图片2]
+[图片3]
+
+全部完成 ✅
+```
+
+#### 提示词优化技巧
+
+**基本原则**：
+1. 描述清晰具体
+2. 包含风格关键词
+3. 指定画面元素
+4. 控制画面比例
+
+**优秀提示词示例**：
+
+❌ 差：画一只猫  
+✅ 好：一只可爱的橘猫，坐在窗台上，阳光洒在身上，温暖的色调，高清摄影，景深效果
+
+❌ 差：画个城市  
+✅ 好：赛博朋克风格的未来城市，霓虹灯闪烁，高楼林立，夜景，雨后街道，电影级画质，广角镜头
+
+**风格关键词**：
+- 写实风格：photorealistic, 4K, detailed
+- 卡通风格：cartoon, cute, colorful
+- 赛博朋克：cyberpunk, neon, futuristic
+- 水彩画：watercolor, soft, artistic
+- 油画：oil painting, classical, textured
+
+### 8.9.3 数据同步Skills：Notion
+
+#### Notion介绍
+
+**Notion的优势**：
+- ✅ 功能强大：笔记、数据库、项目管理
+- ✅ 跨平台：Web、Mac、Windows、iOS、Android
+- ✅ 协作友好：团队共享、权限管理
+- ✅ API完善：易于集成
+
+#### 安装和配置
+
+```bash
+# 安装Notion Skills
+openclaw skill install notion-sync
+
+# 配置Token
+openclaw config set notion.token "your-notion-token"
+
+# 配置Database ID
+openclaw config set notion.databaseId "your-database-id"
+
+# 测试
+你：把这段内容保存到Notion
+OpenClaw：已保存到Notion ✅
+```
+
+#### 实战案例
+
+**案例1：笔记同步**
+
+```text
+你：保存这段笔记到Notion：
+[笔记内容]
+
+OpenClaw：已保存 ✅
+标题：[自动生成]
+标签：#笔记
+链接：https://notion.so/...
+```
+
+**案例2：任务管理**
+
+```text
+你：添加任务：完成项目报告
+截止日期：明天
+优先级：高
+
+OpenClaw：任务已添加 ✅
+```
+
+**案例3：知识库构建**
+
+```text
+你：把这篇文章保存到知识库
+[文章链接]
+
+OpenClaw：正在处理...
+- 提取内容 ✅
+- 生成摘要 ✅
+- 添加标签 ✅
+- 保存到Notion ✅
+
+完成！
+```
+
+### 8.9.4 视频生成Skills
+
+#### 视频生成工具介绍
+
+**SeeDream**：
+- 文生视频
+- 图生视频
+- 视频编辑
+- 价格：$0.1/秒
+
+**可灵（Kling）**：
+- 国产视频生成
+- 质量优秀
+- 价格实惠
+- 支持中文
+
+#### 安装和配置
+
+```bash
+# 安装视频生成Skills
+openclaw skill install video-gen
+
+# 配置SeeDream
+openclaw config set seedream.apiKey "your-api-key"
+
+# 配置可灵
+openclaw config set kling.apiKey "your-api-key"
+```
+
+#### 实战案例
+
+```text
+你：生成一个5秒的视频：
+海浪拍打沙滩，日落时分
+
+OpenClaw：正在生成...
+预计时间：2分钟
+
+[视频生成完成]
+时长：5秒
+分辨率：1080p
+大小：15MB
+```
+
+### 8.9.5 语音合成Skills
+
+#### 语音合成工具
+
+**海螺TTS**：
+- 多种音色
+- 自然流畅
+- 支持中英文
+- 价格：$0.01/千字
+
+**MiniMax Music**：
+- AI音乐生成
+- 多种风格
+- 高质量输出
+
+#### 安装和配置
+
+```bash
+# 安装TTS Skills
+openclaw skill install tts
+
+# 配置海螺TTS
+openclaw config set heluo.apiKey "your-api-key"
+
+# 测试
+你：把这段文字转成语音：
+[文字内容]
+
+OpenClaw：正在生成...
+[语音文件]
+```
+
+### 8.9.6 自定义API封装
+
+如果ClawHub上没有你需要的API Skills，可以自己封装：
+
+```typescript
+// src/custom-api-skill.ts
+import { Skill } from '@openclaw/sdk';
+import axios from 'axios';
+
+export default class CustomAPISkill extends Skill {
+  private apiKey = process.env.CUSTOM_API_KEY;
+  private apiUrl = 'https://api.example.com/v1';
+
+  async onMessage(message: string) {
+    // 检测API请求
+    const match = message.match(/调用API:(.+)/);
+    if (!match) return null;
+
+    const params = match[1];
+    
+    try {
+      // 调用API
+      const response = await axios.post(
+        `${this.apiUrl}/endpoint`,
+        { params },
+        {
+          headers: {
+            'Authorization': `Bearer ${this.apiKey}`
+          }
+        }
+      );
+
+      return `API调用成功：${response.data}`;
+      
+    } catch (error) {
+      return '调用失败，请稍后重试';
+    }
+  }
+}
+```
+
+### 8.9.7 成本对比
+
+**AI绘图成本对比**：
+
+| 工具 | 价格 | 质量 | 速度 |
+|------|------|------|------|
+| Banana | $0.02 | ⭐⭐⭐⭐ | 10秒 |
+| Midjourney | $0.08 | ⭐⭐⭐⭐⭐ | 30秒 |
+| DALL-E | $0.04 | ⭐⭐⭐⭐ | 15秒 |
+| Stable Diffusion | 免费 | ⭐⭐⭐ | 20秒 |
+
+**语音合成成本对比**：
+
+| 工具 | 价格 | 质量 | 语言支持 |
+|------|------|------|----------|
+| 海螺TTS | $0.01/千字 | ⭐⭐⭐⭐ | 中英文 |
+| Azure TTS | $0.016/千字 | ⭐⭐⭐⭐⭐ | 多语言 |
+| Google TTS | $0.016/千字 | ⭐⭐⭐⭐ | 多语言 |
+
+### 8.9.8 最佳实践
+
+**1. API Key管理**
+```bash
+# 使用环境变量
+export BANANA_API_KEY="your-key"
+export NOTION_TOKEN="your-token"
+
+# 或使用配置文件
+openclaw config set api.keys '{
+  "banana": "your-key",
+  "notion": "your-token"
+}'
+```
+
+**2. 错误处理**
+```typescript
+try {
+  const result = await callAPI();
+  return result;
+} catch (error) {
+  if (error.code === 'RATE_LIMIT') {
+    return '请求过于频繁，请稍后重试';
+  }
+  return '调用失败，请检查配置';
+}
+```
+
+**3. 成本控制**
+- 设置每日调用上限
+- 使用缓存减少重复调用
+- 选择性价比高的服务
+- 监控API使用量
+
+**4. 安全建议**
+- 不要在代码中硬编码API Key
+- 定期更换API Key
+- 使用环境变量或配置文件
+- 限制API权限范围
+
+---
+
+## 📝 本章小结
+
+通过本章学习，你已经掌握：
+
+1. **Skills生态**：了解1715+个技能的庞大生态
+2. **ClawHub市场**：学会搜索、安装、管理Skills
+3. **核心Skills**：掌握必装的5个核心技能
+4. **安装方法**：三种安装方式灵活选择
+5. **实战应用**：三大场景的完整应用
+6. **安全使用**：权限管理和安全防护
+7. **Skills开发**：从零开发自己的Skills
+8. **管理技巧**：更新、备份、故障排查
+9. **API服务**：封装第三方API为Skills
+
+## 🎯 实战练习
+
+1. 安装5个核心Skills并测试
+2. 尝试开发一个简单的Skills
+3. 封装一个你常用的API服务
+4. 构建一个完整的自动化工作流
+
+## 💡 进阶建议
+
+1. 探索ClawHub上的更多Skills
+2. 参与Skills社区贡献
+3. 开发并分享你的Skills
+4. 优化Skills性能和体验
+
+---
+
+**下一章预告**：第9章将学习多平台集成，包括企业微信、钉钉、飞书、QQ等平台的Bot配置，实现随时随地使用OpenClaw。
+
+**返回目录**：[README](../../README.md)
