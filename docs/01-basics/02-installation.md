@@ -237,7 +237,7 @@ OpenClaw在Mac上体验最好，因为：
 
 **Q3: 手机怎么访问？**
 - 通过QQ、企微、飞书等平台
-- 详见[第9章：多平台集成](../03-advanced/09-platform-integration.md)
+- 详见[第9章：多平台集成](../03-advanced/09-multi-platform-integration.md)
 
 ## Docker 部署
 

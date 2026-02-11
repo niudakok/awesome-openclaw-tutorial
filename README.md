@@ -164,19 +164,13 @@
 - 🚀 飞书Bot：项目管理、文档协作
 - 💬 QQ Bot：个人助手、群管理
 
-#### [第10章：高级配置（绘图/Notion/视频/语音）](docs/03-advanced/10-advanced-configuration.md)
-> 接入第三方服务，让AI能力更强大
-- 🎨 Banana绘图：AI生成图片、Logo、海报
-- 📝 Notion同步：自动更新数据库、创建页面
-- 🎬 视频生成：文字转视频、自动剪辑
-- 🔊 语音合成：文字转语音、多语言支持
-
-#### [第11章：个人效率实战（多模型切换/成本优化/性能调优）](docs/03-advanced/10-advanced-configuration.md)
+#### [第10章：高级配置（多模型切换/成本优化/性能调优）](docs/03-advanced/10-advanced-configuration.md)
 > 榨干OpenClaw性能，省钱又高效
 - 🎛️ Antigravity Manager：可视化配置管理
 - 🔄 多模型切换：不同任务用不同模型，省50%成本
 - 💰 成本优化：国产模型组合，月费用降至5-30元
 - ⚡ 性能调优：响应速度提升3倍
+- 🎨 API服务Skills：Banana绘图、Notion同步、视频生成、语音合成
 
 ---
 

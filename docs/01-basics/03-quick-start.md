@@ -429,7 +429,7 @@ nano ~/.openclaw/agents/main/boot.md
 
 ## 3.4 模型选择指南
 
-> 💡 **快速选择**：新手推荐 Claude Haiku 4.5 或 DeepSeek，性价比高且完全够用。详细的模型对比和切换策略请参考 [第11章：高级配置](../03-advanced/11-advanced-configuration.md)。
+> 💡 **快速选择**：新手推荐 Claude Haiku 4.5 或 DeepSeek，性价比高且完全够用。详细的模型对比和切换策略请参考 [第10章：高级配置](../03-advanced/10-advanced-configuration.md)。
 
 ### 快速对比
 
@@ -518,7 +518,7 @@ openclaw gateway restart
 3. **定期清理历史**：清理旧会话，减少上下文长度
 
 > 📚 **想了解更多？**  
-> 详细的模型对比、多模型切换策略、成本优化方案，请参考 [第11章：高级配置](../03-advanced/11-advanced-configuration.md)。
+> 详细的模型对比、多模型切换策略、成本优化方案，请参考 [第10章：高级配置](../03-advanced/10-advanced-configuration.md)。
 
 ## 3.5 Gateway 网关配置（进阶）
 

@@ -33,7 +33,7 @@ OpenClaw可以帮你解决这些问题。
 
 OpenClaw的知识库管理基于以下原理：
 
-```
+```text
 网页链接 → OpenClaw抓取 → 智能摘要 → 存储到备忘录/Notion
 ```
 
