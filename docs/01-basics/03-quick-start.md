@@ -431,91 +431,30 @@ nano ~/.openclaw/agents/main/boot.md
 
 > 💡 **快速选择**：新手推荐 Claude Haiku 4.5 或 DeepSeek，性价比高且完全够用。详细的模型对比和切换策略请参考 [第10章：高级配置](../03-advanced/10-advanced-configuration.md)。
 
-### 快速对比
+### 新手推荐配置
 
-| 模型 | 特点 | 适用场景 | 月费用 |
-|------|------|----------|--------|
-| **Claude Haiku 4.5** | 快速、便宜 | 日常对话、简单任务 | 10-50元 |
-| **Claude Sonnet 4.5** | 平衡、可靠 | 大部分任务 | 50-200元 |
-| **DeepSeek** | 性价比高 | 日常使用、编程 | 5-30元 |
-| **Kimi** | 长上下文 | 长文档处理 | 10-50元 |
-
-### 新手推荐
-
-#### 推荐1：DeepSeek（性价比之王）
-
-**为什么推荐**：
+**推荐1：DeepSeek（性价比之王）**
 - 💰 最便宜：比其他模型便宜70%
 - 💻 编程强：代码能力出色
 - 🎯 够用：日常任务完全够用
 
-**配置方法**：
-```json
-{
-  "agents": {
-    "defaults": {
-      "model": {
-        "primary": "deepseek/deepseek-chat"
-      }
-    }
-  }
-}
-```
-
-#### 推荐2：Claude Haiku 4.5（快速稳定）
-
-**为什么推荐**：
+**推荐2：Claude Haiku 4.5（快速稳定）**
 - ⚡ 最快：响应速度快
 - 🎯 可靠：质量稳定
 - 💰 便宜：成本低
 
-**配置方法**：
-```json
-{
-  "agents": {
-    "defaults": {
-      "model": {
-        "primary": "maynor/claude-haiku-4-5-20251001"
-      }
-    }
-  }
-}
-```
+### 快速切换模型
 
-### 场景化选择
-
-| 使用场景 | 推荐模型 | 理由 |
-|---------|---------|------|
-| 日常对话 | DeepSeek / Haiku | 便宜快速 |
-| 编程开发 | DeepSeek / Sonnet | 代码质量高 |
-| 长文档处理 | Kimi | 超长上下文 |
-| 复杂任务 | Sonnet / Opus | 能力强 |
-
-### 如何切换模型
-
-**方法1：编辑配置文件**
 ```bash
-# 编辑配置
-nano ~/.openclaw/openclaw.json
-
-# 修改 primary 字段
-"primary": "你选择的模型ID"
-
-# 重启Gateway
-openclaw gateway restart
-```
-
-**方法2：命令行切换**
-```bash
+# 切换到 DeepSeek
 openclaw config set agents.defaults.model.primary "deepseek/deepseek-chat"
+
+# 切换到 Claude Haiku
+openclaw config set agents.defaults.model.primary "maynor/claude-haiku-4-5-20251001"
+
+# 重启生效
 openclaw gateway restart
 ```
-
-### 省钱技巧
-
-1. **优先使用国产模型**：DeepSeek、Kimi 等，价格便宜 50%-70%
-2. **优化提示词**：简洁明了，减少 Token 消耗
-3. **定期清理历史**：清理旧会话，减少上下文长度
 
 > 📚 **想了解更多？**  
 > 详细的模型对比、多模型切换策略、成本优化方案，请参考 [第10章：高级配置](../03-advanced/10-advanced-configuration.md)。
