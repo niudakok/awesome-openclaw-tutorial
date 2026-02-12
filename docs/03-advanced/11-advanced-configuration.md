@@ -17,7 +17,7 @@
 
 **定义**：
 
-Antigravity Manager是一个AI API代理工具，可以让你通过本地服务访问多个AI模型（Claude、Gemini、GPT等），统一管理API密钥和请求。
+Antigravity Manager是1个AI API代理工具，可以让你通过本地服务访问多个AI模型（Claude、Gemini、GPT等），统一管理API密钥和请求。
 
 **项目地址**：https://github.com/lbjlaq/Antigravity-Manager
 
@@ -26,7 +26,7 @@ Antigravity Manager是一个AI API代理工具，可以让你通过本地服务�
 把OpenClaw和Antigravity Manager结合使用，你可以：
 
 - ✅ **本地部署**：所有数据在本地处理，保护隐私
-- ✅ **统一管理**：一个工具管理所有AI模型
+- ✅ **统一管理**：1个工具管理所有AI模型
 - ✅ **成本控制**：使用自己的API密钥，避免中间商加价
 - ✅ **灵活切换**：随时切换不同的模型，无需修改代码
 - ✅ **技能扩展**：通过ClawHub安装各种实用技能
@@ -74,7 +74,7 @@ chmod +x Antigravity-Manager-*.AppImage
 
 #### 验证安装
 
-启动后，应用会在本地运行一个API服务，默认地址：`http://127.0.0.1:8045`
+启动后，应用会在本地运行1个API服务，默认地址：`http://127.0.0.1:8045`
 
 在浏览器中访问这个地址，如果能看到管理界面，说明安装成功。
 
@@ -265,7 +265,7 @@ openclaw message send "你好，介绍一下你自己"
 直接发送消息即可：
 
 ```bash
-openclaw message send "写一个Python脚本，打印Hello World"
+openclaw message send "写1个Python脚本，打印Hello World"
 ```
 
 #### 切换到Opus Thinking模型
@@ -346,7 +346,7 @@ openclaw agent --model "local-google/gemini-3-pro-image" --message "分析这张
 
 #### 配置模型别名
 
-给模型起一个好记的名字：
+给模型起1个好记的名字：
 
 ```bash
 openclaw config set agents.defaults.models."local-anthropic/claude-sonnet-4-5-20250929".alias "我的Claude"
@@ -359,7 +359,7 @@ openclaw config set agents.defaults.models."local-anthropic/claude-sonnet-4-5-20
 ```bash
 cat ~/.openclaw/openclaw.json | jq '.models.providers["local-anthropic-2"] = {
   "baseUrl": "http://127.0.0.1:8045",
-  "apiKey": "另一个User_Token",
+  "apiKey": "另1个User_Token",
   "auth": "api-key",
   "api": "anthropic-messages",
   "models": [...]

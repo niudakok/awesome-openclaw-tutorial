@@ -2,7 +2,7 @@
 
 > 💡 **本章目标**：深入理解Skills本质，学会使用ClawHub技能市场，掌握必装Skills推荐，学习自定义Skills开发和管理技巧。
 
-> ⚠️ **重要提示**：没有Skills的OpenClaw只是一个聊天机器人，有了Skills才能真正成为你的AI助手！
+> ⚠️ **重要提示**：没有Skills的OpenClaw只是1个聊天机器人，有了Skills才能真正成为你的AI助手！
 
 ---
 
@@ -14,11 +14,11 @@
 
 Skills 本质上就是教 AI 按固定流程做事的操作说明书，一旦写好，就能像函数一样反复调用。
 
-我们可以把 Skills 看成把"某类事情应该怎么专业做"这件事，封装成一个可复用、可自动触发的能力模块。
+可以把 Skills 看成把"某类事情应该怎么专业做"这件事，封装成1个可复用、可自动触发的能力模块。
 
 **形象比喻**：
 
-把 AI 想象成一个**刚毕业的聪明但没经验的实习生**：
+把 AI 想象成1个**刚毕业的聪明但没经验的实习生**：
 
 * **普通Prompt** = 你每次都要从头教他怎么做事（今天教一遍，明天还得重新教）
 * **Rule / 记忆** = 你给他贴一张"公司行为守则"在工位上（一直生效，但只能管态度和格式）
@@ -124,7 +124,7 @@ Skills方式（渐进式加载）：
 
 **最小Skills结构**：
 
-一个 Skill 本质上就是一个 Markdown 文件（文件名固定为 SKILL.md）
+1个 Skill 本质上就是1个 Markdown 文件（文件名固定为 SKILL.md）
 
 ```
 my-skill/
@@ -251,7 +251,7 @@ ClawHub是OpenClaw的官方技能市场（https://clawhub.com），类似于App 
 
 **Skills加载位置**：
 
-OpenClaw从三个位置加载Skills，优先级从高到低：
+OpenClaw从3个位置加载Skills，优先级从高到低：
 
 ```
 1. 工作区Skills：<workspace>/skills（最高优先级）
@@ -1050,7 +1050,7 @@ npx clawhub@latest install design-doc-mermaid
 ```
 
 **使用场景**：
-"帮我画一个用户注册的时序图，包含前端、后端、数据库交互"
+"帮我画1个用户注册的时序图，包含前端、后端、数据库交互"
 
 **效果**：AI直接生成Mermaid代码并渲染成图，告别用画图工具手动拖拽的时代。
 
@@ -1393,7 +1393,7 @@ claude
 输入任务：
 
 ```
-帮我写一个计算用户折扣的函数
+帮我写1个计算用户折扣的函数
 ```
 
 Claude 会扫描已安装的 Skills，发现你的请求涉及 "Python 代码编写"，匹配了 python-naming-standard。
@@ -1411,7 +1411,7 @@ def _internal_get_discount(user_score):
 ### 8.6.2 技能开发最佳实践
 
 **设计原则**：
-1. **单一职责**：每个技能只解决一个特定问题
+1. **单一职责**：每个技能只解决1个特定问题
 2. **接口简单**：提供清晰简单的使用接口
 3. **错误处理**：完善的错误处理和用户提示
 4. **文档完整**：提供详细的使用文档和示例
@@ -1479,7 +1479,7 @@ openclaw examples
 
 **基本格式**：
 
-OpenClaw使用兼容AgentSkills的Skills文件夹。每个Skills是一个包含`SKILL.md`的目录。
+OpenClaw使用兼容AgentSkills的Skills文件夹。每个Skills是1个包含`SKILL.md`的目录。
 
 **最小示例**：
 
@@ -1790,7 +1790,7 @@ bash {baseDir}/tools/setup.sh
 <parameter name="command">git add .
 
 
-**实战案例1：开发一个简单的Skills**
+**实战案例1：开发1个简单的Skills**
 
 ```typescript
 // src/index.ts
@@ -1800,7 +1800,7 @@ export default class HelloSkill extends Skill {
   config: SkillConfig = {
     name: 'hello-skill',
     version: '1.0.0',
-    description: '一个简单的问候Skills',
+    description: '1个简单的问候Skills',
     author: '你的名字',
     keywords: ['问候', '示例'],
     permissions: []
@@ -2245,7 +2245,7 @@ Skills监视器会监视Skills文件夹，当SKILL.md文件更改时自动更新
 1. OpenClaw在会话开始时对有资格的Skills进行快照
 2. 监视器监视Skills文件夹的变化
 3. 当SKILL.md更改时，刷新Skills列表
-4. 刷新后的列表在下一个智能体轮次生效
+4. 刷新后的列表在下1个智能体轮次生效
 ```
 
 **使用场景**：
@@ -2702,7 +2702,7 @@ cp ~/.openclaw/openclaw.json ~/backups/openclaw-$(date +%Y%m%d).json
 3. 测试Skills功能
 
 ### 练习2：开发简单Skills
-1. 创建一个问候Skills
+1. 创建1个问候Skills
 2. 实现基本功能
 3. 测试和调试
 
@@ -2947,7 +2947,7 @@ OpenClaw：正在生成图片...
 步骤：
 1. 打开飞书
 2. 找到OpenClaw
-3. 发送：画一个赛博朋克风格的城市
+3. 发送：画1个赛博朋克风格的城市
 4. 等待10秒
 5. 收到图片
 
@@ -3094,7 +3094,7 @@ openclaw config set kling.apiKey "your-api-key"
 #### 实战案例
 
 ```text
-你：生成一个5秒的视频：
+你：生成1个5秒的视频：
 海浪拍打沙滩，日落时分
 
 OpenClaw：正在生成...
@@ -3257,7 +3257,7 @@ try {
 ## 🎯 实战练习
 
 1. 安装5个核心Skills并测试
-2. 尝试开发一个简单的Skills
+2. 尝试开发1个简单的Skills
 3. 封装一个你常用的API服务
 4. 构建一个完整的自动化工作流
 

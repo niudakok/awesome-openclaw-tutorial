@@ -773,7 +773,7 @@ OpenClaw：好的，正在生成...
 【片头】（0-30秒）
 画面：OpenClaw Logo动画
 文案：大家好，我是[UP主名]
-     今天给大家带来OpenClaw的完全使用指南
+     今天带来OpenClaw的完全使用指南
      
      这个视频会教你：
      • 如何安装OpenClaw
@@ -897,7 +897,7 @@ OpenClaw：好的，正在生成...
      评论区有问题随时问我
      我会一一回复的！
      
-     我们下期再见，拜拜~
+     下期再见~
 
 📊 脚本分析：
 • 内容完整性：⭐⭐⭐⭐⭐
@@ -1270,7 +1270,7 @@ OpenClaw：好的，开始实时翻译...
 ⏺️ 翻译记录：
 
 10:00 张三（中文）：
-大家好，今天我们讨论一下项目进度...
+大家好，今天讨论一下项目进度...
 
 10:00 Translation（英文）：
 Hello everyone, today we will discuss the project progress...
@@ -1282,7 +1282,7 @@ Thank you. I have some questions about the timeline...
 谢谢。我对时间表有一些问题...
 
 10:05 李四（中文）：
-关于时间表，我们计划在下个月完成第一阶段...
+关于时间表，计划在下个月完成第一阶段...
 
 10:05 Translation（英文）：
 Regarding the timeline, we plan to complete the first phase next month...
@@ -2210,7 +2210,7 @@ openclaw config set brainstorm.sync-to "notion,feishu"
 
 ## 📝 本章完整小结
 
-通过5个创意应用场景，我们学习了OpenClaw在创意领域的强大能力：
+通过5个创意应用场景，学习了OpenClaw在创意领域的强大能力：
 
 ### 核心功能回顾
 
@@ -2382,7 +2382,7 @@ OpenClaw：好的，正在组织头脑风暴...
 【第2轮讨论】深入分析
 
 李明（营销专家）：
-综合大家的建议，我觉得"灵犀"和"智伴"比较好：
+综合各方建议，我觉得"灵犀"和"智伴"比较好：
 
 "灵犀"的优势：
 • 文化底蕴深厚

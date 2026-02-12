@@ -2,7 +2,7 @@
 
 > 接入第三方服务，让AI能力更强大
 
-本章将教你如何将OpenClaw与各种第三方API服务集成，扩展AI的能力边界。我们将重点介绍4个实用场景的配置方法：AI绘图、Notion数据同步、视频生成和语音合成。
+本章将介绍如何将OpenClaw与各种第三方API服务集成，扩展AI的能力边界。重点介绍4个实用场景的配置方法：AI绘图、Notion数据同步、视频生成和语音合成。
 
 💡 **本章重点**：API集成的配置方法和基础使用。详细的实战案例请参考第14章《创意应用探索》。
 
@@ -107,7 +107,7 @@ bash test.sh
 **示例1：生成Logo**
 
 ```
-你：帮我设计一个Logo，主题是"超级个体"，要求：
+你：帮我设计1个Logo，主题是"超级个体"，要求：
 - 简洁现代
 - 使用蓝色和橙色
 - 包含一个人和AI的元素
@@ -153,7 +153,7 @@ cd ~/.openclaw/skills/bananapro-image-gen
 
 # 生成图片（OpenAI格式）
 python3 scripts/generate_image.py \
-    --prompt "一个简约的Logo设计，主题是AI助手" \
+    --prompt "1个简约的Logo设计，主题是AI助手" \
     --filename output.png \
     --api-format openai
 
@@ -169,7 +169,7 @@ python3 scripts/generate_image.py \
 
 | 参数 | 说明 | 默认值 | 示例 |
 |------|------|--------|------|
-| `--prompt` | 图片描述（必填） | - | "一个Logo设计" |
+| `--prompt` | 图片描述（必填） | - | "1个Logo设计" |
 | `--filename` | 输出文件名 | output.png | my_image.png |
 | `--api-format` | API格式 | openai | openai/gemini |
 | `--resolution` | 分辨率 | 1K | 1K/2K/4K |
@@ -218,8 +218,8 @@ chmod +x batch_generate.sh
 **技巧2：详细描述**
 
 ```
-❌ 不好：画一个Logo
-✅ 好：设计一个Logo，圆形，蓝色渐变，中间是一个抽象的大脑图案，
+❌ 不好：画1个Logo
+✅ 好：设计1个Logo，圆形，蓝色渐变，中间是1个抽象的大脑图案，
       周围有数据流动的线条，现代科技感
 ```
 
@@ -249,7 +249,7 @@ chmod +x batch_generate.sh
 
 ```bash
 # Logo设计模板
-"设计一个[主题]Logo，要求：
+"设计1个[主题]Logo，要求：
 - 形状：[圆形/方形/抽象]
 - 颜色：[主色调]
 - 元素：[核心元素]
@@ -368,7 +368,7 @@ projects=(
 for project in "${projects[@]}"; do
     IFS=':' read -r name color style <<< "$project"
     
-    prompt="设计一个${name}的Logo，要求：
+    prompt="设计1个${name}的Logo，要求：
     - 主色调：${color}
     - 风格：${style}
     - 简洁现代
@@ -488,7 +488,7 @@ img.save("output_processed.png")
 ```python
 # image_templates.py
 TEMPLATES = {
-    "logo": """设计一个{theme}Logo，要求：
+    "logo": """设计1个{theme}Logo，要求：
     - 形状：{shape}
     - 颜色：{color}
     - 风格：{style}
@@ -621,7 +621,7 @@ npm install @notionhq/client
    - 填写集成信息：
      - **Name**：OpenClaw Integration（或你喜欢的名称）
      - **Associated workspace**：选择你要使用的工作区
-     - **Logo**：可选，上传一个图标
+     - **Logo**：可选，上传1个图标
    
 3. **配置权限**
    - 在 "Capabilities" 部分，勾选以下权限：
@@ -633,7 +633,7 @@ npm install @notionhq/client
    
 4. **提交创建**
    - 点击 "Submit" 按钮
-   - 系统会生成一个 API 密钥（Secret）
+   - 系统会生成1个 API 密钥（Secret）
 
 #### 步骤2：获取并保存 API Key
 
@@ -815,7 +815,7 @@ curl -X POST "https://api.notion.com/v1/databases/$DATABASE_ID/query" \
 **测试3：创建页面**
 
 ```bash
-# 在数据库中创建一个测试页面
+# 在数据库中创建1个测试页面
 curl -X POST https://api.notion.com/v1/pages \
   -H "Authorization: Bearer $NOTION_API_KEY" \
   -H "Notion-Version: $NOTION_VERSION" \
@@ -1347,14 +1347,14 @@ nano ~/.openclaw/openclaw.json
 **示例1：生成AI头像视频**
 
 ```
-你：生成一个30秒的AI头像视频，内容是：
+你：生成1个30秒的AI头像视频，内容是：
 
 主题：OpenClaw快速入门
 脚本：
-大家好，我是OpenClaw AI助手。
-今天教大家如何快速上手OpenClaw。
-只需三步：安装、配置、使用。
-让我们开始吧！
+您好，我是OpenClaw AI助手。
+今天介绍如何快速上手OpenClaw。
+只需3步：安装、配置、使用。
+开始吧！
 
 要求：
 - 头像：专业男性
@@ -1482,7 +1482,7 @@ cat > daily_video.sh << 'EOF'
 #!/bin/bash
 
 # 获取今日主题
-topic=$(openclaw ask "推荐一个适合短视频的技术主题")
+topic=$(openclaw ask "推荐1个适合短视频的技术主题")
 
 # 生成脚本
 script=$(openclaw ask "为主题'${topic}'生成60秒短视频脚本")
@@ -1511,7 +1511,7 @@ openclaw schedule add "daily-video" \
 场景：为新产品快速生成多语言介绍视频。
 
 ```
-你：为OpenClaw生成产品介绍视频，需要中英日三个版本
+你：为OpenClaw生成产品介绍视频，需要中英日3个版本
 
 产品特点：
 1. 本地部署，保护隐私
@@ -1766,7 +1766,7 @@ nano ~/.openclaw/openclaw.json
 ```
 你：把这段文字转换为语音：
 
-OpenClaw是一个开源的AI助手框架，
+OpenClaw是1个开源的AI助手框架，
 它可以访问本地文件，操作系统应用，
 扩展各种功能，让AI真正成为你的助手。
 
@@ -1939,7 +1939,7 @@ https://audio.openclaw.com/audiobook/abc123
 你：为这个视频脚本生成中英日三种语言的配音
 
 脚本：
-OpenClaw是一个开源的AI助手框架。
+OpenClaw是1个开源的AI助手框架。
 它可以访问本地文件，操作系统应用。
 让AI真正成为你的超级助手。
 
@@ -2457,7 +2457,7 @@ openclaw alias create "配音" "使用elevenlabs转语音"
 openclaw alias create "做视频" "使用video-agent生成视频"
 
 # 使用快捷命令
-你：画图 一个可爱的小龙虾
+你：画图 1个可爱的小龙虾
 你：记笔记 今天学习了API集成
 你：配音 这段文字
 你：做视频 产品介绍脚本
@@ -2465,7 +2465,7 @@ openclaw alias create "做视频" "使用video-agent生成视频"
 
 **技巧3：批量安装脚本**
 
-由于 `clawhub` 一次只能安装一个 Skill，可以创建批量安装脚本：
+由于 `clawhub` 一次只能安装1个 Skill，可以创建批量安装脚本：
 
 ```bash
 # 创建批量安装脚本
@@ -2704,12 +2704,12 @@ openclaw cost detail --period 1d
 
 ### 下一步行动
 
-1. **立即开始**：选择一个场景，安装对应的Skills
+1. **立即开始**：选择1个场景，安装对应的Skills
 2. **实践验证**：通过实际案例测试效果
 3. **优化流程**：根据使用情况调整配置
 4. **扩展应用**：探索更多集成可能性
 
-通过API集成，OpenClaw从一个AI助手升级为全能创作平台。掌握这些集成方法，你将拥有：
+通过API集成，OpenClaw从1个AI助手升级为全能创作平台。掌握这些集成方法，你将拥有：
 - 🎨 AI绘画能力
 - 📝 自动化知识管理
 - 🎬 视频创作能力
