@@ -1995,6 +1995,12 @@ echo "✅ 学生学习助手配置完成！"
 
 ```bash
 # 1. 安装Skills双幻神
+
+# 方法1：使用ClawHub安装（推荐）
+npx clawhub@latest install find-skills
+npx clawhub@latest install proactive-agent
+
+# 方法2：通过对话安装
 你：帮我安装这里面的Skills：
 https://github.com/vercel-labs/skills/tree/main/skills/find-skills
 https://github.com/leomariga/ProactiveAgent
@@ -2022,12 +2028,16 @@ OpenClaw：正在安装...
 **find-skills**：智能Skills发现
 - 功能：OpenClaw遇到问题时主动寻找合适的Skills
 - 优势：按需安装，避免Skills冗余
+- 安装：`npx clawhub@latest install find-skills`
 - GitHub：https://github.com/vercel-labs/skills/tree/main/skills/find-skills
 
 **ProactiveAgent**：主动式Agent
 - 功能：预测用户需求，主动发起对话
 - 实战案例：做了几次日报转HTML后，主动提示"要不要我帮你自动化这个流程？"
+- 安装：`npx clawhub@latest install proactive-agent`
 - GitHub：https://github.com/leomariga/ProactiveAgent
+
+⚠️ **安全提示**：ProactiveAgent安装时可能会显示VirusTotal警告（因为包含外部API调用），这是正常的，可以安全使用。
 
 ![百度Skills列表](https://upload.maynor1024.live/file/1770780916129_image_5.jpg)
 
@@ -2497,8 +2507,8 @@ echo "🚀 开始配置云上OpenClaw..."
 
 # 1. 安装Skills双幻神
 echo "📦 安装Skills双幻神..."
-openclaw skills install find-skills
-openclaw skills install proactive-agent
+npx clawhub@latest install find-skills
+npx clawhub@latest install proactive-agent
 
 # 2. 配置智能日报系统
 echo "📰 配置智能日报系统..."

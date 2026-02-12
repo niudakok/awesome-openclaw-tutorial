@@ -1074,11 +1074,35 @@ openclaw auth google
 - "查一下我这周的Gmail邮件和Calendar日程，生成一份简洁的周报，发给老板"
 - "根据会议纪要，自动创建Google Calendar日程，邀请参会人员"
 
+#### 8. find-skills + ProactiveAgent——Skills双幻神 🌟🌟
+
+**核心作用**：
+- **find-skills**：智能发现Skills，OpenClaw遇到问题时自动寻找合适的Skills
+- **ProactiveAgent**：主动预测需求，观察使用习惯后主动提出自动化建议
+
+**安装命令**：
+```bash
+# 安装Skills双幻神
+npx clawhub@latest install find-skills
+npx clawhub@latest install proactive-agent
+```
+
+**使用场景**：
+- find-skills：当OpenClaw无法完成某个任务时，自动搜索并推荐合适的Skills
+- ProactiveAgent：做了几次日报转HTML后，主动问"要不要我帮你自动化这个流程？"
+
+**GitHub链接**：
+- find-skills: https://github.com/vercel-labs/skills/tree/main/skills/find-skills
+- ProactiveAgent: https://github.com/leomariga/ProactiveAgent
+
+⚠️ **安全提示**：ProactiveAgent安装时可能显示VirusTotal警告（因包含外部API调用），这是正常的，可以安全使用。
+
 **核心Skills安装命令汇总**：
 ```bash
-# 一键安装7大核心Skills
+# 一键安装9大核心Skills（包含Skills双幻神）
 npx clawhub@latest install mcporter brave-search transcript-api \
-  file-system-manager playwright-headless design-doc-mermaid google-workspace
+  file-system-manager playwright-headless design-doc-mermaid google-workspace \
+  find-skills proactive-agent
 ```
 
 ---
