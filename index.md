@@ -85,6 +85,7 @@ title: 首页
 
 - [第8章：Skills扩展（1715个技能让AI无所不能）](docs/03-advanced/08-skills-extension.md)
   > ClawHub技能市场，一键安装，让AI能力无限扩展
+  > 🌟 **Skills双幻神**：find-skills（智能发现）+ ProactiveAgent（主动预测）
   
 - [第9章：多平台集成（企微/钉钉/飞书/QQ一键接入）](docs/03-advanced/09-multi-platform-integration.md)
   > 团队协作必备，让OpenClaw接入你的工作平台
@@ -99,6 +100,7 @@ title: 首页
 
 - [第12章：5类人群的效率提升实战](docs/04-practical-cases/12-personal-productivity.md)
   > 真实案例，直接套用，立即提升效率
+  > 🌟 **Skills双幻神实战**：find-skills + ProactiveAgent 让OpenClaw更智能
   
 - [第13章：高级自动化工作流（多Skills组合/知识图谱）](docs/04-practical-cases/13-advanced-automation.md)
   > 进阶玩法，打造个人效率系统
@@ -108,10 +110,10 @@ title: 首页
 
 ### 🛠️ 第五部分：问题解决（2章）
 
-- [第15章：常见问题速查（安装/API/Skills/性能）](docs/05-troubleshooting/15-common-problems.md)
+- [第14章：常见问题速查（安装/API/Skills/性能）](docs/05-troubleshooting/14-common-problems.md)
   > 遇到问题？这里有答案
   
-- [第16章：避坑指南（新手必看）](docs/05-troubleshooting/16-best-practices.md)
+- [第15章：避坑指南（新手必看）](docs/05-troubleshooting/15-best-practices.md)
   > 前人踩过的坑，你不用再踩
 
 ### 📖 附录：速查手册

@@ -157,10 +157,11 @@
 #### [第8章：Skills扩展（1715个技能让AI无所不能）](docs/03-advanced/08-skills-extension.md)
 > ClawHub技能市场，一键安装，让AI能力无限扩展
 - 🏪 ClawHub技能市场：1715个官方技能
-- ⭐ 必装Skills Top 10：文件管理、网页搜索、日历同步
+- ⭐ 必装Skills Top 10：文件管理、网页搜索、日历同步、**Skills双幻神**
+- 🌟 **Skills双幻神**：find-skills（智能发现）+ ProactiveAgent（主动预测）
 - 🛠️ 自定义Skills开发：打造专属技能
 - 📦 Skills管理技巧：安装、更新、卸载
-- 🎯 **百度千帆Skills生态**：1715个企业级Skills，覆盖20+行业（新增）
+- 🎯 **百度千帆Skills生态**：1715个企业级Skills，覆盖20+行业
 
 #### [第9章：多平台集成（企微/钉钉/飞书/QQ一键接入）](docs/03-advanced/09-multi-platform-integration.md)
 > 团队协作必备，让OpenClaw接入你的工作平台
@@ -193,7 +194,8 @@
 - 👨‍💻 程序员：代码审查、Bug追踪、文档生成（效率提升78%）
 - ✍️ 内容创作者：选题策划、素材整理、多平台发布（效率提升92%）
 - 🎓 学生：论文阅读、笔记整理、作业辅导
-- 🚀 **云上OpenClaw的5种正确打开方式**（新增）
+- 🚀 **云上OpenClaw的5种正确打开方式**
+- 🌟 **Skills双幻神实战**：find-skills + ProactiveAgent 让OpenClaw更智能
 
 #### [第13章：高级自动化工作流（多Skills组合/知识图谱）](docs/04-practical-cases/13-advanced-automation.md)
 > 进阶玩法，打造个人效率系统
