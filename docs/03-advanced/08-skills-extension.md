@@ -3240,6 +3240,318 @@ try {
 
 ---
 
+## 8.10 常用工具安装案例
+
+> 💡 **实战指南**：OpenClaw的Skills系统依赖一些外部工具，本节介绍两个常用工具的完整安装过程。
+
+### 8.10.1 1Password CLI安装（密码管理）
+
+**工具简介**：
+1Password CLI (op) 是1Password的命令行工具，让OpenClaw能够安全地访问和管理你的密码库中的凭证、API密钥等敏感信息。
+
+**使用场景**：
+- 安全存储API密钥
+- 自动填充登录信息
+- 团队密码共享
+- CI/CD流程中的密钥管理
+
+**安装步骤**：
+
+```bash
+# macOS安装（推荐使用Homebrew）
+brew install --cask 1password-cli
+
+# 验证安装
+which op
+# 输出：/usr/local/bin/op
+
+op --version
+# 输出：2.32.1
+```
+
+**配置使用**：
+
+1. **启用桌面应用集成**：
+   - 打开1Password桌面应用
+   - 进入设置 → 开发者
+   - 启用"与1Password CLI集成"
+
+2. **登录账户**：
+```bash
+# 登录1Password账户
+op signin
+
+# 或指定账户域名
+op signin my.1password.com
+```
+
+3. **在OpenClaw中使用**：
+```bash
+# 获取密码
+op item get "GitHub" --fields password
+
+# 获取API密钥
+op item get "OpenAI API" --fields credential
+
+# 列出所有项目
+op item list
+```
+
+**OpenClaw集成示例**：
+
+```
+你：从1Password获取GitHub的API密钥
+
+OpenClaw：正在获取...
+✅ 已获取GitHub API密钥：ghp_xxxxxxxxxxxx
+
+你：用这个密钥创建一个新的GitHub仓库
+
+OpenClaw：好的，正在创建...
+✅ 仓库创建成功！
+```
+
+**安全提示**：
+- ⚠️ 不要在代码中硬编码密码
+- ✅ 使用1Password CLI安全管理所有凭证
+- ✅ 定期更换API密钥
+- ✅ 为不同项目使用不同的凭证
+
+---
+
+### 8.10.2 camsnap安装（摄像头捕获）
+
+**工具简介**：
+camsnap是一个用于捕获RTSP/ONVIF摄像头画面的命令行工具，让OpenClaw能够获取网络摄像头的实时画面或录制视频片段。
+
+**使用场景**：
+- 智能家居监控
+- 安防系统集成
+- 自动化截图和录像
+- 视频分析和处理
+
+**系统要求**：
+- macOS（Apple Silicon或Intel）
+- Homebrew包管理器
+- 网络摄像头（支持RTSP/ONVIF协议）
+
+**安装步骤**：
+
+**步骤1：检查系统架构**
+
+```bash
+# 检查CPU架构
+uname -m
+# 输出：arm64（Apple Silicon）或 x86_64（Intel）
+```
+
+**步骤2：确保使用ARM64版本的Homebrew（Apple Silicon Mac）**
+
+如果你的Mac是Apple Silicon（M1/M2/M3芯片），需要确保安装了ARM64版本的Homebrew：
+
+```bash
+# 检查当前brew位置
+which brew
+# 应该输出：/opt/homebrew/bin/brew（ARM64版本）
+# 如果输出：/usr/local/bin/brew（Intel版本），需要安装ARM64版本
+
+# 安装ARM64版本的Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 配置shell环境（zsh）
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# 验证brew版本
+brew --version
+which brew
+# 应该输出：/opt/homebrew/bin/brew
+```
+
+**步骤3：安装camsnap**
+
+```bash
+# 添加tap源
+brew tap steipete/tap
+
+# 安装camsnap
+brew install camsnap
+
+# 验证安装
+which camsnap
+# 输出：/opt/homebrew/bin/camsnap
+
+camsnap --version
+# 输出：0.2.0
+```
+
+**步骤4：创建符号链接（可选，解决兼容性问题）**
+
+如果OpenClaw无法找到camsnap，可以创建符号链接：
+
+```bash
+# 创建符号链接到/usr/local/bin
+sudo ln -sf /opt/homebrew/bin/camsnap /usr/local/bin/camsnap
+
+# 验证符号链接
+ls -la /usr/local/bin/camsnap
+# 输出：lrwxr-xr-x@ 1 root  wheel  25 Feb 13 14:47 /usr/local/bin/camsnap -> /opt/homebrew/bin/camsnap
+
+# 测试
+/usr/local/bin/camsnap --version
+# 输出：0.2.0
+```
+
+**使用示例**：
+
+```bash
+# 捕获单帧画面
+camsnap --url rtsp://192.168.1.100:554/stream --output snapshot.jpg
+
+# 录制视频片段（10秒）
+camsnap --url rtsp://192.168.1.100:554/stream --duration 10 --output video.mp4
+
+# 指定分辨率
+camsnap --url rtsp://192.168.1.100:554/stream --width 1920 --height 1080 --output hd.jpg
+```
+
+**OpenClaw集成示例**：
+
+```
+你：拍一张客厅摄像头的照片
+
+OpenClaw：正在捕获画面...
+✅ 已保存到：~/Pictures/living-room-2026-02-13-14-30.jpg
+[发送图片]
+
+你：录制10秒的门口监控视频
+
+OpenClaw：正在录制...
+⏱️ 录制中... 10秒
+✅ 已保存到：~/Videos/door-monitor-2026-02-13-14-31.mp4
+```
+
+**故障排查**：
+
+**问题1：安装失败，提示"arm64 architecture is required"**
+
+```bash
+# 原因：使用了Intel版本的brew
+# 解决：安装ARM64版本的Homebrew（见步骤2）
+
+# 检查当前brew架构
+brew config | grep -E "CPU|Homebrew"
+# 应该显示：CPU: octa-core 64-bit arm_*
+```
+
+**问题2：OpenClaw提示"Missing: bin:camsnap"**
+
+```bash
+# 原因：OpenClaw无法找到camsnap
+# 解决：创建符号链接（见步骤4）
+
+# 或者重启OpenClaw Gateway
+openclaw gateway restart
+```
+
+**问题3：摄像头连接失败**
+
+```bash
+# 检查摄像头URL是否正确
+# RTSP URL格式：rtsp://用户名:密码@IP地址:端口/路径
+
+# 测试摄像头连接
+camsnap --url rtsp://admin:password@192.168.1.100:554/stream --test
+
+# 查看详细错误信息
+camsnap --url rtsp://192.168.1.100:554/stream --verbose
+```
+
+**安全提示**：
+- ⚠️ 不要在公网暴露摄像头RTSP端口
+- ✅ 使用强密码保护摄像头
+- ✅ 定期更新摄像头固件
+- ✅ 限制OpenClaw对摄像头的访问权限
+
+---
+
+### 8.10.3 工具安装最佳实践
+
+**通用安装流程**：
+
+1. **检查系统要求**
+   ```bash
+   # 检查操作系统
+   uname -s
+   
+   # 检查CPU架构
+   uname -m
+   
+   # 检查可用空间
+   df -h
+   ```
+
+2. **选择合适的安装方式**
+   - Homebrew（推荐，适合macOS/Linux）
+   - npm/yarn（适合Node.js工具）
+   - pip/uv（适合Python工具）
+   - 直接下载二进制文件
+
+3. **验证安装**
+   ```bash
+   # 检查工具是否在PATH中
+   which <tool-name>
+   
+   # 检查版本
+   <tool-name> --version
+   
+   # 测试基本功能
+   <tool-name> --help
+   ```
+
+4. **配置环境变量**
+   ```bash
+   # 添加到~/.zshrc或~/.bashrc
+   export TOOL_API_KEY="your-key"
+   export TOOL_CONFIG_PATH="~/.config/tool"
+   
+   # 重新加载配置
+   source ~/.zshrc
+   ```
+
+5. **集成到OpenClaw**
+   ```bash
+   # 重启OpenClaw Gateway
+   openclaw gateway restart
+   
+   # 验证工具可用性
+   openclaw tools list
+   ```
+
+**常见问题排查**：
+
+| 问题 | 原因 | 解决方案 |
+|------|------|----------|
+| 找不到命令 | 未添加到PATH | 检查安装路径，添加到PATH |
+| 权限不足 | 需要管理员权限 | 使用sudo或管理员身份运行 |
+| 依赖缺失 | 缺少必需的库 | 安装依赖包 |
+| 版本不兼容 | 工具版本过旧 | 更新到最新版本 |
+| 架构不匹配 | ARM/Intel不兼容 | 安装对应架构的版本 |
+
+**推荐工具列表**：
+
+| 工具 | 用途 | 安装命令 |
+|------|------|----------|
+| 1Password CLI | 密码管理 | `brew install --cask 1password-cli` |
+| camsnap | 摄像头捕获 | `brew install steipete/tap/camsnap` |
+| ffmpeg | 视频处理 | `brew install ffmpeg` |
+| imagemagick | 图片处理 | `brew install imagemagick` |
+| jq | JSON处理 | `brew install jq` |
+| gh | GitHub CLI | `brew install gh` |
+| uv | Python包管理 | `brew install uv` |
+
+---
+
 ## 📝 本章小结
 
 通过本章学习，你已经掌握：
@@ -3253,6 +3565,7 @@ try {
 7. **Skills开发**：从零开发自己的Skills
 8. **管理技巧**：更新、备份、故障排查
 9. **API服务**：封装第三方API为Skills
+10. **工具安装**：1Password CLI和camsnap完整安装流程
 
 ## 🎯 实战练习
 
