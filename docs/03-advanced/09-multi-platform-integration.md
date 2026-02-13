@@ -3591,3 +3591,556 @@ openclaw doctor --fix
    - 定期清理不用的会话
 
 ---
+
+
+## 9.12 OpenClaw Manager - 可视化管理工具
+
+> 💡 **现代化管理界面**：OpenClaw Manager 是一个基于 React + Tailwind CSS 的 Web 管理界面，用于可视化管理多个 OpenClaw Gateway 实例。
+
+### 9.12.1 为什么需要 OpenClaw Manager？
+
+当你使用多 Gateway 架构（每个飞书机器人对应一个独立的 Gateway 实例）时，传统的命令行管理方式会变得繁琐。OpenClaw Manager 提供了：
+
+**核心价值**：
+- 📊 **实时监控**：一目了然查看所有 Gateway 的运行状态
+- 🎮 **一键控制**：启动/停止/重启服务，无需记忆命令
+- ➕ **图形化创建**：通过表单创建新 Gateway，无需手动编辑配置
+- ✏️ **在线编辑**：可视化编辑 Gateway 配置和 Agent 人格
+- ⚙️ **保活配置**：一键配置 launchd 保活服务
+- 📝 **日志查看**：实时查看每个服务的运行日志
+- 💻 **美观界面**：现代化设计，响应式布局
+
+### 9.12.2 功能特性
+
+#### 1. 自动发现 Gateway 实例 🔍
+
+系统会自动扫描 `~/.openclaw-*` 目录，读取配置文件并显示所有 Gateway 实例。
+
+**特性**：
+- 自动读取端口、模型、Agent 信息
+- 缓存机制（1分钟 TTL）提升性能
+- 支持手动刷新发现
+
+#### 2. 创建新 Gateway ➕
+
+通过图形界面创建新的 Gateway 实例，无需手动编辑配置文件。
+
+**配置项**：
+
+**基础信息**：
+- Profile ID：唯一标识符（如 `my-assistant`）
+- 机器人名称：显示名称（如 `我的助手`）
+- 端口号：Gateway 监听端口（建议 18789-18799）
+
+**Agent 配置**：
+- Agent ID：Agent 标识符（如 `main-agent`）
+- AI 模型：
+  - 预设模型：Claude Opus 4.6、Claude Sonnet 4.5、Gemini 2.5 Pro 等
+  - 自定义模型：输入任意模型 ID（如 `gpt-4o`, `deepseek-chat`）
+
+**飞书配置**：
+- App ID：飞书应用 ID（`cli_xxxxxxxxxxxxxxxx`）
+- App Secret：飞书应用密钥
+
+**人格设定 📝**：
+- SOUL.md 编辑器：使用 Markdown 定义 Agent 的角色、性格、专业领域、回答风格
+
+**示例 SOUL.md**：
+
+```markdown
+# 技术顾问 Agent
+
+## 角色定位
+你是一个资深的技术顾问，专注于软件架构和系统设计。
+
+## 性格特点
+- 严谨、专业
+- 注重细节和最佳实践
+- 善于分析复杂问题
+
+## 专业领域
+- 微服务架构
+- 云原生技术
+- DevOps 实践
+- 性能优化
+
+## 回答风格
+- 先理解需求，再提供方案
+- 给出具体可行的建议
+- 必要时提供代码示例和架构图
+- 考虑可扩展性和维护性
+```
+
+#### 3. 编辑 Gateway ✏️
+
+修改现有 Gateway 的配置和人格设定。
+
+**可修改项**：
+- 机器人名称
+- 端口号
+- Agent ID
+- AI 模型（预设或自定义）
+- 飞书 App ID 和 Secret（可选）
+- SOUL.md 人格设定
+
+**注意事项**：
+- Profile ID 不可修改
+- 飞书密钥留空则不修改
+- 修改后需要重启 Gateway 才能生效
+
+#### 4. 删除 Gateway 🗑️
+
+完全移除 Gateway 实例及其所有配置。
+
+**删除内容**：
+- Gateway 配置文件
+- Agent 配置目录
+- SOUL.md 人格文件
+- launchd 保活配置（如果存在）
+
+⚠️ **警告**：删除操作不可恢复，建议先备份重要配置。
+
+#### 5. 服务控制 🎮
+
+**批量操作**：
+- ⚙️ 配置保活：配置 launchd 保活服务（开机自启、崩溃重启）
+- ▶️ 启动所有：启动所有 Gateway 实例
+- ⏹️ 停止所有：停止所有 Gateway 实例
+- 🔄 重启所有：重启所有 Gateway 实例
+
+**单个操作**：
+- ✏️ 编辑：编辑 Gateway 配置
+- 🗑️ 删除：删除 Gateway
+- 📝 日志：查看运行日志
+
+#### 6. 实时状态监控 📊
+
+**显示信息**：
+- 运行状态（运行中/已停止）
+- 端口号
+- 使用的 AI 模型
+- launchd 保活状态
+
+**状态指示**：
+- 🟢 绿色：运行中
+- 🔴 红色：已停止
+- ⚪ 灰色：未知
+
+**自动刷新**：每 10 秒自动刷新状态，可手动点击"刷新状态"按钮。
+
+### 9.12.3 安装和使用
+
+#### 安装步骤
+
+```bash
+# 1. 克隆项目
+git clone https://github.com/xianyu110/openclaw-manager.git
+cd openclaw-manager
+
+# 2. 安装依赖
+npm install
+
+# 3. 启动服务（前端 + 后端）
+npm start
+```
+
+应用将在以下地址启动：
+- 前端：http://localhost:3000
+- 后端 API：http://localhost:3001
+
+#### 首次使用
+
+1. **启动应用**
+   ```bash
+   npm start
+   ```
+
+2. **打开浏览器**
+   访问 http://localhost:3000
+
+3. **配置保活服务**
+   - 点击"⚙️ 配置保活"按钮
+   - 等待配置完成
+   - 服务将自动开机启动并在崩溃后重启
+
+#### 日常操作
+
+**查看服务状态**：
+- 界面会自动每 10 秒刷新状态
+- 点击"刷新状态"按钮手动刷新
+- 绿色指示灯表示运行中，红色表示已停止
+
+**控制服务**：
+- 启动所有：一键启动所有 Gateway
+- 停止所有：一键停止所有 Gateway
+- 重启所有：一键重启所有 Gateway
+- 单个控制：在服务卡片中点击"重启"按钮
+
+**查看日志**：
+- 点击服务卡片中的"查看日志"按钮
+- 显示最近 100 行日志
+- 支持实时刷新
+
+### 9.12.4 使用场景
+
+#### 场景 1：创建专业领域助手
+
+**需求**：创建一个专注于前端开发的技术助手
+
+**步骤**：
+1. 点击"➕ 新建 Gateway"
+2. 填写基础信息：
+   - Profile ID: `frontend-expert`
+   - 机器人名称: `前端专家`
+   - 端口: `18793`
+3. 配置 Agent：
+   - Agent ID: `frontend-agent`
+   - 模型: `Claude Sonnet 4.5 Thinking`
+4. 展开人格编辑器，定义专业领域：
+
+```markdown
+# 前端开发专家
+
+## 角色定位
+你是一个资深的前端开发工程师，精通现代前端技术栈。
+
+## 专业领域
+- React / Vue / Angular
+- TypeScript
+- Webpack / Vite
+- CSS-in-JS / Tailwind CSS
+- 性能优化
+- 浏览器兼容性
+
+## 回答风格
+- 提供最新的最佳实践
+- 给出可运行的代码示例
+- 考虑性能和可维护性
+- 推荐合适的工具和库
+```
+
+5. 填写飞书配置
+6. 点击"创建"
+
+#### 场景 2：使用自定义模型
+
+**需求**：使用 OpenAI 的 GPT-4o 模型
+
+**步骤**：
+1. 在创建或编辑 Gateway 时
+2. 勾选"使用自定义模型"
+3. 输入模型 ID: `gpt-4o`
+4. 确保在 OpenClaw 主配置中已设置 OpenAI API Key
+
+**支持的自定义模型**：
+- OpenAI: `gpt-4o`, `gpt-4o-mini`, `gpt-4-turbo`
+- Anthropic: `claude-3-opus-20240229`, `claude-3-sonnet-20240229`
+- Google: `gemini-2.5-pro`, `gemini-2.5-flash`
+- DeepSeek: `deepseek-chat`, `deepseek-coder`
+- 其他兼容 OpenAI API 的模型
+
+#### 场景 3：创建多个专业助手
+
+**需求**：为不同团队创建专属助手
+
+**助手配置**：
+
+1. **产品经理助手**
+   - Profile: `product-manager`
+   - 模型: `Claude Opus 4.6`
+   - 人格: 注重用户体验、数据分析、产品规划
+
+2. **设计师助手**
+   - Profile: `designer`
+   - 模型: `Claude Sonnet 4.5`
+   - 人格: 关注视觉设计、用户界面、交互体验
+
+3. **运维工程师助手**
+   - Profile: `devops-engineer`
+   - 模型: `Claude Sonnet 4.5 Thinking`
+   - 人格: 专注系统稳定性、自动化、监控告警
+
+4. **数据分析师助手**
+   - Profile: `data-analyst`
+   - 模型: `Gemini 2.5 Pro`
+   - 人格: 擅长数据处理、可视化、统计分析
+
+### 9.12.5 高级技巧
+
+#### 1. 人格设定最佳实践
+
+**结构化定义**：
+
+```markdown
+# Agent 名称
+
+## 角色定位
+明确定义 Agent 的角色和定位
+
+## 性格特点
+- 列出 3-5 个核心性格特点
+- 保持一致性
+
+## 专业领域
+- 列出专业技能
+- 明确擅长的领域
+
+## 回答风格
+- 描述回答的方式
+- 设定语气和风格
+
+## 工作流程
+1. 步骤化的工作方式
+2. 确保逻辑清晰
+3. 提供可操作的建议
+
+## 限制和边界
+- 明确不擅长的领域
+- 设定合理的期望
+```
+
+#### 2. 模型选择建议
+
+**Claude Opus 4.6**：
+- 最强推理能力
+- 适合复杂问题分析
+- 成本较高
+
+**Claude Sonnet 4.5**：
+- 平衡性能和成本
+- 适合日常对话
+- 推荐用于大多数场景
+
+**Claude Sonnet 4.5 Thinking**：
+- 增强的思考过程
+- 适合需要深度分析的场景
+- 会显示思考步骤
+
+**Gemini 2.5 Flash**：
+- 响应速度快
+- 成本低
+- 适合简单查询和快速响应
+
+**DeepSeek Chat**：
+- 国产模型，成本极低
+- 中文能力强
+- 适合日常对话和简单任务
+
+#### 3. 端口分配建议
+
+**推荐范围**：18789-18799
+
+**示例分配**：
+- 18789: 主助理
+- 18790: 内容创作
+- 18791: 技术开发
+- 18792: 数据分析
+- 18793: 产品设计
+- 18794: 运维支持
+- 18795: 客户服务
+- 18796-18799: 预留
+
+### 9.12.6 故障排查
+
+#### 问题 1：创建 Gateway 失败
+
+**可能原因**：
+- Profile ID 已存在
+- 端口已被占用
+- 缺少必填字段
+
+**解决方法**：
+1. 检查错误提示
+2. 使用不同的 Profile ID
+3. 选择未被占用的端口
+4. 确保所有必填字段已填写
+
+#### 问题 2：Gateway 无法启动
+
+**可能原因**：
+- 配置文件格式错误
+- 飞书账号配置错误
+- 端口被其他程序占用
+
+**解决方法**：
+1. 检查配置文件语法
+2. 验证飞书 App ID 和 Secret
+3. 使用 `lsof -i :端口号` 检查端口占用
+4. 查看日志文件排查错误
+
+#### 问题 3：人格设定不生效
+
+**可能原因**：
+- SOUL.md 文件未保存
+- Gateway 未重启
+- Agent ID 不匹配
+
+**解决方法**：
+1. 确认 SOUL.md 已保存
+2. 重启 Gateway 服务
+3. 检查 Agent ID 是否正确
+4. 查看 `~/.openclaw-{profile}/agent-configs/{agent}/SOUL.md`
+
+#### 问题 4：后端无法连接
+
+```bash
+# 检查端口占用
+lsof -i :3001
+
+# 手动启动后端
+npm run server
+```
+
+#### 问题 5：前端无法访问
+
+```bash
+# 检查端口占用
+lsof -i :3000
+
+# 清除缓存重新启动
+rm -rf node_modules/.vite
+npm start
+```
+
+### 9.12.7 API 文档
+
+#### 状态查询
+
+**GET /api/status**
+
+获取所有服务的状态信息
+
+响应示例：
+```json
+{
+  "services": [
+    {
+      "id": "main-assistant",
+      "name": "主助理",
+      "port": 18789,
+      "status": "running",
+      "model": "Claude Opus 4.6",
+      "launchd": true
+    }
+  ]
+}
+```
+
+#### 批量操作
+
+- `POST /api/start-all` - 启动所有 Gateway 服务
+- `POST /api/stop-all` - 停止所有 Gateway 服务
+- `POST /api/restart-all` - 重启所有 Gateway 服务
+- `POST /api/setup-launchd` - 配置 launchd 保活服务
+
+#### 单个服务操作
+
+- `POST /api/start/:serviceId` - 启动指定的 Gateway 服务
+- `POST /api/stop/:serviceId` - 停止指定的 Gateway 服务
+- `POST /api/restart/:serviceId` - 重启指定的 Gateway 服务
+- `GET /api/logs/:serviceId` - 获取指定服务的日志（最近 100 行）
+
+#### Gateway 管理
+
+- `GET /api/gateways` - 获取所有 Gateway 配置
+- `POST /api/gateways` - 创建新的 Gateway
+- `PUT /api/gateways/:profileId` - 更新 Gateway 配置
+- `DELETE /api/gateways/:profileId` - 删除 Gateway
+
+### 9.12.8 最佳实践
+
+#### 1. 命名规范
+
+**Profile ID**：
+- 使用小写字母和连字符
+- 描述性命名
+- 例如: `tech-support`, `content-writer`
+
+**Agent ID**：
+- 与 Profile ID 保持一致
+- 添加 `-agent` 后缀
+- 例如: `tech-support-agent`
+
+#### 2. 人格设定
+
+**清晰明确**：
+- 使用简洁的语言
+- 避免模糊的描述
+- 提供具体的例子
+
+**保持一致**：
+- 人格特点要统一
+- 回答风格要稳定
+- 避免矛盾的设定
+
+**定期优化**：
+- 根据使用反馈调整
+- 不断完善人格设定
+- 测试不同的配置
+
+#### 3. 安全建议
+
+**保护敏感信息**：
+- 不要在 SOUL.md 中包含密钥
+- 定期更换飞书 App Secret
+- 限制 Gateway 的网络访问
+
+**备份配置**：
+- 定期备份 `~/.openclaw-*` 目录
+- 保存重要的 SOUL.md 文件
+- 记录配置变更
+
+### 9.12.9 项目信息
+
+**GitHub 仓库**：https://github.com/xianyu110/openclaw-manager
+
+**技术栈**：
+- 前端：React 18 + Tailwind CSS + Vite
+- 后端：Express + Node.js
+- 状态管理：React Hooks
+- 样式：Tailwind CSS
+
+**许可证**：MIT
+
+**作者**：Maynor (@xianyu110)
+
+**贡献**：
+欢迎提交 Issue 和 Pull Request！
+
+---
+
+## 📝 本章小结
+
+通过本章学习，你已经掌握：
+
+1. **飞书Bot配置**：完整的飞书机器人创建和配置流程
+2. **企业微信Bot**：企业微信机器人的配置方法
+3. **钉钉Bot配置**：钉钉机器人的接入步骤
+4. **QQ Bot配置**：QQ机器人的详细配置
+5. **Discord Bot**：Discord机器人的参考配置
+6. **平台对比**：各平台的功能对比和选择建议
+7. **多Agent配置**：高级的多Agent管理和配置
+8. **本地多Agent**：无需绑定IM平台的本地使用
+9. **OpenClaw Manager**：可视化管理工具的使用
+
+## 🎯 实战练习
+
+1. 配置一个飞书机器人并测试基本功能
+2. 尝试配置多个Agent，为不同场景使用不同模型
+3. 使用OpenClaw Manager创建和管理多个Gateway
+4. 为每个Agent定制专属的人格设定
+5. 配置launchd保活服务，实现开机自启
+
+## 💡 进阶建议
+
+1. 探索更多IM平台的集成方式
+2. 优化Agent的人格设定，提升使用体验
+3. 使用OpenClaw Manager简化日常管理
+4. 为团队成员创建专属的AI助手
+5. 定期备份配置，避免数据丢失
+
+---
+
+**下一章预告**：第10章将学习API集成，包括如何对接各种第三方服务，实现更强大的自动化功能。
+
+**返回目录**：[README](../../README.md)
