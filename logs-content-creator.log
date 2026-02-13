@@ -1,0 +1,55 @@
+[35m[plugins][39m [36mfeishu_doc: Registered feishu_doc, feishu_app_scopes[39m
+[35m[plugins][39m [36mfeishu_wiki: Registered feishu_wiki tool[39m
+[35m[plugins][39m [36mfeishu_drive: Registered feishu_drive tool[39m
+[90m2026-02-13T09:02:34.737Z[39m [35m[canvas][39m [36mhost mounted at http://0.0.0.0:18790/__openclaw__/canvas/ (root /Users/chinamanor/.openclaw/canvas)[39m
+[90m2026-02-13T09:02:34.807Z[39m [36m[heartbeat][39m [36mstarted[39m
+[90m2026-02-13T09:02:34.815Z[39m [36m[gateway][39m [36magent model: local-antigravity/gemini-3-pro-low[39m
+[90m2026-02-13T09:02:34.816Z[39m [36m[gateway][39m [36mlistening on ws://0.0.0.0:18790 (PID 25095)[39m
+[90m2026-02-13T09:02:34.819Z[39m [36m[gateway][39m [36mlog file: /tmp/openclaw/openclaw-2026-02-13.log[39m
+2026-02-13T09:02:34.832Z [info]: [ 'client ready' ]
+[90m2026-02-13T09:02:34.882Z[39m [35m[browser/service][39m [36mBrowser control service ready (profiles=2)[39m
+[90m2026-02-13T09:02:34.899Z[39m [33m[feishu][39m [36mstarting feishu[content-creator] (mode: websocket)[39m
+[90m2026-02-13T09:02:35.446Z[39m [33m[feishu][39m [36mfeishu[content-creator]: bot open_id resolved: ou_b02d5e05893e5866341d3aacc359bb8a[39m
+[90m2026-02-13T09:02:35.447Z[39m [33m[feishu][39m [36mfeishu[content-creator]: starting WebSocket connection...[39m
+2026-02-13T09:02:35.448Z [info]: [ 'event-dispatch is ready' ]
+2026-02-13T09:02:35.450Z [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-02-13T09:02:35.452Z[39m [33m[feishu][39m [36mfeishu[content-creator]: WebSocket client started[39m
+[90m2026-02-13T09:02:35.745Z[39m [36m[gateway][39m [36mupdate available (latest): v2026.2.12 (current v2026.2.9). Run: openclaw --profile content-creator update[39m
+2026-02-13T09:02:35.870Z [info]: [ '[ws]', 'ws client ready' ]
+[90m2026-02-13T09:04:33.165Z[39m [33m[feishu][39m [36mfeishu[content-creator]: received message from ou_277fc698d99aeb954b15f41d2a58eafc in oc_b59b5a7ec4f4605ef19c7381e18441dc (group)[39m
+[90m2026-02-13T09:04:33.198Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatching to agent (session=agent:content-agent:feishu:group:oc_b59b5a7ec4f4605ef19c7381e18441dc)[39m
+[90m2026-02-13T09:04:42.088Z[39m [33m[feishu][39m [36mfeishu[content-creator] deliver called: text=你好！很高兴能再次为你提供帮助。我是一位专业的内容创作助手，专注于技术文档、教程和文章。有什么内容创作上的需求我可以协助你吗？[39m
+[90m2026-02-13T09:04:42.090Z[39m [33m[feishu][39m [36mfeishu[content-creator] deliver: sending 1 text chunks to oc_b59b5a7ec4f4605ef19c7381e18441dc[39m
+[90m2026-02-13T09:04:42.506Z[39m [33m[feishu][39m [36mfeishu[content-creator]: added typing indicator reaction[39m
+[90m2026-02-13T09:04:42.625Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatch complete (queuedFinal=true, replies=1)[39m
+[90m2026-02-13T09:04:42.912Z[39m [33m[feishu][39m [36mfeishu[content-creator]: removed typing indicator reaction[39m
+[90m2026-02-13T09:04:42.917Z[39m [33m[feishu][39m [36mfeishu[content-creator]: removed typing indicator reaction[39m
+[90m2026-02-13T09:04:54.122Z[39m [33m[feishu][39m [36mfeishu[content-creator]: received message from ou_277fc698d99aeb954b15f41d2a58eafc in oc_b59b5a7ec4f4605ef19c7381e18441dc (group)[39m
+[90m2026-02-13T09:04:54.136Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatching to agent (session=agent:content-agent:feishu:group:oc_b59b5a7ec4f4605ef19c7381e18441dc)[39m
+[90m2026-02-13T09:04:54.142Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatch complete (queuedFinal=false, replies=0)[39m
+[90m2026-02-13T09:10:09.904Z[39m [33m[feishu][39m [36mfeishu[content-creator]: received message from ou_277fc698d99aeb954b15f41d2a58eafc in oc_291ebc9c14b84c6bf5653429b12a7ef5 (p2p)[39m
+[90m2026-02-13T09:10:09.917Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatching to agent (session=agent:content-agent:main)[39m
+[90m2026-02-13T09:10:10.911Z[39m [33m[feishu][39m [36mfeishu[content-creator]: added typing indicator reaction[39m
+[90m2026-02-13T09:10:17.461Z[39m [33m[feishu][39m [36mfeishu[content-creator]: added typing indicator reaction[39m
+[90m2026-02-13T09:10:18.962Z[39m [33m[feishu][39m [36mfeishu[content-creator] deliver called: text=你好！作为你的内容创作助手，我随时准备提供帮助。有什么新的技术文档、教程或者文章需要我协助的吗？[39m
+[90m2026-02-13T09:10:18.964Z[39m [33m[feishu][39m [36mfeishu[content-creator] deliver: sending 1 text chunks to oc_291ebc9c14b84c6bf5653429b12a7ef5[39m
+[90m2026-02-13T09:10:19.506Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatch complete (queuedFinal=true, replies=1)[39m
+[90m2026-02-13T09:10:19.916Z[39m [33m[feishu][39m [36mfeishu[content-creator]: removed typing indicator reaction[39m
+[90m2026-02-13T09:10:19.995Z[39m [33m[feishu][39m [36mfeishu[content-creator]: removed typing indicator reaction[39m
+[90m2026-02-13T09:10:29.401Z[39m [33m[feishu][39m [36mfeishu[content-creator]: received message from ou_277fc698d99aeb954b15f41d2a58eafc in oc_291ebc9c14b84c6bf5653429b12a7ef5 (p2p)[39m
+[90m2026-02-13T09:10:29.406Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatching to agent (session=agent:content-agent:main)[39m
+[90m2026-02-13T09:10:29.407Z[39m [33m[feishu][39m [36mfeishu[content-creator]: dispatch complete (queuedFinal=false, replies=0)[39m
+[90m2026-02-13T09:10:59.630Z[39m [36m[gateway][39m [36msignal SIGTERM received[39m
+[90m2026-02-13T09:10:59.632Z[39m [36m[gateway][39m [36mreceived SIGTERM; shutting down[39m
+[90m2026-02-13T09:10:59.667Z[39m [33m[feishu][39m [36mfeishu[content-creator]: abort signal received, stopping[39m
+[90m2026-02-13T09:10:59.670Z[39m [34m[gmail-watcher][39m [36mgmail watcher stopped[39m

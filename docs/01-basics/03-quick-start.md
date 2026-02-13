@@ -314,7 +314,7 @@ OpenClaw 的配置文件位于：`~/.openclaw/workspace`
    - 点击保存
    - 配置立即生效，无需重启
 
-
+![image-20260213140612295](https://upload.maynor1024.live/file/1770962777437_image-20260213140612295.png)
 
 
 

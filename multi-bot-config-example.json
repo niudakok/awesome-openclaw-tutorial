@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.9",
+    "lastTouchedAt": "2026-02-13T00:00:00.000Z"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "accounts": {
+        "main-bot": {
+          "appId": "cli_your_main_app_id",
+          "appSecret": "your_main_app_secret",
+          "botName": "主助理",
+          "enabled": true
+        },
+        "ainews-bot": {
+          "appId": "cli_your_ainews_app_id",
+          "appSecret": "your_ainews_app_secret",
+          "botName": "AI资讯助手",
+          "enabled": true
+        },
+        "content-bot": {
+          "appId": "cli_your_content_app_id",
+          "appSecret": "your_content_app_secret",
+          "botName": "内容创作助手",
+          "enabled": true
+        },
+        "tech-bot": {
+          "appId": "cli_your_tech_app_id",
+          "appSecret": "your_tech_app_secret",
+          "botName": "技术开发助手",
+          "enabled": true
+        }
+      },
+      "domain": "feishu",
+      "groupPolicy": "open",
+      "connectionMode": "websocket",
+      "requireMention": true,
+      "renderMode": "auto",
+      "streaming": true,
+      "blockStreaming": true,
+      "replyToMode": "all"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "your-secure-random-token-here"
+    }
+  },
+  "agents": {
+    "list": [
+      {
+        "id": "main-agent",
+        "workspace": "/Users/chinamanor/clawd/main",
+        "agentDir": "/Users/chinamanor/.openclaw/agents/main-agent/agent",
+        "model": {
+          "primary": "local-antigravity/gemini-2.5-flash"
+        }
+      },
+      {
+        "id": "ainews-agent",
+        "workspace": "/Users/chinamanor/clawd/ainews",
+        "agentDir": "/Users/chinamanor/.openclaw/agents/ainews-agent/agent",
+        "model": {
+          "primary": "local-antigravity/gemini-2.5-flash"
+        }
+      },
+      {
+        "id": "content-agent",
+        "workspace": "/Users/chinamanor/clawd/content",
+        "agentDir": "/Users/chinamanor/.openclaw/agents/content-agent/agent",
+        "model": {
+          "primary": "local-antigravity/gemini-2.5-flash"
+        }
+      },
+      {
+        "id": "tech-agent",
+        "workspace": "/Users/chinamanor/clawd/tech",
+        "agentDir": "/Users/chinamanor/.openclaw/agents/tech-agent/agent",
+        "model": {
+          "primary": "local-antigravity/gemini-2.5-flash"
+        }
+      }
+    ],
+    "defaults": {
+      "model": {
+        "primary": "local-antigravity/gemini-2.5-flash"
+      },
+      "workspace": "/Users/chinamanor/clawd",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main-agent",
+      "match": {
+        "channel": "feishu",
+        "account": "main-bot"
+      }
+    },
+    {
+      "agentId": "ainews-agent",
+      "match": {
+        "channel": "feishu",
+        "account": "ainews-bot"
+      }
+    },
+    {
+      "agentId": "content-agent",
+      "match": {
+        "channel": "feishu",
+        "account": "content-bot"
+      }
+    },
+    {
+      "agentId": "tech-agent",
+      "match": {
+        "channel": "feishu",
+        "account": "tech-bot"
+      }
+    }
+  ],
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    }
+  }
+}

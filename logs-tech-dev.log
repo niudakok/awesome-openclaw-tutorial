@@ -1,0 +1,51 @@
+[35m[plugins][39m [36mfeishu_doc: Registered feishu_doc, feishu_app_scopes[39m
+[35m[plugins][39m [36mfeishu_wiki: Registered feishu_wiki tool[39m
+[35m[plugins][39m [36mfeishu_drive: Registered feishu_drive tool[39m
+[90m2026-02-13T09:02:37.237Z[39m [35m[canvas][39m [36mhost mounted at http://0.0.0.0:18791/__openclaw__/canvas/ (root /Users/chinamanor/.openclaw/canvas)[39m
+[90m2026-02-13T09:02:37.292Z[39m [36m[heartbeat][39m [36mstarted[39m
+[90m2026-02-13T09:02:37.298Z[39m [36m[gateway][39m [36magent model: local-antigravity/gemini-3-pro-low[39m
+[90m2026-02-13T09:02:37.299Z[39m [36m[gateway][39m [36mlistening on ws://0.0.0.0:18791 (PID 25140)[39m
+[90m2026-02-13T09:02:37.301Z[39m [36m[gateway][39m [36mlog file: /tmp/openclaw/openclaw-2026-02-13.log[39m
+2026-02-13T09:02:37.312Z [info]: [ 'client ready' ]
+[90m2026-02-13T09:02:37.348Z[39m [35m[browser/service][39m [36mBrowser control service ready (profiles=2)[39m
+[90m2026-02-13T09:02:37.355Z[39m [33m[feishu][39m [36mstarting feishu[tech-dev] (mode: websocket)[39m
+[90m2026-02-13T09:02:37.854Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: bot open_id resolved: ou_8dfabf8a95a6c62b86c981d91d29e2d3[39m
+[90m2026-02-13T09:02:37.855Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: starting WebSocket connection...[39m
+2026-02-13T09:02:37.856Z [info]: [ 'event-dispatch is ready' ]
+2026-02-13T09:02:37.858Z [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-02-13T09:02:37.861Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: WebSocket client started[39m
+[90m2026-02-13T09:02:38.207Z[39m [36m[gateway][39m [36mupdate available (latest): v2026.2.12 (current v2026.2.9). Run: openclaw --profile tech-dev update[39m
+2026-02-13T09:02:38.535Z [info]: [ '[ws]', 'ws client ready' ]
+[90m2026-02-13T09:02:40.169Z[39m [31m[bonjour][39m [33mgateway name conflict resolved; newName="mac的MacBook Air (OpenClaw) (3)"[39m
+[90m2026-02-13T09:02:40.171Z[39m [31m[bonjour][39m [33mgateway hostname conflict resolved; newHostname="openclaw-(3)"[39m
+[90m2026-02-13T09:04:29.385Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: received message from ou_e3bf80db7f4b8cc72335131b5a6dca44 in oc_053c93f17fc47e587df58c776f831de5 (group)[39m
+[90m2026-02-13T09:04:29.387Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: message in group oc_053c93f17fc47e587df58c776f831de5 did not mention bot, recording to history[39m
+[90m2026-02-13T09:05:54.256Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: received message from ou_e3bf80db7f4b8cc72335131b5a6dca44 in oc_053c93f17fc47e587df58c776f831de5 (group)[39m
+[90m2026-02-13T09:05:54.258Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: message in group oc_053c93f17fc47e587df58c776f831de5 did not mention bot, recording to history[39m
+[90m2026-02-13T09:07:12.225Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: received message from ou_e3bf80db7f4b8cc72335131b5a6dca44 in oc_053c93f17fc47e587df58c776f831de5 (group)[39m
+[90m2026-02-13T09:07:12.226Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: message in group oc_053c93f17fc47e587df58c776f831de5 did not mention bot, recording to history[39m
+[90m2026-02-13T09:08:05.283Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: received message from ou_e3bf80db7f4b8cc72335131b5a6dca44 in oc_9a637f309d00078edea52b080915ab38 (p2p)[39m
+[90m2026-02-13T09:08:05.297Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: dispatching to agent (session=agent:tech-agent:main)[39m
+[90m2026-02-13T09:08:06.330Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: added typing indicator reaction[39m
+[90m2026-02-13T09:08:11.040Z[39m [33m[feishu][39m [36mfeishu[tech-dev] deliver called: text=你好！我是你的技术开发助手，很高兴能为你服务。有什么技术问题或开发任务需要我帮忙吗？[39m
+[90m2026-02-13T09:08:11.044Z[39m [33m[feishu][39m [36mfeishu[tech-dev] deliver: sending 1 text chunks to oc_9a637f309d00078edea52b080915ab38[39m
+[90m2026-02-13T09:08:11.587Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: dispatch complete (queuedFinal=true, replies=1)[39m
+[90m2026-02-13T09:08:11.954Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: removed typing indicator reaction[39m
+[90m2026-02-13T09:08:12.037Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: removed typing indicator reaction[39m
+[90m2026-02-13T09:08:25.502Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: received message from ou_e3bf80db7f4b8cc72335131b5a6dca44 in oc_9a637f309d00078edea52b080915ab38 (p2p)[39m
+[90m2026-02-13T09:08:25.507Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: dispatching to agent (session=agent:tech-agent:main)[39m
+[90m2026-02-13T09:08:25.509Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: dispatch complete (queuedFinal=false, replies=0)[39m
+[90m2026-02-13T09:10:59.625Z[39m [36m[gateway][39m [36msignal SIGTERM received[39m
+[90m2026-02-13T09:10:59.627Z[39m [36m[gateway][39m [36mreceived SIGTERM; shutting down[39m
+[90m2026-02-13T09:10:59.665Z[39m [33m[feishu][39m [36mfeishu[tech-dev]: abort signal received, stopping[39m
+[90m2026-02-13T09:10:59.669Z[39m [34m[gmail-watcher][39m [36mgmail watcher stopped[39m
