@@ -73,6 +73,54 @@
 - 💬 [GitHub Discussions](https://github.com/xianyu110/awesome-openclaw-tutorial/discussions)
 - 🐛 [报告Bug](https://github.com/xianyu110/awesome-openclaw-tutorial/issues)
 
+---
+
+## 🎯 新手快速通道
+
+<table>
+<tr>
+<td width="33%">
+
+### 📚 7天学习路径
+从零到精通，跟着路径学习
+
+- ✅ 每天2小时
+- ✅ 7天掌握核心技能
+- ✅ 3个实战项目
+- ✅ 进度追踪清单
+
+👉 [开始学习](LEARNING-PATH.md)
+
+</td>
+<td width="33%">
+
+### 💰 成本计算器
+了解真实成本，省钱攻略
+
+- 💵 本地：5-30元/月
+- ☁️ 云端：25-50元/月
+- 📊 节省64%-96%
+- 💡 省钱小贴士
+
+👉 [计算成本](COST-CALCULATOR.md)
+
+</td>
+<td width="33%">
+
+### 📝 更新日志
+查看最新功能和改进
+
+- 🆕 v1.2.0 (2026-02-13)
+- ✨ OpenClaw Manager
+- 🔧 工具安装案例
+- 📖 完整版本历史
+
+👉 [查看更新](CHANGELOG.md)
+
+</td>
+</tr>
+</table>
+
 ## 📖 关于本教程
 
 > ⚠️ **版本说明**：由于 OpenClaw 仍在快速开发中，本教程基于 **2026.2.9** 版本编写。该版本经过充分验证，稳定可靠。不推荐使用 2026.2.12 版本（存在已知 bug）。
