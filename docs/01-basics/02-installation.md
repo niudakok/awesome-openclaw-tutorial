@@ -1,17 +1,377 @@
 # 第2章：环境搭建
 
-> 本章将手把手教你安装OpenClaw，推荐新手使用**云端一键部署**，5分钟即可完成。
+> 本章将手把手教你安装OpenClaw。
+
+## 📋 前提条件与推荐配置
+
+### 推荐配置
+
+为了获得最佳体验，我们推荐：
+
+**操作系统**：
+- 🍎 **Mac（强烈推荐）**：原生支持最完善，可操作日历、备忘录、截图等系统功能
+- 🪟 Windows：完全可用，但部分系统集成功能受限
+- 🐧 Linux：适合开发者，配置灵活
+
+**IM工具选择**：
+- 🌍 **国外用户**：推荐 **Telegram**（适配度最好，功能最完整）
+- 🇨🇳 **国内用户**：推荐 **飞书**（现代化、开发友好、功能丰富）
+- 备选：企业微信、钉钉、QQ
+
+**部署方式**：
+- 💻 **有Mac电脑**：推荐本地部署（体验最好，功能最全）
+- ☁️ **无Mac或想24小时运行**：推荐云端部署（成本低，稳定可靠）
+
+### 为什么推荐Mac？
+
+OpenClaw在Mac上体验最好，因为：
+- ✅ 原生支持最完善，系统集成度高
+- ✅ 可以操作Mac日历、备忘录、提醒事项
+- ✅ 截图功能完美支持
+- ✅ 与iPhone、iPad无缝同步
+- ✅ 文件管理更智能
+- ✅ 开发环境配置简单
+
+### 为什么推荐飞书（国内）？
+
+- ✅ 现代化设计，用户体验好
+- ✅ 开发者友好，API完善
+- ✅ 支持富文本、文档、表格
+- ✅ 消息推送稳定
+- ✅ 免费版功能丰富
+
+### 为什么推荐Telegram（国外）？
+
+- ✅ 全球用户基础大
+- ✅ API最完善，功能最强
+- ✅ 支持Bot功能丰富
+- ✅ 消息推送实时
+- ✅ 隐私保护好
 
 ## 快速导航
 
-- 🚀 [云端一键部署（推荐新手）](#云端一键部署)
+**推荐路径**：
+- 🍎 **有Mac** → [Mac本地部署](#mac本地部署推荐) + [飞书配置](../03-advanced/09-multi-platform-integration.md#91-飞书bot配置)
+- ☁️ **无Mac/想24小时运行** → [云端一键部署](#云端一键部署) + [飞书配置](../03-advanced/09-multi-platform-integration.md#91-飞书bot配置)
+
+**所有部署方式**：
+- � [Mac本地部署（推荐）](#mac本地部署推荐)
+- 🪟 [Windows本地部署](#windows本地部署)
+- 🐧 [Linux本地部署](#linux本地部署)
+- 🚀 [云端一键部署](#云端一键部署)
 - 🇨🇳 [国内一键安装](#国内一键安装推荐)
 - ☁️ [Cloudflare Workers 部署（进阶）](#cloudflare-workers-部署进阶)
 - 🐳 [Docker 部署（可选）](#docker-部署可选)
-- 💻 [本地安装教程](#本地安装教程)
+
+**配置指南**：
 - 🔑 [API配置指南](#api配置指南)
 - 🔄 [版本升级指南](#2x-版本升级指南)
 - ❓ [常见问题解决](#常见问题解决)
+
+---
+
+## Mac本地部署（推荐）
+
+> 🍎 **最佳体验**：如果你有Mac电脑，强烈推荐本地部署，体验最好、功能最全！
+
+### 为什么选择Mac本地部署？
+
+**优势**：
+- ✅ **系统集成**：可操作日历、备忘录、文件系统
+- ✅ **隐私安全**：数据完全本地，不上传云端
+- ✅ **响应速度快**：本地运行，无网络延迟
+- ✅ **功能最全**：支持所有高级功能
+- ✅ **成本低**：无需购买云服务器
+- ✅ **开发友好**：方便调试和自定义
+
+**适合人群**：
+- 有Mac电脑的用户
+- 注重隐私的用户
+- 需要系统集成功能的用户
+- 开发者和技术爱好者
+
+### 系统要求
+
+**硬件要求**：
+- CPU：M系列芯片或Intel i5以上
+- 内存：8GB以上（推荐16GB）
+- 硬盘：10GB以上空闲空间
+
+**系统版本**：
+- macOS 12 Monterey 或更高版本
+- 推荐 macOS 14 Sonoma 或 macOS 15 Sequoia
+
+**前置软件**：
+- Node.js 22.0.0+（会自动安装）
+- Homebrew（可选，用于安装依赖）
+
+### 安装步骤
+
+#### 第一步：打开终端
+
+1. 按 `Command + 空格` 打开 Spotlight
+2. 输入 `Terminal` 或`终端`
+3. 按回车打开终端
+
+![打开终端](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
+
+#### 第二步：安装OpenClaw
+
+在终端中执行以下命令：
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+安装过程会自动：
+- 检测系统环境
+- 安装Node.js（如果未安装）
+- 下载OpenClaw
+- 配置环境变量
+
+**预计时间**：2-5分钟
+
+#### 第三步：验证安装
+
+安装完成后，执行以下命令验证：
+
+```bash
+openclaw --version
+```
+
+如果显示版本号（如 `2026.2.9`），说明安装成功！
+
+#### 第四步：初始化配置
+
+运行配置向导：
+
+```bash
+openclaw onboard
+```
+
+**配置流程**：
+
+**1. 接受风险提示**：
+
+选择 `Yes` 继续
+
+![接受风险](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
+
+**2. 选择启动模式**：
+
+推荐选择 `QuickStart` 快速启动：
+
+![选择QuickStart](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
+
+**3. 选择AI模型**：
+
+选择你的AI供应商（支持国内外主流模型）：
+
+![选择AI供应商](https://upload.maynor1024.live/file/1770742221938_03-select-ai-provider.png)
+
+国内推荐：
+- **Kimi（Moonshot AI）**：长文本专家，200万字上下文
+- **DeepSeek**：性价比之王，推理能力强
+- **智谱GLM**：中文理解好，多模态支持
+
+**4. 输入API Key**：
+
+根据选择的模型，输入对应的API Key（参见[API配置指南](#api配置指南)）
+
+**5. 选择聊天工具**：
+
+- 如果要接入飞书/Telegram，选择对应选项
+- 如果暂时不接入，选择 `None`（后续可配置）
+
+![选择聊天工具](https://upload.maynor1024.live/file/1770742247561_08-select-chat-tool.png)
+
+**6. Gateway端口设置**：
+
+默认 `18789` 即可：
+
+![端口设置](https://upload.maynor1024.live/file/1770742247410_09-port-setting.png)
+
+**7. 选择Skills**：
+
+使用空格键选择你需要的技能，也可以直接跳过：
+
+![选择Skills](https://upload.maynor1024.live/file/1770742255849_10-select-skills.png)
+
+**8. API Key配置**：
+
+没有的可以选择 `no` 跳过：
+
+![API Key配置](https://upload.maynor1024.live/file/1770742264976_11-api-key-config.png)
+
+**9. 启用Hooks**：
+
+推荐启用这三个钩子（用于内容引导、日志和会话记录）：
+
+![启用Hooks](https://upload.maynor1024.live/file/1770742261487_12-enable-hooks.png)
+
+**10. 完成配置**：
+
+配置完成后，会自动启动Gateway服务并打开Web UI（`http://127.0.0.1:18789/chat`）
+
+#### 第五步：验证安装
+
+```bash
+# 检查Gateway状态
+openclaw channels status
+
+# 应该显示：
+# Gateway reachable.
+```
+
+### 日常使用
+
+**启动OpenClaw**：
+
+```bash
+# 启动Gateway服务
+openclaw gateway start
+
+# 或使用systemd（推荐，开机自启）
+openclaw gateway enable
+```
+
+**访问Web UI**：
+
+打开浏览器访问：`http://127.0.0.1:18789/chat`
+
+**停止服务**：
+
+```bash
+openclaw gateway stop
+```
+
+### 接入飞书（推荐）
+
+Mac本地部署后，强烈推荐接入飞书，获得最佳体验：
+
+1. 参考 [第9章：飞书Bot配置](../03-advanced/09-multi-platform-integration.md#91-飞书bot配置)
+2. 配置完成后，可以在飞书中随时与OpenClaw对话
+3. 支持文本、图片、文件等多种消息类型
+
+### 常见问题
+
+**Q1：安装时提示权限不足？**
+
+```bash
+# 使用sudo安装
+curl -fsSL https://openclaw.ai/install.sh | sudo bash
+```
+
+**Q2：如何更新OpenClaw？**
+
+```bash
+openclaw update
+```
+
+**Q3：如何卸载？**
+
+```bash
+openclaw uninstall
+```
+
+---
+
+## Windows本地部署
+
+> 🪟 **Windows用户**：完全可用，但部分系统集成功能受限。
+
+### 系统要求
+
+**硬件要求**：
+- CPU：2核以上
+- 内存：4GB以上
+- 硬盘：10GB以上空闲空间
+
+**操作系统**：
+- Windows 10 或 Windows 11
+
+**前置软件**：
+- Node.js 22.0.0+
+
+### 安装步骤
+
+#### 第一步：安装Node.js
+
+1. 访问Node.js官网：https://nodejs.org/
+2. 下载Windows安装包（22.x LTS版本）
+3. 运行安装程序
+4. 验证安装：
+   ```cmd
+   node --version
+   ```
+
+#### 第二步：安装OpenClaw
+
+使用PowerShell运行：
+
+```powershell
+irm https://openclaw.ai/install.ps1 | iex
+```
+
+#### 第三步：验证安装
+
+```cmd
+openclaw --version
+```
+
+#### 第四步：初始化配置
+
+```cmd
+openclaw onboard
+```
+
+按照提示完成配置（与Mac相同）。
+
+---
+
+## Linux本地部署
+
+> 🐧 **Linux用户**：适合开发者，配置灵活。
+
+### 系统要求
+
+**推荐发行版**：
+- Ubuntu 20.04+
+- Debian 11+
+- CentOS 8+
+
+### 安装步骤
+
+#### 第一步：安装Node.js
+
+```bash
+# Ubuntu/Debian
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# 验证安装
+node --version
+```
+
+#### 第二步：安装OpenClaw
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+#### 第三步：验证安装
+
+```bash
+openclaw --version
+```
+
+#### 第四步：初始化配置
+
+```bash
+openclaw onboard
+```
+
+---
 
 ## 2.1 系统要求与准备
 
@@ -22,43 +382,11 @@
 - ✅ 20元/月预算
 - ✅ 10分钟时间
 
-### 本地部署要求
-
-如果选择本地部署，需要：
-
-**硬件要求**：
-- CPU：2核以上
-- 内存：4GB以上
-- 硬盘：10GB以上空闲空间
-
-**操作系统**：
-- macOS 12+（推荐）
-- Windows 10/11
-- Linux（Ubuntu 20.04+）
-
-**前置软件**：
-- Node.js 22.0.0+
-- pnpm（推荐）或 npm
-
-**网络要求**：
-- 稳定的网络连接
-- 能访问GitHub（用于下载）
-
-### 为什么推荐Mac系统？
-
-OpenClaw在Mac上体验最好，因为：
-- ✅ 原生支持最完善
-- ✅ 可以操作Mac日历、备忘录
-- ✅ 截图功能完美支持
-- ✅ 与iPhone无缝同步
-
-但Windows和Linux也完全可用！
-
 ## 云端一键部署
 
-> 🔥 **强烈推荐新手使用云端部署**：无需配置环境，点几下鼠标就完成！
+> 🔥 **适合场景**：无Mac电脑、需要24小时运行、多设备访问。
 
-### 为什么推荐云端部署？
+### 为什么选择云端部署？
 
 | 优势 | 说明 |
 |------|------|
@@ -1697,197 +2025,6 @@ rm -rf ~/.openclaw
 
 ---
 
-## 本地安装教程
-
-> 如果你有Mac电脑，或者想完全本地部署，可以选择本地安装。
-
-### macOS安装步骤
-
-#### 第一步：升级Node.js
-
-OpenClaw要求Node.js 22+，使用nvm管理版本：
-
-```bash
-# 安装nvm（如果还没安装）
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-
-# 重启终端，然后安装Node.js 22
-nvm install 22
-
-# 设置为默认版本
-nvm use 22
-nvm alias default 22
-
-# 验证版本
-node --version  # 应显示 v22.x.x
-```
-
-#### 第二步：使用官方一键安装脚本
-
-OpenClaw官方提供了一行代码的一键安装脚本，它会自动帮你把环境依赖都搞定：
-
-```bash
-# 一键安装
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
-
-安装过程说明：
-- 自动检测系统环境
-- 安装依赖包
-- 构建TypeScript代码
-- 构建Web UI
-- 安装命令行工具
-
-#### 第三步：验证安装
-
-安装完后，输入下面这行命令，看看OpenClaw是否已经成功安装：
-
-```bash
-# 检查版本
-openclaw --version
-```
-
-如果显示版本号，说明安装成功！
-
-#### 第四步：初始化配置
-
-```bash
-# 运行配置向导
-openclaw onboard
-```
-
-配置向导流程：
-
-**1. 风险提示**：
-
-OpenClaw 能力很强，但也有风险。选择 `yes` 继续安装：
-
-![风险提示](https://upload.maynor1024.live/file/1770742236672_06-risk-warning.png)
-
-**2. 选择启动模式**：
-
-推荐选择 `QuickStart` 快速启动：
-
-![选择QuickStart](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
-
-**3. 选择AI模型**：
-
-选择你的AI供应商（支持国内外主流模型）：
-
-![选择AI供应商](https://upload.maynor1024.live/file/1770742221938_03-select-ai-provider.png)
-
-国内推荐：Qwen（通义千问）、MiniMax、智谱GLM
-
-**4. 选择聊天工具**：
-
-如果没有海外账号，选择最后一个 `None`：
-
-![选择聊天工具](https://upload.maynor1024.live/file/1770742247561_08-select-chat-tool.png)
-
-**5. Gateway端口设置**：
-
-默认 `18789` 即可：
-
-![端口设置](https://upload.maynor1024.live/file/1770742247410_09-port-setting.png)
-
-**6. 选择Skills**：
-
-使用空格键选择你需要的技能，也可以直接跳过：
-
-![选择Skills](https://upload.maynor1024.live/file/1770742255849_10-select-skills.png)
-
-**7. API Key配置**：
-
-没有的可以选择 `no` 跳过：
-
-![API Key配置](https://upload.maynor1024.live/file/1770742264976_11-api-key-config.png)
-
-**8. 启用Hooks**：
-
-推荐启用这三个钩子（用于内容引导、日志和会话记录）：
-
-![启用Hooks](https://upload.maynor1024.live/file/1770742261487_12-enable-hooks.png)
-
-**9. 完成配置**：
-
-配置完成后，会自动启动Gateway服务并打开Web UI（`http://127.0.0.1:18789/chat`）
-
-#### 第五步：验证安装
-
-```bash
-# 检查Gateway状态
-openclaw channels status
-
-# 应该显示：
-# Gateway reachable.
-```
-
-### Windows安装步骤
-
-#### 第一步：安装Node.js
-
-1. 访问Node.js官网：https://nodejs.org/
-2. 下载Windows安装包（22.x LTS版本）
-3. 运行安装程序
-4. 验证安装：
-   ```cmd
-   node --version
-   ```
-
-#### 第二步：安装OpenClaw
-
-```cmd
-# 使用PowerShell运行
-irm https://openclaw.ai/install.ps1 | iex
-```
-
-#### 第三步：验证安装
-
-```cmd
-# 检查版本
-openclaw --version
-```
-
-#### 第四步：初始化配置
-
-```cmd
-openclaw onboard
-```
-
-按照提示完成配置（与macOS相同）。
-
-### Linux安装步骤
-
-#### 第一步：安装Node.js
-
-```bash
-# Ubuntu/Debian
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# 验证安装
-node --version
-```
-
-#### 第二步：安装OpenClaw
-
-```bash
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
-
-#### 第三步：验证安装
-
-```bash
-# 检查版本
-openclaw --version
-```
-
-#### 第四步：初始化配置
-
-```bash
-openclaw onboard
-```
-
 ## API配置指南
 
 > OpenClaw需要连接AI模型才能工作，推荐使用**国产大模型**，性价比高。
@@ -2426,11 +2563,11 @@ openclaw onboard
 
  如果你只想先试试，可以就先花个10块钱玩一下
 
-![img](https://my.feishu.cn/space/api/box/stream/download/asynccode/?code=OWU5ZGEzMDE0Y2YyNDhhOTYwZjliNWY0OTM1YjgzMmVfa0dlYzNvMzFvUDVuY0J3cWZ6b3VDUkNLRHpKbmhHSURfVG9rZW46UmZuamJDV29vb0Q2bXl4VHUwcWNxYWFRbnZ1XzE3NzA5NTcxNjg6MTc3MDk2MDc2OF9WNA)
+![img](https://upload.maynor1024.live/file/1770961892504__null_-20260213135123663._null_)
 
  保证账号有余额之后，点击”API keys“，然后点”创建 API key“
 
-![img](https://upload.maynor1024.live/file/1770957195220__null_-20260213123309627._null_)
+![img](https://upload.maynor1024.live/file/1770961848240_1770957195220__null_-20260213123309627._null_)
 
  API key的名称：随便取。然后这个APIkey一定！一定！要复制下来，因为一般你点完”关闭“之后，你就再也无法查看你的API key了，如果你我忘记了你的API key，那只能重新创建一个了。
 
@@ -2517,7 +2654,7 @@ openclaw onboard
 
  第二步，购买优惠套餐 plan，说实话，目前 OpenClaw 消耗 token 还挺大的，最好买个套餐划算一些，我买的是 Allegretto 套餐。
 
-![img](https://my.feishu.cn/space/api/box/stream/download/asynccode/?code=Mzk3ODdjZjE0NDY3Y2NkMTU1ZDZmMzg4YTAwYTg3ZDlfV3haZXdRMEU5OENVN0RCTzBwbmp2U2M5dU1XSm9MMWdfVG9rZW46Q0dYQWJ5NzRVbzB4MWt4b09QRmNwckUybm1lXzE3NzA5NTcyMzY6MTc3MDk2MDgzNl9WNA)
+![img](https://upload.maynor1024.live/file/1770961947439__null_-20260213135221938._null_)
 
  第二步，打开控制台，创建 API key。名字随便取。
 
@@ -2595,6 +2732,7 @@ openclaw onboard
 2. **使用第三方API服务**（国内直连）
 
 **推荐第三方API**：
+
 - 价格便宜50%-70%
 - 国内直连，无需魔法
 - 支持支付宝、微信支付
@@ -2619,6 +2757,7 @@ openclaw onboard
 ### 安装问题
 
 **Q1: Node.js版本不对**
+
 ```bash
 # 检查版本
 node --version

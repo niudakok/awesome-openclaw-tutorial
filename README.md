@@ -58,6 +58,26 @@
 
 ## 🚀 快速开始
 
+### 📋 前提条件与推荐配置
+
+**推荐配置（获得最佳体验）**：
+
+**操作系统**：
+- 🍎 **Mac（强烈推荐）**：原生支持最完善，可操作日历、备忘录、截图等系统功能
+- 🪟 Windows：完全可用，但部分系统集成功能受限
+- 🐧 Linux：适合开发者，配置灵活
+
+**IM工具选择**：
+- 🌍 **国外用户**：推荐 **Telegram**（适配度最好，功能最完整）
+- 🇨🇳 **国内用户**：推荐 **飞书**（现代化、开发友好、功能丰富）
+- 备选：企业微信、钉钉、QQ
+
+**部署方式**：
+- 💻 **有Mac电脑**：推荐本地部署（体验最好，功能最全）
+- ☁️ **无Mac或想24小时运行**：推荐云端部署（成本低，稳定可靠）
+
+---
+
 ### 💡 推荐：中转API服务
 
 **一个地址访问300+国内外大模型**
@@ -74,9 +94,34 @@
 
 ### 新手推荐路径
 
+**如果你有Mac电脑**：
 1. **[第1章：认识OpenClaw](docs/01-basics/01-introduction.md)** - 了解OpenClaw是什么
-2. **[第2章：环境搭建](docs/01-basics/02-installation.md)** - 5分钟完成安装（推荐云端部署）
-3. **[第3章：快速上手](docs/01-basics/03-quick-start.md)** - 发送第一条消息
+2. **[第2章：Mac本地部署](docs/01-basics/02-installation.md#mac本地部署推荐)** - 10分钟完成安装
+3. **[第9章：飞书Bot配置](docs/03-advanced/09-multi-platform-integration.md#91-飞书bot配置)** - 接入飞书，随时使用
+4. **[第3章：快速上手](docs/01-basics/03-quick-start.md)** - 发送第一条消息
+
+**如果你没有Mac或想24小时运行**：
+1. **[第1章：认识OpenClaw](docs/01-basics/01-introduction.md)** - 了解OpenClaw是什么
+2. **[第2章：云端部署](docs/01-basics/02-installation.md#云端一键部署)** - 5分钟完成部署
+3. **[第9章：飞书Bot配置](docs/03-advanced/09-multi-platform-integration.md#91-飞书bot配置)** - 接入飞书，手机随时用
+4. **[第3章：快速上手](docs/01-basics/03-quick-start.md)** - 发送第一条消息
+
+### Mac本地部署（推荐有Mac用户）
+
+如果你有Mac电脑，强烈推荐本地部署：
+- 🍎 **系统集成**：可操作日历、备忘录、文件系统
+- 🔒 **隐私安全**：数据完全本地，不上传云端
+- ⚡ **响应速度快**：本地运行，无网络延迟
+- 💰 **成本低**：无需购买云服务器
+
+**一行命令完成安装**：
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+👉 [查看完整Mac部署教程](docs/01-basics/02-installation.md#mac本地部署推荐)
+
+---
 
 ### 云端一键部署（最简单）
 
