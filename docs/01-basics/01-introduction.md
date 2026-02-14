@@ -10,7 +10,7 @@
 
 ## 1.1 什么是OpenClaw
 
-![OpenClaw Logo](https://upload.maynor1024.live/file/1770806852123_openclaw-logo-text-dark.png)
+![OpenClaw Logo - 开源AI智能体网关](https://upload.maynor1024.live/file/1770806852123_openclaw-logo-text-dark.png)
 
 ### 一句话介绍
 
@@ -28,7 +28,7 @@ OpenClaw 是一个**开源的 AI 智能体 Gateway 网关**，让你可以在本
 
 ### 工作原理
 
-![OpenClaw 架构图](https://upload.maynor1024.live/file/1770956386804_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0__2_.png)
+![OpenClaw 工作原理 - Gateway网关连接聊天应用和AI智能体](https://upload.maynor1024.live/file/1770956386804_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0__2_.png)
 
 OpenClaw 通过 Gateway 网关将聊天应用连接到 AI 智能体。Gateway 是会话、路由和渠道连接的**唯一事实来源**。
 
@@ -60,7 +60,7 @@ OpenClaw 通过 Gateway 网关将聊天应用连接到 AI 智能体。Gateway �
 > 
 > 这就是为什么你可以在任何平台上使用 OpenClaw，因为 Gateway 统一管理了所有的连接。
 
-![Gateway 工作流程](https://upload.maynor1024.live/file/1770956080282_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0.png)
+![Gateway 工作流程 - 消息路由和会话管理](https://upload.maynor1024.live/file/1770956080282_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0.png)
 
 ---
 
@@ -147,7 +147,7 @@ OpenClaw：[搜索中...] 找到了！这是您的跑步机发票 [发送文件]
 
 💡 **省钱技巧**：使用国产大模型可以节省50%-70%成本
 
-![用户案例](https://upload.maynor1024.live/file/1770956135054_nanobananapro-f4cf9d4d-92b3-4ce5-a2ce-b38e5873b2d4-0__1_.png)
+![真实用户案例 - 内容创作者的效率提升之路](https://upload.maynor1024.live/file/1770956135054_nanobananapro-f4cf9d4d-92b3-4ce5-a2ce-b38e5873b2d4-0__1_.png)
 
 ---
 
@@ -217,7 +217,7 @@ OpenClaw：[搜索中...] 找到了！这是您的跑步机发票 [发送文件]
 > - 成本降低70%
 > - 效率提升10倍
 
-![OpenClaw 使用场景](https://upload.maynor1024.live/file/1770956213687_nanobananapro-f4cf9d4d-92b3-4ce5-a2ce-b38e5873b2d4-0__2_.png)
+![OpenClaw 多场景应用示意图 - 覆盖工作生活各个方面](https://upload.maynor1024.live/file/1771037222148_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0.png)
 
 ---
 
@@ -319,7 +319,7 @@ OpenClaw：[搜索中...] 找到了！这是您的跑步机发票 [发送文件]
 - 写代码时：使用Cursor
 - 在外面时：使用ChatGPT App
 
-![能力对比](https://upload.maynor1024.live/file/1770956241802_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0__1_.png)
+![AI工具能力对比雷达图 - OpenClaw在任务规划和自动化方面的优势](https://upload.maynor1024.live/file/1770956241802_nanobananapro-de8b9c6e-4c15-4267-b112-5b22b2435209-0__1_.png)
 
 ---
 
