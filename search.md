@@ -193,45 +193,98 @@ mark {
 (function() {
   let searchIndex;
   let searchData;
+  let loadAttempts = 0;
+  const maxAttempts = 2;
   
-  // 加载搜索数据
-  fetch('{{ "/search.json" | relative_url }}')
-    .then(response => response.json())
-    .then(data => {
-      searchData = data;
-      
-      // 构建搜索索引（只搜索标题）
-      searchIndex = lunr(function() {
-        this.ref('url');
-        this.field('title', { boost: 10 }); // 只索引标题字段，提高权重
+  // 尝试加载搜索数据
+  function loadSearchData() {
+    const searchFiles = [
+      '{{ "/search.json" | relative_url }}',  // Jekyll生成的文件
+      '{{ "/search-index.json" | relative_url }}'  // 静态备份文件
+    ];
+    
+    const currentFile = searchFiles[loadAttempts];
+    
+    console.log(`🔍 尝试加载搜索索引 (${loadAttempts + 1}/${maxAttempts}): ${currentFile}`);
+    
+    fetch(currentFile)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (!data || data.length === 0) {
+          throw new Error('搜索数据为空');
+        }
         
-        // 添加中文分词支持
-        this.pipeline.remove(lunr.stemmer);
-        this.searchPipeline.remove(lunr.stemmer);
+        searchData = data;
         
-        data.forEach(doc => {
-          this.add(doc);
+        // 构建搜索索引（只搜索标题）
+        searchIndex = lunr(function() {
+          this.ref('url');
+          this.field('title', { boost: 10 }); // 只索引标题字段，提高权重
+          
+          // 添加中文分词支持
+          this.pipeline.remove(lunr.stemmer);
+          this.searchPipeline.remove(lunr.stemmer);
+          
+          data.forEach(doc => {
+            this.add(doc);
+          });
         });
+        
+        console.log('✅ 搜索索引已加载，共 ' + data.length + ' 个页面（仅搜索标题）');
+        
+        // 如果有URL参数，执行搜索
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('q');
+        if (queryParam) {
+          document.getElementById('search-input').value = queryParam;
+          performSearch(queryParam);
+        }
+      })
+      .catch(error => {
+        console.error(`❌ 加载失败 (${currentFile}):`, error);
+        loadAttempts++;
+        
+        if (loadAttempts < maxAttempts) {
+          // 尝试下一个文件
+          setTimeout(loadSearchData, 500);
+        } else {
+          // 所有尝试都失败
+          document.getElementById('search-results').innerHTML = `
+            <div class="no-results">
+              <p style="font-size: 1.2rem; margin-bottom: 1rem;">😕 搜索功能暂时不可用</p>
+              <p style="margin-bottom: 1rem;">可能的原因：</p>
+              <ul style="text-align: left; display: inline-block; margin-bottom: 1rem;">
+                <li>网站正在构建中，请稍后再试</li>
+                <li>网络连接问题</li>
+                <li>浏览器缓存问题</li>
+              </ul>
+              <p>
+                <button onclick="location.reload()" style="padding: 0.5rem 1rem; background: #159957; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                  🔄 刷新页面
+                </button>
+              </p>
+              <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;">
+                或者直接查看 <a href="/" style="color: #159957;">教程目录</a>
+              </p>
+            </div>
+          `;
+        }
       });
-      
-      console.log('✅ 搜索索引已加载，共 ' + data.length + ' 个页面（仅搜索标题）');
-    })
-    .catch(error => {
-      console.error('❌ 加载搜索索引失败:', error);
-      document.getElementById('search-results').innerHTML = 
-        '<p class="no-results">搜索功能加载失败，请刷新页面重试</p>';
-    });
-  
-  // 简单的中文分词（按字符分割）
-  function tokenizeChinese(text) {
-    return text.split('');
   }
+  
+  // 开始加载
+  loadSearchData();
   
   // 执行搜索
   function performSearch(query) {
     if (!searchIndex || !searchData) {
       document.getElementById('search-results').innerHTML = 
-        '<p class="loading">⏳ 搜索索引加载中...</p>';
+        '<p class="loading">⏳ 搜索索引加载中，请稍候...</p>';
       return;
     }
     
@@ -274,7 +327,7 @@ mark {
       
       if (finalResults.length === 0) {
         document.getElementById('search-results').innerHTML = 
-          '<p class="no-results">😕 没有找到包含 "<strong>' + query + '</strong>" 的标题<br><br>💡 搜索提示：<br>• 尝试使用更简短的关键词<br>• 检查关键词拼写<br>• 尝试使用同义词</p>';
+          '<p class="no-results">😕 没有找到包含 "<strong>' + query + '</strong>" 的标题<br><br>💡 搜索提示：<br>• 尝试使用更简短的关键词<br>• 检查关键词拼写<br>• 尝试使用同义词<br><br><a href="/docs/search-guide.html" style="color: #159957;">查看搜索使用指南</a></p>';
         return;
       }
       
@@ -306,7 +359,9 @@ mark {
             const categoryMap = {
               'docs': '📚 文档',
               'appendix': '📖 附录',
-              'examples': '💡 示例'
+              'examples': '💡 示例',
+              'guide': '🎯 指南',
+              'root': '🏠 首页'
             };
             const categoryName = categoryMap[doc.category] || doc.category;
             categoryBadge = `<span style="display: inline-block; padding: 0.2rem 0.5rem; background: #e1f5fe; color: #0277bd; border-radius: 3px; font-size: 0.85rem; margin-right: 0.5rem;">${categoryName}</span>`;
@@ -334,7 +389,7 @@ mark {
     } catch (error) {
       console.error('❌ 搜索出错:', error);
       document.getElementById('search-results').innerHTML = 
-        '<p class="no-results">搜索出错，请重试</p>';
+        '<p class="no-results">搜索出错，请刷新页面重试</p>';
     }
   }
   
@@ -358,16 +413,10 @@ mark {
     const query = this.value;
     if (query.length >= 2) { // 至少2个字符才开始搜索
       searchTimeout = setTimeout(() => performSearch(query), 300);
+    } else if (query.length === 0) {
+      document.getElementById('search-results').innerHTML = 
+        '<p class="search-hint">💡 请输入搜索关键词</p>';
     }
   });
-  
-  // 从 URL 参数获取搜索词
-  const urlParams = new URLSearchParams(window.location.search);
-  const queryParam = urlParams.get('q');
-  if (queryParam) {
-    document.getElementById('search-input').value = queryParam;
-    // 等待索引加载后执行搜索
-    setTimeout(() => performSearch(queryParam), 500);
-  }
 })();
 </script>

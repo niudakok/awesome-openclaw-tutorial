@@ -1,0 +1,176 @@
+[
+  {
+    "title": "首页",
+    "url": "/",
+    "excerpt": "从零开始打造你的AI工作助手：最全面的中文教程",
+    "category": "root"
+  },
+  {
+    "title": "7天学习路径",
+    "url": "/LEARNING-PATH.html",
+    "excerpt": "从零到精通，跟着路径学习，7天掌握核心技能",
+    "category": "guide"
+  },
+  {
+    "title": "第1章：OpenClaw是什么？",
+    "url": "/docs/01-basics/01-introduction.html",
+    "excerpt": "5分钟了解OpenClaw核心价值",
+    "category": "docs"
+  },
+  {
+    "title": "第2章：5分钟完成部署",
+    "url": "/docs/01-basics/02-installation.html",
+    "excerpt": "手把手图文教程，新手也能轻松搞定",
+    "category": "docs"
+  },
+  {
+    "title": "第3章：快速上手",
+    "url": "/docs/01-basics/03-quick-start.html",
+    "excerpt": "发送第一条消息，配置你的专属AI助手",
+    "category": "docs"
+  },
+  {
+    "title": "第4章：本地文件管理神器",
+    "url": "/docs/02-core-features/04-file-management.html",
+    "excerpt": "告别手动翻找文件，AI帮你秒找、批量处理",
+    "category": "docs"
+  },
+  {
+    "title": "第5章：个人知识库",
+    "url": "/docs/02-core-features/05-knowledge-management.html",
+    "excerpt": "网页/论文/GitHub一键存档",
+    "category": "docs"
+  },
+  {
+    "title": "第6章：日程管理",
+    "url": "/docs/02-core-features/06-schedule-management.html",
+    "excerpt": "微信截图秒变日历事件",
+    "category": "docs"
+  },
+  {
+    "title": "第7章：自动化工作流",
+    "url": "/docs/02-core-features/07-automation-workflow.html",
+    "excerpt": "定时任务/网站监控/AI日报",
+    "category": "docs"
+  },
+  {
+    "title": "第8章：Skills扩展",
+    "url": "/docs/03-advanced/08-skills-extension.html",
+    "excerpt": "1715个技能让AI无所不能",
+    "category": "docs"
+  },
+  {
+    "title": "第9章：多平台集成",
+    "url": "/docs/03-advanced/09-multi-platform-integration.html",
+    "excerpt": "飞书/企微/钉钉/QQ一键接入",
+    "category": "docs"
+  },
+  {
+    "title": "飞书Bot配置",
+    "url": "/docs/03-advanced/09-multi-platform-integration.html#91-飞书bot配置",
+    "excerpt": "完整的飞书Bot配置教程",
+    "category": "docs"
+  },
+  {
+    "title": "飞书配置检查清单",
+    "url": "/docs/03-advanced/feishu-checklist.html",
+    "excerpt": "确保飞书Bot配置完整，避免常见问题",
+    "category": "docs"
+  },
+  {
+    "title": "第10章：API服务集成",
+    "url": "/docs/03-advanced/10-api-integration.html",
+    "excerpt": "绘图/Notion/视频/语音",
+    "category": "docs"
+  },
+  {
+    "title": "第11章：高级配置",
+    "url": "/docs/03-advanced/11-advanced-configuration.html",
+    "excerpt": "多模型切换/成本优化/性能调优",
+    "category": "docs"
+  },
+  {
+    "title": "第12章：5类人群的效率提升实战",
+    "url": "/docs/04-practical-cases/12-personal-productivity.html",
+    "excerpt": "真实案例，直接套用，立即提升效率",
+    "category": "docs"
+  },
+  {
+    "title": "第13章：高级自动化工作流",
+    "url": "/docs/04-practical-cases/13-advanced-automation.html",
+    "excerpt": "多Skills组合/知识图谱",
+    "category": "docs"
+  },
+  {
+    "title": "第14章：创意应用探索",
+    "url": "/docs/04-practical-cases/14-creative-applications.html",
+    "excerpt": "AI绘画/视频/翻译/数据分析",
+    "category": "docs"
+  },
+  {
+    "title": "第15章：超级个体实战案例",
+    "url": "/docs/04-practical-cases/15-solo-entrepreneur-cases.html",
+    "excerpt": "一人公司/自由职业",
+    "category": "docs"
+  },
+  {
+    "title": "搜索使用指南",
+    "url": "/docs/search-guide.html",
+    "excerpt": "搜索功能使用技巧和常见问题",
+    "category": "docs"
+  },
+  {
+    "title": "附录A：命令速查表",
+    "url": "/appendix/A-command-reference.html",
+    "excerpt": "100+常用命令，5大类快速查找",
+    "category": "appendix"
+  },
+  {
+    "title": "附录B：必装Skills清单",
+    "url": "/appendix/B-skills-catalog.html",
+    "excerpt": "Top 10必装技能，附安装教程",
+    "category": "appendix"
+  },
+  {
+    "title": "附录C：API服务商对比",
+    "url": "/appendix/C-api-comparison.html",
+    "excerpt": "10+服务商价格对比，帮你省钱",
+    "category": "appendix"
+  },
+  {
+    "title": "附录D：社区资源导航",
+    "url": "/appendix/D-community-resources.html",
+    "excerpt": "官方文档、视频教程、交流群",
+    "category": "appendix"
+  },
+  {
+    "title": "附录E：常见问题速查",
+    "url": "/appendix/E-common-problems.html",
+    "excerpt": "安装/API/Skills/性能问题解决",
+    "category": "appendix"
+  },
+  {
+    "title": "附录F：避坑指南与最佳实践",
+    "url": "/appendix/F-best-practices.html",
+    "excerpt": "新手必看，前人经验总结",
+    "category": "appendix"
+  },
+  {
+    "title": "附录G：文档链接验证",
+    "url": "/appendix/G-links-validation.html",
+    "excerpt": "所有链接状态检查",
+    "category": "appendix"
+  },
+  {
+    "title": "附录H：配置文件模板",
+    "url": "/appendix/H-config-templates.html",
+    "excerpt": "开箱即用的配置示例",
+    "category": "appendix"
+  },
+  {
+    "title": "配置示例说明",
+    "url": "/examples/README.html",
+    "excerpt": "配置文件、自动化脚本、Skills示例",
+    "category": "examples"
+  }
+]
