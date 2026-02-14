@@ -30,19 +30,19 @@
 <td width="50%">
 
 ### 🔧 安装问题
-- [安装失败怎么办？](docs/05-troubleshooting/16-common-problems.md#安装配置问题)
+- [安装失败怎么办？](appendix/E-common-problems.md#安装配置问题)
 - [Node.js版本不对？](docs/01-basics/02-installation.md#系统要求)
-- [权限错误？](docs/05-troubleshooting/16-common-problems.md#权限问题)
-- [网络超时？](docs/05-troubleshooting/16-common-problems.md#网络问题)
+- [权限错误？](appendix/E-common-problems.md#权限问题)
+- [网络超时？](appendix/E-common-problems.md#网络问题)
 
 </td>
 <td width="50%">
 
 ### 🔌 连接问题
-- [API连接失败？](docs/05-troubleshooting/16-common-problems.md#api连接问题)
+- [API连接失败？](appendix/E-common-problems.md#api连接问题)
 - [飞书Bot不回复？](docs/03-advanced/09-multi-platform-integration.md#常见问题)
-- [Gateway启动失败？](docs/05-troubleshooting/16-common-problems.md#gateway问题)
-- [端口被占用？](docs/05-troubleshooting/16-common-problems.md#端口问题)
+- [Gateway启动失败？](appendix/E-common-problems.md#gateway问题)
+- [端口被占用？](appendix/E-common-problems.md#端口问题)
 
 </td>
 </tr>
@@ -62,14 +62,14 @@
 - [API费用太高？](docs/03-advanced/11-advanced-configuration.md#成本优化)
 - [如何选择模型？](docs/01-basics/03-quick-start.md#模型选择指南)
 - [国产模型推荐？](appendix/C-api-comparison.md)
-- [如何省钱？](docs/05-troubleshooting/17-best-practices.md#成本控制)
+- [如何省钱？](appendix/F-best-practices.md#成本控制避坑)
 
 </td>
 </tr>
 </table>
 
 **找不到答案？**
-- 📖 [查看完整FAQ](docs/05-troubleshooting/16-common-problems.md)
+- 📖 [查看完整FAQ](appendix/E-common-problems.md)
 - 💬 [GitHub Discussions](https://github.com/xianyu110/awesome-openclaw-tutorial/discussions)
 - 🐛 [报告Bug](https://github.com/xianyu110/awesome-openclaw-tutorial/issues)
 
@@ -375,22 +375,6 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 
 ---
 
-### 🛠️ 第五部分：问题解决（2章）
-
-#### [第16章：常见问题速查（安装/API/Skills/性能）](docs/05-troubleshooting/15-common-problems.md)
-> 遇到问题？这里有答案
-- ⚙️ 安装配置问题：10个常见错误及解决
-- 🔌 API连接问题：超时、限流、鉴权失败
-- 🧩 Skills加载问题：安装失败、版本冲突
-- 🚀 性能优化问题：响应慢、内存占用高
-
-#### [第17章：避坑指南（新手必看）](docs/05-troubleshooting/16-best-practices.md)
-> 前人踩过的坑，你不用再踩
-- ⚠️ 新手常犯的10个错误（附解决方案）
-- 🧠 模型选择避坑：什么场景用什么模型
-- 💰 成本控制避坑：如何避免API费用爆炸
-- 🔒 安全隐私注意事项：保护你的数据
-
 ---
 
 ### 📖 附录：速查手册
@@ -399,6 +383,10 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 - [附录B：必装Skills清单](appendix/B-skills-catalog.md) - Top 10必装技能，附安装教程
 - [附录C：API服务商对比](appendix/C-api-comparison.md) - 10+服务商价格对比，帮你省钱
 - [附录D：社区资源导航](appendix/D-community-resources.md) - 官方文档、视频教程、交流群
+- [附录E：常见问题速查](appendix/E-common-problems.md) - 安装/API/Skills/性能问题解决
+- [附录F：避坑指南与最佳实践](appendix/F-best-practices.md) - 新手必看，前人经验总结
+- [附录G：文档链接验证](appendix/G-links-validation.md) - 所有链接状态检查
+- [附录H：配置文件模板](appendix/H-config-templates.md) - 开箱即用的配置示例
 
 ## 📊 项目数据
 
@@ -406,24 +394,27 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 
 | 类别 | 数量 | 说明 |
 |------|------|------|
-| 正文章节 | 17章 | 约267,000字（新增多 Agent 配置） |
-| 附录 | 4个 | 约25,000字 |
-| 总字数 | 292,000字 | 新增多 Agent 配置、超级个体实战 |
+| 正文章节 | 15章 | 约267,000字 |
+| 附录 | 8个 | 约86,000字（新增4个） |
+| 配置示例 | 4个 | 开箱即用 |
+| 自动化脚本 | 4个 | 实用工具 |
+| Skills示例 | 2个 | 完整代码 |
+| 总字数 | 353,000字 | 新增61,000字 |
 | 实战案例 | 70+ | 可直接应用 |
 | 配置截图 | 50+ | 手把手图文教学 |
 | 命令参考 | 100+ | 完整命令速查表 |
 
-### 最新更新（2026-02-12）
+### 最新更新（2026-02-14）
 
-| 章节 | 新增内容 | 字数 | 亮点 |
-|------|---------|------|------|
-| 第9章 | 多 Agent 配置 | 5,000字 | 4个专业助手实战配置 |
-| 第9章 | 配置错误修复 | 2,000字 | 完整故障排查指南 |
-| 第10章 | AI绘图服务集成 | 3,000字 | Gemini图像生成配置 |
-| 第14章 | AI绘画实战案例 | 8,000字 | 教程配图生成实战 |
-| 目录结构 | 章节编号优化 | - | 17章完整体系 |
+| 类型 | 新增内容 | 字数/数量 | 亮点 |
+|------|---------|----------|------|
+| 附录E | 常见问题速查 | 15,000字 | 22个问题完整解决方案 |
+| 附录F | 避坑指南与最佳实践 | 18,000字 | 10大错误+8类最佳实践 |
+| 附录G | 文档链接验证 | 8,000字 | 245+链接验证清单 |
+| 附录H | 配置文件模板 | 20,000字 | 20+配置模板 |
+| 示例 | 配置+脚本+Skills | 16个文件 | 开箱即用 |
 
-👉 [查看详细更新内容](FINAL-WORK-SUMMARY-2026-02-11.md)
+👉 [查看详细改进内容](IMPROVEMENTS-SUMMARY.md)
 
 ### 优化进度
 
@@ -507,6 +498,30 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 - **腾讯云官方教程**：[查看完整列表](appendix/D-community-resources.md#腾讯云官方教程)
 
 ## 💡 实战案例精选
+
+### 📦 配置示例（开箱即用）
+
+在 `examples/` 目录下提供了完整的配置文件和脚本示例：
+
+**配置文件**：
+- [基础配置](examples/configs/basic-config.json) - 新手入门最小配置
+- [多模型配置](examples/configs/multi-model-config.json) - DeepSeek + Kimi + GPT-4
+- [多Agent配置](examples/configs/multi-agent-config.json) - 工作/个人/代码助手
+- [飞书Bot配置](examples/configs/feishu-config.json) - 完整飞书集成
+
+**自动化脚本**：
+- [每日AI日报](examples/automation/daily-report.sh) - 自动生成并推送
+- [配置备份](examples/automation/backup-config.sh) - 定时备份配置
+- [批量文件处理](examples/automation/batch-process-files.sh) - 批量处理文件
+- [网站监控](examples/automation/website-monitor.sh) - 监控内容变化
+
+**Skills开发**：
+- [自定义Skill模板](examples/skills/custom-skill-template.js) - 完整开发模板
+- [天气查询示例](examples/skills/weather-skill-example.js) - 实用示例
+
+👉 [查看所有示例](examples/README.md)
+
+---
 
 ### 多平台集成
 - [飞书双机器人配置：团队分离使用](docs/03-advanced/09-multi-platform-integration.md#实战案例配置双机器人)
@@ -647,13 +662,22 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 
 ---
 
-**最后更新**：2026年2月12日  
-**教程版本**：v1.3（持续更新）  
+**最后更新**：2026年2月14日  
+**教程版本**：v1.4（持续更新）  
 **书名**：一本书玩转OpenClaw：超级个体实战指南  
 **副标题**：从零开始打造你的AI工作助手  
-**总字数**：292,000字（新增多 Agent 配置 7,000字）  
-**章节数**：17章 + 4附录  
+**总字数**：353,000字（新增附录 61,000字 + 示例 16个文件）  
+**章节数**：15章 + 8附录  
 **适用OpenClaw版本**：2026.2.9（推荐稳定版，避免使用 2026.2.12）
+
+**本次更新亮点**：
+- ✅ 补充常见问题速查（22个问题完整解决方案）
+- ✅ 新增避坑指南与最佳实践（10大错误+8类最佳实践）
+- ✅ 提供配置文件模板（20+开箱即用模板）
+- ✅ 添加实用示例（16个文件：配置+脚本+Skills）
+- ✅ 完整链接验证（245+链接验证清单）
+
+👉 [查看详细改进内容](IMPROVEMENTS-SUMMARY.md)
 
 ---
 

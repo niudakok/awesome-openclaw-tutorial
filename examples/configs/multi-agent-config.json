@@ -1,0 +1,40 @@
+{
+  "agents": {
+    "work": {
+      "name": "工作助手",
+      "model": "gpt-4",
+      "workspace": "~/Documents/Work",
+      "channels": ["feishu"],
+      "systemPrompt": "你是一个专业的工作助手，帮助处理工作相关的任务。",
+      "skills": [
+        "@openclaw/skill-file-search",
+        "@openclaw/skill-calendar",
+        "@openclaw/skill-email"
+      ]
+    },
+    "personal": {
+      "name": "个人助手",
+      "model": "deepseek-chat",
+      "workspace": "~/Documents/Personal",
+      "channels": ["telegram"],
+      "systemPrompt": "你是一个友好的个人助手，帮助处理日常生活中的各种问题。",
+      "skills": [
+        "@openclaw/skill-web-search",
+        "@openclaw/skill-weather",
+        "@openclaw/skill-news"
+      ]
+    },
+    "code": {
+      "name": "代码助手",
+      "model": "deepseek-coder",
+      "workspace": "~/Projects",
+      "channels": ["telegram"],
+      "systemPrompt": "你是一个专业的编程助手，精通多种编程语言。",
+      "skills": [
+        "@openclaw/skill-github",
+        "@openclaw/skill-code-review",
+        "@openclaw/skill-documentation"
+      ]
+    }
+  }
+}

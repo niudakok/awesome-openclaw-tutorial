@@ -1,0 +1,22 @@
+{
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_xxx",
+      "appSecret": "YOUR_APP_SECRET",
+      "verificationToken": "YOUR_VERIFICATION_TOKEN",
+      "encryptKey": "YOUR_ENCRYPT_KEY",
+      "webhookUrl": "https://your-domain.com/webhook/feishu",
+      "features": {
+        "streaming": true,
+        "fileUpload": true,
+        "imageRecognition": true
+      },
+      "filters": {
+        "onlyMentions": true,
+        "ignoreGroups": ["闲聊群", "通知群"],
+        "keywords": ["openclaw", "帮助"]
+      }
+    }
+  }
+}

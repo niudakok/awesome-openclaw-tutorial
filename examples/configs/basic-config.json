@@ -1,0 +1,19 @@
+{
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "bind": "127.0.0.1"
+  },
+  "models": {
+    "default": "deepseek-chat",
+    "providers": {
+      "deepseek": {
+        "apiKey": "YOUR_DEEPSEEK_API_KEY",
+        "baseURL": "https://api.deepseek.com"
+      }
+    }
+  },
+  "workspace": {
+    "path": "~/Documents/OpenClaw"
+  }
+}

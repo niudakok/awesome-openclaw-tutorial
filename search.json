@@ -7,8 +7,8 @@ layout: null
     {
       "title": "{{ page.title | escape }}",
       "url": "{{ page.url | relative_url }}",
-      "content": {{ page.content | strip_html | jsonify }},
-      "excerpt": "{{ page.excerpt | strip_html | truncatewords: 50 | escape }}"
+      "excerpt": "{{ page.excerpt | default: page.content | strip_html | truncatewords: 30 | escape }}",
+      "category": "{{ page.path | split: '/' | first }}"
     }{% unless forloop.last %},{% endunless %}
     {% endif %}
   {% endfor %}
