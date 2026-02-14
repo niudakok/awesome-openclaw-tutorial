@@ -577,7 +577,7 @@ OpenClaw（Claude Sonnet）：你好！我是Claude...
 - 速率限制（Rate Limit）
 - 服务不可用
 
-![image-20260213094718578](/Users/chinamanor/Library/Application%20Support/typora-user-images/image-20260213094718578.png)
+![服务容灾配置示例](https://upload.maynor1024.live/file/1771085328347_service-disaster-recovery.png)
 
 #### 基础容灾配置
 

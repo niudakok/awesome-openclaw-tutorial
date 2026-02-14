@@ -147,10 +147,10 @@ OpenClaw：好的，正在收集...
 
 ```bash
 # 1. 配置网页抓取Skills
-openclaw skills install web-clipper
+clawhub install web-clipper
 
 # 2. 配置备忘录同步
-openclaw skills install notes-sync
+clawhub install notes-sync
 
 # 3. 设置默认存储位置
 openclaw config set notes.default "备忘录/行业研究"
@@ -411,7 +411,7 @@ openclaw schedule add "morning-report" \
   --channel "feishu"
 
 # 2. 网页剪藏
-openclaw skills install web-clipper
+clawhub install web-clipper
 openclaw config set clipper.default "备忘录/行业研究"
 
 # 3. 会议记录
@@ -419,7 +419,7 @@ openclaw template add "meeting-notes"
 openclaw config set meeting.auto-sync true
 
 # 4. 文档协作
-openclaw skills install notion-sync
+clawhub install notion-sync
 openclaw config set notion.workspace "个人工作区"
 
 # 5. 晚间复盘
@@ -530,7 +530,7 @@ const authMiddleware = async (req, res, next) => {
 
 ```bash
 # 1. 配置代码搜索
-openclaw skills install code-search
+clawhub install code-search
 openclaw config set code.paths "~/projects"
 
 # 2. 配置代码分析
@@ -857,13 +857,13 @@ Day 9-10：最佳实践
 # 程序员开发助手完整配置
 
 # 1. 代码搜索
-openclaw skills install code-search
+clawhub install code-search
 openclaw config set code.paths "~/projects"
 openclaw config set code.language "javascript,typescript,python,go"
 
 # 2. 技术文档管理
-openclaw skills install web-clipper
-openclaw skills install github-analyzer
+clawhub install web-clipper
+clawhub install github-analyzer
 openclaw config set docs.default "Notion/技术知识库"
 
 # 3. Bug追踪
@@ -876,11 +876,11 @@ openclaw config set projects.list "project-a,project-b,project-c"
 openclaw config set project.auto-start true
 
 # 5. 学习计划
-openclaw skills install learning-planner
+clawhub install learning-planner
 openclaw config set learning.daily-reminder true
 
 # 6. 代码审查
-openclaw skills install code-review
+clawhub install code-review
 openclaw config set review.auto-check true
 
 echo "✅ 程序员开发助手配置完成！"
@@ -992,7 +992,7 @@ OpenClaw：正在收集...
 
 ```bash
 # 1. 配置热点监控
-openclaw skills install trend-monitor
+clawhub install trend-monitor
 openclaw config set trend.sources "weibo,zhihu,xiaohongshu"
 openclaw config set trend.keywords "AI,人工智能,ChatGPT"
 
@@ -1259,27 +1259,27 @@ OpenClaw：正在分析...
 # 内容创作者完整工作流配置
 
 # 1. 选题灵感
-openclaw skills install trend-monitor
+clawhub install trend-monitor
 openclaw schedule add "daily-topics" \
   --time "09:00" \
   --prompt "生成今日选题建议"
 
 # 2. 资料收集
-openclaw skills install web-clipper
-openclaw skills install image-downloader
+clawhub install web-clipper
+clawhub install image-downloader
 openclaw config set materials.path "~/素材库"
 
 # 3. 内容创作
-openclaw skills install content-writer
-openclaw skills install banana-ai
+clawhub install content-writer
+clawhub install banana-ai
 openclaw config set content.style "公众号"
 
 # 4. 多平台发布
-openclaw skills install multi-publisher
+clawhub install multi-publisher
 openclaw config set publish.platforms "wechat,zhihu,xiaohongshu"
 
 # 5. 数据分析
-openclaw skills install analytics
+clawhub install analytics
 openclaw schedule add "weekly-report" \
   --time "Mon 10:00" \
   --prompt "生成上周数据分析报告"
@@ -1482,7 +1482,7 @@ Transformer
 
 ```bash
 # 1. 配置论文阅读
-openclaw skills install paper-reader
+clawhub install paper-reader
 openclaw config set paper.language "中英文"
 openclaw config set paper.detail-level "详细"
 
@@ -1882,32 +1882,32 @@ OpenClaw：已记录
 # 学生学习助手完整配置
 
 # 1. 课程资料管理
-openclaw skills install file-organizer
+clawhub install file-organizer
 openclaw config set courses.path "~/课程资料"
 openclaw config set courses.auto-organize true
 
 # 2. 论文阅读
-openclaw skills install paper-reader
+clawhub install paper-reader
 openclaw config set paper.language "中英文"
 openclaw config set paper.notes-template "标准模板"
 
 # 3. 作业辅助
-openclaw skills install code-helper
+clawhub install code-helper
 openclaw config set homework.check true
 openclaw config set homework.optimize true
 
 # 4. 考试复习
-openclaw skills install study-planner
-openclaw skills install flashcard-generator
+clawhub install study-planner
+clawhub install flashcard-generator
 openclaw config set study.daily-reminder true
 
 # 5. 科研项目
-openclaw skills install project-manager
+clawhub install project-manager
 openclaw config set project.progress-tracking true
 openclaw config set project.milestone-alert true
 
 # 6. 时间管理
-openclaw skills install calendar-sync
+clawhub install calendar-sync
 openclaw config set calendar.auto-create true
 
 echo "✅ 学生学习助手配置完成！"
@@ -2535,7 +2535,7 @@ openclaw schedule add "todo-reminder" \
 
 # 5. 配置云端内容创作
 echo "🎨 配置云端内容创作..."
-openclaw skills install banana-ai
+clawhub install banana-ai
 openclaw config set content.auto-cleanup true
 
 openclaw schedule add "file-cleanup" \
@@ -2544,7 +2544,7 @@ openclaw schedule add "file-cleanup" \
 
 # 6. 配置AI编程协作
 echo "💻 配置AI编程协作..."
-openclaw skills install code-planner
+clawhub install code-planner
 openclaw config set coding.use-claude-code true
 
 # 7. 配置人设
@@ -2797,7 +2797,7 @@ npm install -g @anthropic-ai/claude-cli
 export ANTHROPIC_API_KEY="your-api-key"
 
 # 3. 配置OpenClaw
-openclaw skills install coding-agent
+clawhub install coding-agent
 openclaw config set coding.tool "claude-code"
 ```
 
@@ -2874,7 +2874,7 @@ OpenClaw：好的，正在开发并测试...
 
 ```bash
 # 1. 安装Coding Agent Skill
-openclaw skills install coding-agent
+clawhub install coding-agent
 
 # 2. 配置Claude Code
 openclaw config set coding.tool "claude-code"

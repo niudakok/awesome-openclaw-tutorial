@@ -279,7 +279,7 @@ deadline：提前1周、3天、1天
 
 你在微信上收到这样的消息：
 
-<img src="/Users/chinamanor/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_ffgyrt3i5y6m21_5c96/temp/RWTemp/2026-02/1798b73b46c39a4178c203bd36616691/59879fc9a7abc0db6314c3ff43d8c1fe.jpg" alt="59879fc9a7abc0db6314c3ff43d8c1fe" style="zoom: 25%;" />
+![微信日程提醒消息](https://upload.maynor1024.live/file/1771085154272_1b87855aba3ddbd3b354c0c25b88cc18.jpg)
 
 ```
 张三：明天下午2点，在星巴克（国贸店）见面讨论新项目的事，
@@ -1101,4 +1101,3 @@ A：在日历中选择事件，批量删除，或让OpenClaw帮你删除。
 ---
 
 **下一章预告**：第7章将学习自动化工作流，包括定时任务设置、网站监控实战、日报自动推送等高级功能。
-

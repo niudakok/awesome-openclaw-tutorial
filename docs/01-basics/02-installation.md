@@ -2,7 +2,7 @@
 
 > 本章将手把手教你安装OpenClaw。
 
-![image-20260214102828890](/Users/chinamanor/Library/Application%20Support/typora-user-images/image-20260214102828890.png)
+![OpenClaw 安装界面](https://upload.maynor1024.live/file/1771085321300_installation-interface.png)
 
 
 
@@ -504,11 +504,13 @@ OpenClaw需要对接AI模型才能工作。
 
 **以配置Anthropic Claude（推荐）为例：**
 
+> 📖 **详细说明**: 完整的 API Key 配置方式和优先级说明请参考 [API Key 配置完整指南](../api-key-config-guide.md)
+
 ```bash
 # WSL2或PowerShell
-openclaw models auth add anthropic
-
-# 输入API Key: sk-ant-xxx
+openclaw models auth add
+# 按提示选择 anthropic
+# 输入 API Key: sk-ant-xxx
 ```
 
 #### 绑定消息渠道
@@ -1203,6 +1205,8 @@ openclaw-cn message send --target +15555550123 --message "Hello from OpenClaw"
 - `openclaw-cn status --deep`：深度状态检查
 
 ### 配置文件位置
+
+> 📖 **详细说明**: 完整的配置文件结构和使用指南请参考 [配置文件结构完整指南](../config-file-structure.md)
 
 ```bash
 # 主配置文件
@@ -2424,6 +2428,8 @@ OpenClaw内置支持非常多的API模型，包括但不限于：
    - 修改默认配置
 
 #### 配置文件位置
+
+> 📖 **详细说明**: 完整的配置文件结构和使用指南请参考 [配置文件结构完整指南](../config-file-structure.md)
 
 ```bash
 # 配置文件路径

@@ -590,7 +590,7 @@ OpenClaw：好的，正在批量处理...
 
 ```bash
 # 1. 安装Banana Pro Skills
-openclaw skills install banana-pro
+clawhub install banana-pro
 openclaw config set banana.api-key "YOUR_API_KEY"
 
 # 2. 配置Gemini API（Banana Pro需要）
@@ -1447,7 +1447,7 @@ npx clawhub@latest install language-learning
 
 ```bash
 # 1. 配置翻译引擎
-openclaw skills install translator
+clawhub install translator
 openclaw config set translate.engine "deepl"
 openclaw config set translate.quality "high"
 
@@ -1865,7 +1865,7 @@ npx clawhub@latest install data-lineage-tracker
 
 ```bash
 # 1. 配置数据分析
-openclaw skills install data-analyzer
+clawhub install data-analyzer
 openclaw config set data.engine "pandas"
 
 # 2. 配置可视化

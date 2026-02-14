@@ -34,14 +34,14 @@
 
 ```bash
 # 安装信息收集Skills
-openclaw skills install brave-search      # 网页搜索
-openclaw skills install rss-reader        # RSS订阅
-openclaw skills install github-trending   # GitHub热门
+clawhub install brave-search      # 网页搜索
+clawhub install rss-reader        # RSS订阅
+clawhub install github-trending   # GitHub热门
 
 # 安装内容处理Skills
-openclaw skills install content-analyzer  # 内容分析
-openclaw skills install text-summarizer   # 文本摘要
-openclaw skills install duplicate-checker # 去重检查
+clawhub install content-analyzer  # 内容分析
+clawhub install text-summarizer   # 文本摘要
+clawhub install duplicate-checker # 去重检查
 ```
 
 **第二步：配置信息源**
@@ -219,10 +219,10 @@ crontab -e
 **第一步：安装任务管理Skills**
 
 ```bash
-openclaw skills install task-manager
-openclaw skills install calendar-sync
-openclaw skills install priority-analyzer
-openclaw skills install time-estimator
+clawhub install task-manager
+clawhub install calendar-sync
+clawhub install priority-analyzer
+clawhub install time-estimator
 ```
 
 **第二步：配置任务规则**
@@ -613,19 +613,19 @@ knowledge-graph（构建知识图谱）
 
 ```bash
 # 内容发现
-openclaw skills install github-trending
-openclaw skills install course-finder
-openclaw skills install paper-search
+clawhub install github-trending
+clawhub install course-finder
+clawhub install paper-search
 
 # 内容处理
-openclaw skills install pdf-reader
-openclaw skills install video-transcriber
-openclaw skills install note-taker
+clawhub install pdf-reader
+clawhub install video-transcriber
+clawhub install note-taker
 
 # 知识管理
-openclaw skills install flashcard-generator
-openclaw skills install mind-map-creator
-openclaw skills install spaced-repetition
+clawhub install flashcard-generator
+clawhub install mind-map-creator
+clawhub install spaced-repetition
 ```
 
 **第二步：创建学习工作流**
@@ -898,12 +898,12 @@ openclaw chat "分析OpenClaw项目的增长趋势"
 
 ```bash
 # 不好的做法：一个Skill做所有事
-openclaw skills install all-in-one-tool
+clawhub install all-in-one-tool
 
 # 好的做法：多个专业Skill组合
-openclaw skills install data-collector
-openclaw skills install data-analyzer
-openclaw skills install report-generator
+clawhub install data-collector
+clawhub install data-analyzer
+clawhub install report-generator
 ```
 
 #### 实践2：错误处理
@@ -1093,13 +1093,13 @@ OpenClaw（核心概念）
 
 ```bash
 # 从笔记中提取知识点
-openclaw skills install note-parser
+clawhub install note-parser
 openclaw skills run note-parser \
   --input ~/.openclaw/notes \
   --output ~/.openclaw/knowledge/entities.json
 
 # 从浏览历史提取
-openclaw skills install browser-history-analyzer
+clawhub install browser-history-analyzer
 openclaw skills run browser-history-analyzer \
   --days 30 \
   --output ~/.openclaw/knowledge/topics.json
@@ -1177,7 +1177,7 @@ openclaw chat "分析我的知识库，提取知识点之间的关系"
 
 ```bash
 # 生成可视化图谱
-openclaw skills install knowledge-graph-visualizer
+clawhub install knowledge-graph-visualizer
 openclaw skills run knowledge-graph-visualizer \
   --input ~/.openclaw/knowledge \
   --output ~/.openclaw/knowledge/graph.html \
@@ -2170,7 +2170,7 @@ OpenClaw：正在审查代码...
 
 ```bash
 # 1. 安装Coding Agent
-openclaw skills install coding-agent
+clawhub install coding-agent
 
 # 2. 配置Claude Code
 openclaw config set coding.tool "claude-code"

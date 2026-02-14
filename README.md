@@ -125,7 +125,9 @@
 
 > ⚠️ **版本说明**：由于 OpenClaw 仍在快速开发中，本教程基于 **2026.2.9** 版本编写。该版本经过充分验证，稳定可靠。不推荐使用 2026.2.12 版本（存在已知 bug）。
 
-> 💡 **重要前提**：OpenClaw 预装了 **49个内置技能（Skills）**，本教程中的大部分功能演示都基于这些内置技能。这些技能涵盖文件管理、知识管理、日程管理、自动化等核心场景，开箱即用。如果某些功能无法使用，请先确认相关技能是否已启用（详见[第8章：Skills扩展](docs/03-advanced/08-skills-extension.md)）。
+> 💡 **重要前提**：OpenClaw 预装了 **49个内置技能（Skills）**，本教程中的大部分功能演示都基于这些内置技能。这些技能涵盖文件管理、知识管理、日程管理、自动化等核心场景，开箱即用。
+> 
+> 📊 **Skills 生态**：内置49个 + 官方93个 + 社区1715+个 = 总计1800+个可用 Skills。详见 [Skills 生态说明](docs/skills-ecosystem.md)。
 
 这是一份**完全免费、持续更新**的OpenClaw中文教程，专为**超级个体**打造，基于：
 - ✅ **263,000字完整内容**：15章正文 + 4个附录
@@ -304,13 +306,16 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 
 ### 💎 第三部分：进阶技能（4章)
 
-#### [第8章：Skills扩展（1715个技能让AI无所不能）](docs/03-advanced/08-skills-extension.md)
+#### [第8章：Skills扩展（1800+个技能让AI无所不能）](docs/03-advanced/08-skills-extension.md)
 > ClawHub技能市场，一键安装，让AI能力无限扩展
-- 🏪 ClawHub技能市场：1715个官方技能
-- ⭐ 必装Skills Top 10：文件管理、网页搜索、日历同步、**Skills双幻神**
+> 
+> 📊 **Skills 生态**：内置49个 + 官方93个 + 社区1715+个 = 总计1800+个（详见 [Skills 生态说明](docs/skills-ecosystem.md)）
+
+- 🏪 ClawHub 官方市场：93个精选 Skills
+- ⭐ 必装 Skills Top 10：文件管理、网页搜索、日历同步
 - 🌟 **Skills双幻神**：find-skills（智能发现）+ ProactiveAgent（主动预测）
-- 🛠️ 自定义Skills开发：打造专属技能
-- 📦 Skills管理技巧：安装、更新、卸载
+- 🛠️ 自定义 Skills 开发：打造专属技能
+- 📦 Skills 管理技巧：安装、更新、卸载
 - 🎯 **百度千帆Skills生态**：1715个企业级Skills，覆盖20+行业
 
 #### [第9章：多平台集成（飞书/企微/钉钉/QQ一键接入）](docs/03-advanced/09-multi-platform-integration.md)
