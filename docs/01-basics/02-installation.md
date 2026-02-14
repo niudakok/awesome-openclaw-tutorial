@@ -1,6 +1,6 @@
 # 第2章：环境搭建
 
-> 本章将手把手教你安装OpenClaw。
+> 本章将手把手教你安装 OpenClaw。
 
 ![OpenClaw 安装界面](https://upload.maynor1024.live/file/1771085321300_installation-interface.png)
 
@@ -119,7 +119,7 @@ OpenClaw在Mac上体验最好，因为：
 
 ![Mac终端打开方式 - 通过Spotlight搜索Terminal](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
 
-#### 第二步：安装OpenClaw
+#### 第二步：安装 OpenClaw
 
 在终端中执行以下命令：
 
@@ -205,7 +205,7 @@ openclaw onboard
 
 没有的可以选择 `no` 跳过：
 
-![安装向导 - 配置AI模型API密钥](https://upload.maynor1024.live/file/1770742264976_11-api-key-config.png)
+![安装向导 - 配置AI模型API 密钥](https://upload.maynor1024.live/file/1770742264976_11-api-key-config.png)
 
 **9. 启用Hooks**：
 
@@ -364,7 +364,7 @@ node -v
 npm -v
 ```
 
-#### 第五步：安装OpenClaw
+#### 第五步：安装 OpenClaw
 
 **方法A：一键脚本安装**
 
@@ -430,7 +430,7 @@ node -v
 npm -v
 ```
 
-#### 第三步：以管理员身份安装OpenClaw
+#### 第三步：以管理员身份安装 OpenClaw
 
 **重要**：必须以**管理员身份**运行PowerShell。
 
@@ -607,7 +607,7 @@ sudo apt-get install -y nodejs
 node --version
 ```
 
-#### 第二步：安装OpenClaw
+#### 第二步：安装 OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
@@ -846,7 +846,7 @@ openclaw onboard
    - 密码：**务必记住**，后续登录需要
 3. 等待实例创建完成
 
-**第三步：一键配置OpenClaw**
+**第三步：一键配置 OpenClaw**
 
 1. **进入实例详情页**：
    - 点击实例卡片
@@ -860,14 +860,14 @@ openclaw onboard
 3. **模型配置**：
    - 下拉选择模型（如：文心一言、千帆大模型）
    - 点击"应用模型配置"
-   - 系统会自动创建千帆APIKey并配置
+   - 系统会自动创建千帆API Key并配置
 
 4. **接入方式配置**（可选）：
    - 支持接入：飞书、钉钉、企业微信、QQ
    - 选择你常用的通讯工具
    - 按照提示完成配置（详见后续章节）
 
-5. **Skills配置**（可选）：
+5. **Skills 配置**（可选）：
    - 默认提供：百度搜索、百度百科
    - 可以按需选择并点击"应用"
    - 更多Skills可访问OpenClaw官网获取
@@ -901,7 +901,7 @@ openclaw onboard
    ```
 
 2. **选择轻量应用服务器**：
-   - 使用OpenClaw镜像
+   - 使用 OpenClaw镜像
    - 一键安装配置
 
 ![阿里云轻量服务器](https://upload.maynor1024.live/file/1770742237148_05-aliyun-server.png)
@@ -2448,7 +2448,7 @@ nano ~/.openclaw/openclaw.json
     "providers": {
       "你的供应商名称": {
         "baseUrl": "API服务地址",
-        "apiKey": "你的API密钥",
+        "apiKey": "你的API 密钥",
         "auth": "认证方式",
         "api": "API协议类型",
         "models": [
@@ -2481,7 +2481,7 @@ nano ~/.openclaw/openclaw.json
     "providers": {
       "deepseek": {
         "baseUrl": "https://api.deepseek.com",
-        "apiKey": "sk-你的API密钥",
+        "apiKey": "sk-你的API 密钥",
         "auth": "api-key",
         "api": "openai-chat",
         "models": [
@@ -2607,7 +2607,7 @@ nano ~/.openclaw/openclaw.json
 | 参数 | 说明 | 示例 |
 |------|------|------|
 | `baseUrl` | API服务地址 | `https://api.deepseek.com` |
-| `apiKey` | API密钥 | `sk-xxx` |
+| `apiKey` | API 密钥 | `sk-xxx` |
 | `auth` | 认证方式 | `api-key` 或 `bearer` |
 | `api` | API协议 | `openai-chat`、`anthropic-messages` |
 | `id` | 模型ID | `deepseek-chat` |
@@ -2829,7 +2829,7 @@ openclaw onboard
 
  API key的名称：随便取。然后这个APIkey一定！一定！要复制下来，因为一般你点完”关闭“之后，你就再也无法查看你的API key了，如果你我忘记了你的API key，那只能重新创建一个了。
 
- 复制完后，找地方先存起来，后续在”第四步：OpenClaw配置“的时候会用到
+ 复制完后，找地方先存起来，后续在”第四步：OpenClaw 配置“的时候会用到
 
 ![img](https://upload.maynor1024.live/file/1770957204667__null_-20260213123316852._null_)
 
@@ -2865,7 +2865,7 @@ openclaw onboard
        "providers": {
          "deepseek": {
            "baseUrl": "https://api.deepseek.com",
-           "apiKey": "sk-你的API密钥",
+           "apiKey": "sk-你的API 密钥",
            "auth": "api-key",
            "api": "openai-chat",
            "models": [
@@ -2918,7 +2918,7 @@ openclaw onboard
 
 ![img](https://upload.maynor1024.live/file/1770957262024__null_-20260213123418045._null_)
 
- 这个APIkey一定！一定！要复制下来，因为一般你点完”完成“之后，你就再也无法查看你的API key了，如果你忘记了你的API key，那就只能重新创建一个了。复制完后，找地方先存起来，后续在”第四步：OpenClaw配置“的时候会用到
+ 这个APIkey一定！一定！要复制下来，因为一般你点完”完成“之后，你就再也无法查看你的API key了，如果你忘记了你的API key，那就只能重新创建一个了。复制完后，找地方先存起来，后续在”第四步：OpenClaw 配置“的时候会用到
 
 ![img](https://upload.maynor1024.live/file/1770957271422__null_-20260213123420103._null_)
 
@@ -2945,7 +2945,7 @@ openclaw onboard
        "providers": {
          "moonshot": {
            "baseUrl": "https://api.moonshot.cn/v1",
-           "apiKey": "sk-你的API密钥",
+           "apiKey": "sk-你的API 密钥",
            "auth": "api-key",
            "api": "openai-chat",
            "models": [
@@ -3731,6 +3731,6 @@ curl -s https://api.github.com/repos/openclaw/openclaw/releases/latest
 
 ---
 
-**下一章**：[第3章：快速上手](03-quick-start.md) - 开始使用OpenClaw
+**下一章**：[第3章：快速上手](03-quick-start.md) - 开始使用 OpenClaw
 
 **返回目录**：[README](../../README.md)

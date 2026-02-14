@@ -1241,7 +1241,7 @@ openclaw chat "根据我的知识图谱，推荐下一步学习内容"
 # OpenClaw分析知识图谱：
 你已掌握：
 - OpenClaw基础（100%）
-- Skills安装（100%）
+- Skills 安装（100%）
 - Docker部署（80%）
 
 推荐学习：

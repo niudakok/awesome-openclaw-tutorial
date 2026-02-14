@@ -125,7 +125,7 @@
 - CorpId：企业ID
 ```
 
-### 9.2.4 配置OpenClaw
+### 9.2.4 配置 OpenClaw
 
 > 💡 **前置要求**：请先完成 OpenClaw 的基础安装和配置，详见 [第2章：环境搭建](../01-basics/02-installation.md)。
 
@@ -155,7 +155,7 @@ openclaw wework start
 **案例1：个人助手Bot**
 
 ```text
-场景：在企业微信上使用OpenClaw作为个人助手
+场景：在企业微信上使用 OpenClaw作为个人助手
 
 功能：
 - 文件搜索
@@ -174,7 +174,7 @@ OpenClaw：已设置提醒 ✅
 **案例2：团队协作Bot**
 
 ```text
-场景：团队群聊中使用OpenClaw
+场景：团队群聊中使用 OpenClaw
 
 功能：
 - 会议记录
@@ -328,7 +328,7 @@ https://open.dingtalk.com/
 ```
 
 
-### 9.3.3 配置OpenClaw
+### 9.3.3 配置 OpenClaw
 
 > 💡 **前置要求**：请先完成 OpenClaw 的基础安装和配置，详见 [第2章：环境搭建](../01-basics/02-installation.md)。
 
@@ -2165,7 +2165,7 @@ tokens 25k/200k (13%)
    - 用手机QQ扫码
    - 添加机器人为好友
 
-**步骤4：配置OpenClaw连接**
+**步骤4：配置 OpenClaw连接**
 
 1. **获取服务器IP地址**：
    - 如果使用腾讯云，在控制台查看公网IP
@@ -2194,7 +2194,7 @@ tokens 25k/200k (13%)
    ```
 
 
-### 9.4.3 配置OpenClaw
+### 9.4.3 配置 OpenClaw
 
 > 💡 **前置要求**：请先完成 OpenClaw 的基础安装和配置，详见 [第2章：环境搭建](../01-basics/02-installation.md)。
 
@@ -2465,7 +2465,7 @@ https://discord.com/developers/applications
 3. 点击"授权"
 4. 完成验证
 
-### 9.5.3 配置OpenClaw（旧版命令参考）
+### 9.5.3 配置 OpenClaw（旧版命令参考）
 
 > ⚠️ **注意**：以下命令使用的是旧版本的`clawdbot`命令，新版本应使用`openclaw`。
 
@@ -2545,7 +2545,7 @@ openclaw gateway --port 18789 --verbose
 **配置参考**：
 - Discord的配置流程仍然有效
 - Bot创建步骤没有变化
-- 主要是OpenClaw命令需要更新
+- 主要是OpenClaw 命令需要更新
 
 **推荐做法**：
 - 优先使用国内平台（飞书、QQ、企微）
@@ -2672,25 +2672,25 @@ openclaw gateway --port 18789 --verbose
 
 1. **飞书Bot配置**
    - 创建飞书应用
-   - 配置OpenClaw
+   - 配置 OpenClaw
    - 实战案例（个人助手、项目管理）
    - 与飞书生态集成
    - 高级功能（流式输出、多Agent路由）
 
 2. **企业微信Bot配置**
    - 注册和创建应用
-   - 配置OpenClaw
+   - 配置 OpenClaw
    - 实战案例（个人助手、团队协作、客户服务）
    - 手机端使用技巧
 
 3. **钉钉Bot配置**
    - 创建钉钉应用
-   - 配置OpenClaw
+   - 配置 OpenClaw
    - 实战案例（工作助手、审批流程）
 
 4. **QQ Bot配置**
    - 创建QQ机器人
-   - 配置OpenClaw
+   - 配置 OpenClaw
    - 实战案例（个人助手、群管理、娱乐互动）
    - 限制和注意事项
 
@@ -2722,13 +2722,13 @@ openclaw gateway --port 18789 --verbose
 ### 练习1：配置飞书Bot
 1. 注册飞书开放平台
 2. 创建应用
-3. 配置OpenClaw
+3. 配置 OpenClaw
 4. 测试文档集成
 
 ### 练习2：配置企业微信Bot
 1. 注册企业微信
 2. 创建应用
-3. 配置OpenClaw
+3. 配置 OpenClaw
 4. 测试基本功能
 
 ### 练习3：多平台对比
@@ -4763,7 +4763,7 @@ npm start
 
 1. 配置一个飞书机器人并测试基本功能
 2. 尝试配置多个Agent，为不同场景使用不同模型
-3. 使用OpenClaw Manager创建和管理多个Gateway
+3. 使用 OpenClaw Manager创建和管理多个Gateway
 4. 为每个Agent定制专属的人格设定
 5. 配置launchd保活服务，实现开机自启
 
@@ -4771,7 +4771,7 @@ npm start
 
 1. 探索更多IM平台的集成方式
 2. 优化Agent的人格设定，提升使用体验
-3. 使用OpenClaw Manager简化日常管理
+3. 使用 OpenClaw Manager简化日常管理
 4. 为团队成员创建专属的AI助手
 5. 定期备份配置，避免数据丢失
 

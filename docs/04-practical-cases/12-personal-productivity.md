@@ -456,7 +456,7 @@ echo "✅ 知识工作者工作流配置完成！"
 **投资回报率（ROI）**：
 ```
 成本：
-- OpenClaw配置时间：4小时
+- OpenClaw 配置时间：4小时
 - API费用：$50/月
 - 总成本：$50/月
 
@@ -1966,7 +1966,7 @@ echo "✅ 学生学习助手配置完成！"
 
 **百度云O计划部署**：
 
-![百度云OpenClaw配置](https://upload.maynor1024.live/file/1770780868861_image_1.jpg)
+![百度云OpenClaw 配置](https://upload.maynor1024.live/file/1770780868861_image_1.jpg)
 
 **配置步骤**：
 1. 选择OpenClaw应用镜像
@@ -2411,7 +2411,7 @@ OpenClaw：好的，我来帮你配置。根据文档，需要以下步骤：
    - 设置请求地址
    - 订阅消息事件
 
-4. 配置OpenClaw
+4. 配置 OpenClaw
    ```json
    {
      "feishu": {
@@ -2556,7 +2556,7 @@ echo "🔍 配置百度Skills..."
 openclaw config set search.engine "baidu"
 openclaw config set search.scholar true
 
-echo "✅ 云上OpenClaw配置完成！"
+echo "✅ 云上OpenClaw 配置完成！"
 echo ""
 echo "📊 已配置功能："
 echo "  ✅ 智能日报系统（每天9:00）"
@@ -2612,7 +2612,7 @@ echo "🎯 你现在是一个超级个体了！"
 ```
 成本：
 - 云服务器：0.01元/首月，50元/月（长期）
-- Skills配置：0元（开源免费）
+- Skills 配置：0元（开源免费）
 - 学习成本：4小时
 - 总成本：50元/月
 
@@ -2796,7 +2796,7 @@ npm install -g @anthropic-ai/claude-cli
 # 2. 配置API Key
 export ANTHROPIC_API_KEY="your-api-key"
 
-# 3. 配置OpenClaw
+# 3. 配置 OpenClaw
 clawhub install coding-agent
 openclaw config set coding.tool "claude-code"
 ```

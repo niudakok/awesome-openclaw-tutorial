@@ -104,7 +104,7 @@ Agent：今日选题推荐：
    要点：功能亮点、使用体验、对比分析
 
 3. 【热度⭐⭐⭐】AI编程工具安全漏洞
-   标题：280+ Leaky Skills：OpenClaw暴露API密钥
+   标题：280+ Leaky Skills：OpenClaw暴露API 密钥
    角度：安全警示+防范措施
    要点：漏洞分析、影响范围、解决方案
 
@@ -778,7 +778,7 @@ result = ziliu.publish(
 3. 进入控制台
 4. 复制API Key
 
-### 第2步：安装OpenClaw
+### 第2步：安装 OpenClaw
 ```bash
 # macOS/Linux
 curl -fsSL https://openclaw.example/install.sh | bash
@@ -2048,7 +2048,7 @@ class CreditManager:
 **步骤2：搭建基础设施**
 
 ```bash
-# 1. 安装OpenClaw
+# 1. 安装 OpenClaw
 curl -fsSL https://openclaw.example/install.sh | bash  # 替换为实际安装地址
 
 # 2. 创建工作目录

@@ -58,13 +58,13 @@ ls ~/.openclaw/skills/bananapro-image-gen
 
 ### 10.1.3 配置API
 
-**步骤1：获取API密钥**
+**步骤1：获取API 密钥**
 
 1. 访问中转API服务商（推荐支持Gemini的服务）
 2. 注册并充值（建议10-20元测试）
 3. 获取API Key
 
-**步骤2：配置OpenClaw**
+**步骤2：配置 OpenClaw**
 
 ```bash
 nano ~/.openclaw/openclaw.json
@@ -1000,7 +1000,7 @@ NOTION_API_KEY="${NOTION_API_KEY}"
 ### 10.2.4 配置Notion集成
 
 ```bash
-# 编辑OpenClaw配置
+# 编辑OpenClaw 配置
 nano ~/.openclaw/openclaw.json
 ```
 
@@ -1026,7 +1026,7 @@ nano ~/.openclaw/openclaw.json
 
 | 参数 | 说明 | 示例 |
 |------|------|------|
-| apiKey | Notion API密钥 | secret_xxx |
+| apiKey | Notion API 密钥 | secret_xxx |
 | version | API版本 | 2022-06-28 |
 | defaultDatabase | 默认数据库ID | 32位字符串 |
 | autoSync | 自动同步 | true/false |
@@ -1308,7 +1308,7 @@ npx clawhub@latest install video-cog
 **配置HeyGen（推荐）：**
 
 ```bash
-# 编辑OpenClaw配置
+# 编辑OpenClaw 配置
 nano ~/.openclaw/openclaw.json
 ```
 
@@ -1411,7 +1411,7 @@ https://video.openclaw.com/abc123
 你：批量生成OpenClaw教程系列视频，共5集
 
 第1集：什么是OpenClaw
-第2集：如何安装OpenClaw
+第2集：如何安装 OpenClaw
 第3集：基础配置教程
 第4集：Skills扩展使用
 第5集：实战案例分享
@@ -1431,7 +1431,7 @@ OpenClaw：好的，正在批量生成...
 第1集：什么是OpenClaw
 [████████████████████] 100% ✅
 
-第2集：如何安装OpenClaw
+第2集：如何安装 OpenClaw
 [████████████████████] 100% ✅
 
 第3集：基础配置教程
@@ -1453,7 +1453,7 @@ OpenClaw：好的，正在批量生成...
 
 📁 文件列表：
 1. ✅ 01_什么是OpenClaw.mp4 (30MB)
-2. ✅ 02_如何安装OpenClaw.mp4 (28MB)
+2. ✅ 02_如何安装 OpenClaw.mp4 (28MB)
 3. ✅ 03_基础配置教程.mp4 (32MB)
 4. ✅ 04_Skills扩展使用.mp4 (35MB)
 5. ✅ 05_实战案例分享.mp4 (25MB)
@@ -1724,7 +1724,7 @@ npx clawhub@latest install openai-tts
 **配置ElevenLabs（推荐）：**
 
 ```bash
-# 编辑OpenClaw配置
+# 编辑OpenClaw 配置
 nano ~/.openclaw/openclaw.json
 ```
 
@@ -2293,7 +2293,7 @@ npx clawhub@latest install openai-tts
 
 ### 常见问题
 
-**Q1：Skills安装失败怎么办？**
+**Q1：Skills 安装失败怎么办？**
 ```bash
 # 检查网络连接
 ping github.com
@@ -2334,7 +2334,7 @@ openclaw api test <service-name>
 # 查看错误日志
 openclaw logs --tail 50 --filter <service-name>
 
-# 验证API密钥
+# 验证API 密钥
 openclaw api verify <service-name>
 ```
 
@@ -2688,7 +2688,7 @@ openclaw cost detail --period 1d
 - 关注成本和质量的平衡
 
 **2. 配置优化**
-- 正确配置API密钥和权限
+- 正确配置API 密钥和权限
 - 设置合理的默认参数
 - 启用自动化规则
 

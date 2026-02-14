@@ -1,6 +1,6 @@
 # 第5章 知识库管理
 
-> 💡 **本章目标**：学会使用OpenClaw构建个人知识库系统，实现网页文章存档、GitHub项目管理、论文笔记整理和跨设备同步。
+> 💡 **本章目标**：学会使用 OpenClaw构建个人知识库系统，实现网页文章存档、GitHub项目管理、论文笔记整理和跨设备同步。
 
 ## 📚 本章内容
 
@@ -1067,7 +1067,7 @@ OpenClaw：已保存到Mac备忘录！
 5. 复制 Internal Integration Token
 ```
 
-**步骤2：配置OpenClaw**
+**步骤2：配置 OpenClaw**
 ```bash
 # 安装Notion Skill
 openclaw skill install notion-sync
@@ -1343,7 +1343,7 @@ A：检查网络连接，重启备忘录App，或重新登录iCloud。
 A：确认Token正确，检查数据库权限，参考官方文档。
 
 **Q3：如何批量导入已有笔记？**
-A：使用OpenClaw的批量处理功能，或编写自动化脚本。
+A：使用 OpenClaw的批量处理功能，或编写自动化脚本。
 
 **Q4：数据安全如何保证？**
 A：定期备份，使用加密存储，选择可信的同步方案。

@@ -21,7 +21,7 @@
 
 **定义**：
 
-Antigravity Manager是1个AI API代理工具，可以让你通过本地服务访问多个AI模型（Claude、Gemini、GPT等），统一管理API密钥和请求。
+Antigravity Manager是1个AI API代理工具，可以让你通过本地服务访问多个AI模型（Claude、Gemini、GPT等），统一管理API 密钥和请求。
 
 **项目地址**：https://github.com/lbjlaq/Antigravity-Manager
 
@@ -31,7 +31,7 @@ Antigravity Manager是1个AI API代理工具，可以让你通过本地服务访
 
 - ✅ **本地部署**：所有数据在本地处理，保护隐私
 - ✅ **统一管理**：1个工具管理所有AI模型
-- ✅ **成本控制**：使用自己的API密钥，避免中间商加价
+- ✅ **成本控制**：使用自己的API 密钥，避免中间商加价
 - ✅ **灵活切换**：随时切换不同的模型，无需修改代码
 - ✅ **技能扩展**：通过ClawHub安装各种实用技能
 
@@ -84,7 +84,7 @@ chmod +x Antigravity-Manager-*.AppImage
 
 ### 11.1.4 配置AI模型账号
 
-Antigravity Manager需要你提供AI模型的API密钥才能工作。
+Antigravity Manager需要你提供AI模型的API 密钥才能工作。
 
 #### 方案1：使用官方API
 
@@ -136,7 +136,7 @@ User Token是OpenClaw访问Antigravity Manager的凭证。
 3. 复制生成的Token（例如：`sk-82bc103b51f24af888af525a7835e87c`）
 4. ⚠️ **重要**：妥善保存这个Token，它只会显示一次！
 
-### 11.1.6 配置OpenClaw
+### 11.1.6 配置 OpenClaw
 
 #### 配置Claude Sonnet 4.5（默认模型）
 
@@ -490,7 +490,7 @@ openclaw test api
 步骤：
 1. 获取Claude API Key
 2. 在Antigravity Manager中添加
-3. 配置OpenClaw
+3. 配置 OpenClaw
 4. 测试使用
 
 结果：

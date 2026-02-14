@@ -217,7 +217,7 @@ my-skill/
 
 - 8.1 ClawHub技能市场
 - 8.2 核心Skills推荐
-- 8.3 Skills安装方法
+- 8.3 Skills 安装方法
 - 8.4 实战应用案例
 - 8.5 安全使用指南
 - 8.6 Skills开发指南
@@ -490,7 +490,7 @@ clawhub install nano-banana-pro
 - Bug多
 ```
 
-### 8.1.5 Skills安装和管理
+### 8.1.5 Skills 安装和管理
 
 **安装方式**：
 
@@ -1099,7 +1099,7 @@ npx clawhub@latest install proactive-agent
 
 ⚠️ **安全提示**：ProactiveAgent安装时可能显示VirusTotal警告（因包含外部API调用），这是正常的，可以安全使用。
 
-**核心Skills安装命令汇总**：
+**核心Skills 安装命令汇总**：
 ```bash
 # 一键安装9大核心Skills（包含Skills双幻神）
 npx clawhub@latest install mcporter brave-search transcript-api \
@@ -1109,7 +1109,7 @@ npx clawhub@latest install mcporter brave-search transcript-api \
 
 ---
 
-## 8.3 Skills安装方法详解
+## 8.3 Skills 安装方法详解
 
 > 💡 **三种安装方式**：ClawHub CLI（推荐）、对话式安装（最简单）、手动安装（高级用户）
 
@@ -1209,7 +1209,7 @@ openclaw gateway restart
 
 **效果对比**：
 
-| 指标 | 传统方式 | 使用OpenClaw Skills |
+| 指标 | 传统方式 | 使用 OpenClaw Skills |
 |------|---------|-------------------|
 | ⏰ 时间消耗 | 6小时/天 | 2小时/天 |
 | 📈 文章产量 | 3篇/天 | 5篇/天 |
@@ -1295,7 +1295,7 @@ clawhub view file-system-manager
 # 限制OpenClaw的系统资源使用
 docker update --cpus=1 --memory=2g openclaw-2026
 
-# 备份OpenClaw配置，防止恶意修改
+# 备份OpenClaw 配置，防止恶意修改
 docker cp openclaw-2026:/root/.openclaw /root/openclaw-backup
 ```
 
@@ -1627,7 +1627,7 @@ metadata: {
   }
 }
 
-# 示例3：需要API密钥
+# 示例3：需要API 密钥
 metadata: {
   "openclaw": {
     "requires": {
@@ -1647,7 +1647,7 @@ metadata: {
 }
 ```
 
-### 8.3.4 Skills安装器配置
+### 8.3.4 Skills 安装器配置
 
 **什么是安装器**：
 
@@ -2150,7 +2150,7 @@ openclaw skill feedback
 | 字段 | 说明 | 示例 |
 |------|------|------|
 | `enabled` | 启用/禁用Skills | `true` / `false` |
-| `apiKey` | API密钥（便捷字段） | `"your-api-key"` |
+| `apiKey` | API 密钥（便捷字段） | `"your-api-key"` |
 | `env` | 环境变量 | `{"KEY": "value"}` |
 | `config` | 自定义配置 | `{"model": "gpt-4"}` |
 
@@ -2254,7 +2254,7 @@ Skills监视器会监视Skills文件夹，当SKILL.md文件更改时自动更新
 
 ```
 ✅ 开发Skills时实时测试
-✅ 修改Skills配置后立即生效
+✅ 修改Skills 配置后立即生效
 ✅ 添加新Skills后自动加载
 ```
 
@@ -2266,7 +2266,7 @@ Skills监视器会监视Skills文件夹，当SKILL.md文件更改时自动更新
 1. 将第三方Skills视为不受信任的代码
 2. 启用前请仔细阅读Skills内容
 3. 对于不受信任的输入和高风险工具，使用沙箱隔离
-4. 保护API密钥，不要泄露到日志中
+4. 保护API 密钥，不要泄露到日志中
 ```
 
 **安全最佳实践**：
@@ -2298,7 +2298,7 @@ grep "requires" ~/.openclaw/skills/my-skill/SKILL.md
 }
 ```
 
-**3. 保护API密钥**
+**3. 保护API 密钥**
 
 ```json
 {
@@ -2347,7 +2347,7 @@ description: My skill with API key: sk-xxx7890  # ❌ 不要在SKILL.md中暴露
 # 列出所有已安装的Skills
 openclaw skill list
 
-# 检查Skills配置
+# 检查Skills 配置
 cat ~/.openclaw/openclaw.json | grep -A 10 "skills"
 
 # 查看Skills日志
@@ -2655,7 +2655,7 @@ cp ~/.openclaw/openclaw.json ~/backups/openclaw-$(date +%Y%m%d).json
    - ClawHub介绍
    - 技能分类和搜索
    - 技能评价体系
-   - Skills安装和管理
+   - Skills 安装和管理
 
 2. **必装Skills推荐**
    - 文件管理类（3个）
@@ -3249,10 +3249,10 @@ try {
 ### 8.10.1 1Password CLI安装（密码管理）
 
 **工具简介**：
-1Password CLI (op) 是1Password的命令行工具，让OpenClaw能够安全地访问和管理你的密码库中的凭证、API密钥等敏感信息。
+1Password CLI (op) 是1Password的命令行工具，让OpenClaw能够安全地访问和管理你的密码库中的凭证、API 密钥等敏感信息。
 
 **使用场景**：
-- 安全存储API密钥
+- 安全存储API 密钥
 - 自动填充登录信息
 - 团队密码共享
 - CI/CD流程中的密钥管理
@@ -3292,7 +3292,7 @@ op signin my.1password.com
 # 获取密码
 op item get "GitHub" --fields password
 
-# 获取API密钥
+# 获取API 密钥
 op item get "OpenAI API" --fields credential
 
 # 列出所有项目
@@ -3302,10 +3302,10 @@ op item list
 **OpenClaw集成示例**：
 
 ```
-你：从1Password获取GitHub的API密钥
+你：从1Password获取GitHub的API 密钥
 
 OpenClaw：正在获取...
-✅ 已获取GitHub API密钥：ghp_xxxxxxxxxxxx
+✅ 已获取GitHub API 密钥：ghp_xxxxxxxxxxxx
 
 你：用这个密钥创建一个新的GitHub仓库
 
@@ -3316,7 +3316,7 @@ OpenClaw：好的，正在创建...
 **安全提示**：
 - ⚠️ 不要在代码中硬编码密码
 - ✅ 使用1Password CLI安全管理所有凭证
-- ✅ 定期更换API密钥
+- ✅ 定期更换API 密钥
 - ✅ 为不同项目使用不同的凭证
 
 ---
@@ -3585,6 +3585,6 @@ camsnap --url rtsp://192.168.1.100:554/stream --verbose
 
 ---
 
-**下一章预告**：第9章将学习多平台集成，包括飞书、企业微信、钉钉、QQ等平台的Bot配置，实现随时随地使用OpenClaw。飞书作为最现代化的平台将优先介绍。
+**下一章预告**：第9章将学习多平台集成，包括飞书、企业微信、钉钉、QQ等平台的Bot配置，实现随时随地使用 OpenClaw。飞书作为最现代化的平台将优先介绍。
 
 **返回目录**：[README](../../README.md)

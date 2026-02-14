@@ -99,9 +99,9 @@ ls ~/.openclaw/skills/bananapro-image-gen
 # test_chapters.sh - 章节测试脚本
 ```
 
-**配置API密钥：**
+**配置API 密钥：**
 
-编辑OpenClaw配置文件：
+编辑OpenClaw 配置文件：
 
 ```bash
 nano ~/.openclaw/openclaw.json
@@ -121,7 +121,7 @@ nano ~/.openclaw/openclaw.json
 }
 ```
 
-**获取API密钥：**
+**获取API 密钥：**
 1. 访问中转API服务商（推荐使用支持Gemini的中转服务）
 2. 注册账号并充值（建议先充值10-20元测试）
 3. 获取API Key
@@ -776,7 +776,7 @@ OpenClaw：好的，正在生成...
      今天带来OpenClaw的完全使用指南
      
      这个视频会教你：
-     • 如何安装OpenClaw
+     • 如何安装 OpenClaw
      • 如何配置大模型
      • 6个实用技巧
      • 避坑指南
@@ -797,7 +797,7 @@ OpenClaw：好的，正在生成...
 
 【第二部分：安装教程】（2:00-5:00）
 画面：安装步骤演示
-文案：安装OpenClaw有两种方式：
+文案：安装 OpenClaw有两种方式：
      
      方式一：云端部署（推荐新手）
      • 购买腾讯云轻量服务器
@@ -865,7 +865,7 @@ OpenClaw：好的，正在生成...
 
 【第五部分：避坑指南】（12:00-14:00）
 画面：常见问题演示
-文案：使用OpenClaw要注意这些坑：
+文案：使用 OpenClaw要注意这些坑：
      
      坑1：API Key配置错误
      • 检查格式是否正确
@@ -1899,7 +1899,7 @@ openclaw config set data.auto-sync true
 • 报告生成：1次 × 180分钟 = 180分钟
 • 总计：690分钟
 
-使用OpenClaw后：
+使用 OpenClaw后：
 • 数据清洗：2次 × 5分钟 = 10分钟
 • 数据可视化：3次 × 10分钟 = 30分钟
 • 报告生成：1次 × 15分钟 = 15分钟
@@ -2591,7 +2591,7 @@ npx clawhub@latest install data-analyst
 
 ### 常见问题
 
-**Q1：Skills安装失败怎么办？**
+**Q1：Skills 安装失败怎么办？**
 ```bash
 # 检查网络连接
 ping github.com
