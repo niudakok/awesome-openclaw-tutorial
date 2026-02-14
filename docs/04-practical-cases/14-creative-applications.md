@@ -174,7 +174,7 @@ OpenClaw：好的，正在使用Gemini生成...
 已同步到：飞书相册
 ```
 
-![Banana绘画示例](https://upload.maynor1024.live/file/1770176324389_image_29.jpg)
+![Banana绘画示例 - AI生成的艺术作品](https://upload.maynor1024.live/file/1770176324389_image_29.jpg)
 
 **语音修改图片**：
 
@@ -206,7 +206,7 @@ OpenClaw：好的，正在修改...
 满意吗？如果还需要调整，继续告诉我~
 ```
 
-![修改后的绘画](https://upload.maynor1024.live/file/1770176332471_image_30.jpg)
+![语音修改后的绘画 - 实时调整画面细节](https://upload.maynor1024.live/file/1770176332471_image_30.jpg)
 
 ### 14.1.4 实战案例：生成教程章节总结图
 
@@ -1972,7 +1972,7 @@ openclaw config set data.auto-sync true
    • 工具矩阵：OpenClaw + 专业AI
 ```
 
-![深度讨论记录](https://upload.maynor1024.live/file/1770782774452_image_31.jpg)
+![多Agent深度讨论 - 不同视角的思维碰撞](https://upload.maynor1024.live/file/1770782774452_image_31.jpg)
 
 ### 14.5.4 配置方法
 
@@ -2463,7 +2463,7 @@ Logo设计方向：
 已推送到飞书 ✅
 ```
 
-![多Agent讨论示例](https://upload.maynor1024.live/file/1770782773075_image_30.jpg)
+![多Agent协作示例 - 团队式问题解决](https://upload.maynor1024.live/file/1770782773075_image_30.jpg)
 
 ---
 

@@ -35,7 +35,7 @@ Antigravity Manager是1个AI API代理工具，可以让你通过本地服务访
 - ✅ **灵活切换**：随时切换不同的模型，无需修改代码
 - ✅ **技能扩展**：通过ClawHub安装各种实用技能
 
-![Antigravity Manager架构](https://upload.maynor1024.live/file/1770264626936_image-20260205121018123.png)
+![Antigravity Manager架构图 - 统一管理多个AI服务](https://upload.maynor1024.live/file/1770264626936_image-20260205121018123.png)
 
 ### 11.1.2 系统要求和前置准备
 

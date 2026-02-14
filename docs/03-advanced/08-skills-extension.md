@@ -161,7 +161,7 @@ description: 从 PDF 中提取文本和表格，填写表单，并合并文档
 
 **Skills核心结构示意图**：
 
-![Skills核心结构](https://upload.maynor1024.live/file/1770813820310_image1.png)
+![Skills核心结构图 - SKILL.md定义技能能力](https://upload.maynor1024.live/file/1770813820310_image1.png)
 
 **Frontmatter字段说明**：
 
@@ -186,7 +186,7 @@ my-skill/
 └── assets/       # 可选：模板、资源
 ```
 
-![复杂Skills目录结构](https://upload.maynor1024.live/file/1770813829999_image2.png)
+![复杂Skills目录结构 - 包含脚本和依赖](https://upload.maynor1024.live/file/1770813829999_image2.png)
 
 ---
 
@@ -358,7 +358,7 @@ clawhub install nano-banana-pro
 **ClawHub界面布局**：
 
 
-![image-20260210234513022](https://upload.maynor1024.live/file/1770738350555_image-20260210234513022.png)
+![ClawHub技能市场 - 浏览和安装技能](https://upload.maynor1024.live/file/1770738350555_image-20260210234513022.png)
 
 ### 8.1.3 技能分类和搜索
 
@@ -873,7 +873,7 @@ OpenClaw：已截图！
 是否需要OCR识别文字？
 ```
 
-![截图功能示例](https://upload.maynor1024.live/file/1770176353570_image_35.jpg)
+![截图技能演示 - 自动捕获屏幕内容](https://upload.maynor1024.live/file/1770176353570_image_35.jpg)
 
 **12. translator（翻译助手）**
 
@@ -1006,7 +1006,7 @@ npx clawhub@latest install file-system-manager
 
 
 
-![image-20260211105458447](https://upload.maynor1024.live/file/1770778507814_image-20260211105458447.png)
+![1Password CLI集成 - 安全管理密码凭证](https://upload.maynor1024.live/file/1770778507814_image-20260211105458447.png)
 
 
 
@@ -1364,7 +1364,7 @@ my-custom-skill/
 
 **项目文件结构示例**：
 
-![项目文件结构](https://upload.maynor1024.live/file/1770813835155_image3.png)
+![自定义Skills项目结构 - 完整的开发示例](https://upload.maynor1024.live/file/1770813835155_image3.png)
 
 你的项目现在看起来应该是这样的：
 
@@ -1398,7 +1398,7 @@ claude
 
 Claude 会扫描已安装的 Skills，发现你的请求涉及 "Python 代码编写"，匹配了 python-naming-standard。
 
-![Claude Code执行效果](https://upload.maynor1024.live/file/1770813836904_image4.png)
+![Claude Code执行效果 - Skills自动匹配和调用](https://upload.maynor1024.live/file/1770813836904_image4.png)
 
 它会根据 SKILL.md 中的要求，生成如下代码：
 
@@ -2848,7 +2848,7 @@ openclaw skills install baidu-search
 4. 点击"创建Access Key"
 5. 保存Access Key ID和Secret Access Key
 
-![获取API Key](https://upload.maynor1024.live/file/1770782712874_image_17.jpg)
+![百度智能云控制台 - 获取API Key和Secret Key](https://upload.maynor1024.live/file/1770782712874_image_17.jpg)
 
 ### 8.8.5 百度千帆MCP广场
 

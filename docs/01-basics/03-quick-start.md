@@ -270,7 +270,7 @@ OpenClaw 的配置文件位于：`~/.openclaw/workspace`
 | **IDENTITY.md** | 名称/主题 | AI的名称、身份、主题设定 |
 | **BOOT.md** | 启动配置 | 启动时的初始化配置 |
 
-![image-20260212230206925](https://upload.maynor1024.live/file/1770908540502_image-20260212230206925.png)
+![Agent配置文件结构 - SOUL/USER/BOOT三大核心文件](https://upload.maynor1024.live/file/1770908540502_image-20260212230206925.png)
 
 
 
@@ -314,7 +314,7 @@ OpenClaw 的配置文件位于：`~/.openclaw/workspace`
    - 点击保存
    - 配置立即生效，无需重启
 
-![image-20260213140612295](https://upload.maynor1024.live/file/1770962777437_image-20260213140612295.png)
+![配置文件实时生效 - 无需重启Gateway](https://upload.maynor1024.live/file/1770962777437_image-20260213140612295.png)
 
 
 

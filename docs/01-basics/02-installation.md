@@ -2,7 +2,7 @@
 
 > 本章将手把手教你安装OpenClaw。
 
-![image-20260213144456310](https://upload.maynor1024.live/file/1770965110819_image-20260213144456310.png)
+![image-20260214102828890](/Users/chinamanor/Library/Application%20Support/typora-user-images/image-20260214102828890.png)
 
 
 
@@ -117,7 +117,7 @@ OpenClaw在Mac上体验最好，因为：
 2. 输入 `Terminal` 或`终端`
 3. 按回车打开终端
 
-![打开终端](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
+![Mac终端打开方式 - 通过Spotlight搜索Terminal](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
 
 #### 第二步：安装OpenClaw
 
@@ -159,19 +159,19 @@ openclaw onboard
 
 选择 `Yes` 继续
 
-![接受风险](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
+![安装向导 - 接受风险提示](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
 
 **2. 选择启动模式**：
 
 推荐选择 `QuickStart` 快速启动：
 
-![选择QuickStart](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
+![安装向导 - 选择QuickStart快速启动模式](https://upload.maynor1024.live/file/1770742238798_07-select-quickstart.png)
 
 **3. 选择AI模型**：
 
 选择你的AI供应商（支持国内外主流模型）：
 
-![选择AI供应商](https://upload.maynor1024.live/file/1770742221938_03-select-ai-provider.png)
+![安装向导 - 选择AI模型供应商](https://upload.maynor1024.live/file/1770742221938_03-select-ai-provider.png)
 
 国内推荐：
 - **Kimi（Moonshot AI）**：长文本专家，200万字上下文
@@ -187,31 +187,31 @@ openclaw onboard
 - 如果要接入飞书/Telegram，选择对应选项
 - 如果暂时不接入，选择 `None`（后续可配置）
 
-![选择聊天工具](https://upload.maynor1024.live/file/1770742247561_08-select-chat-tool.png)
+![安装向导 - 选择聊天平台（飞书/企微/QQ等）](https://upload.maynor1024.live/file/1770742247561_08-select-chat-tool.png)
 
 **6. Gateway端口设置**：
 
 默认 `18789` 即可：
 
-![端口设置](https://upload.maynor1024.live/file/1770742247410_09-port-setting.png)
+![安装向导 - Gateway端口配置（默认18789）](https://upload.maynor1024.live/file/1770742247410_09-port-setting.png)
 
 **7. 选择Skills**：
 
 使用空格键选择你需要的技能，也可以直接跳过：
 
-![选择Skills](https://upload.maynor1024.live/file/1770742255849_10-select-skills.png)
+![安装向导 - 选择需要安装的技能包](https://upload.maynor1024.live/file/1770742255849_10-select-skills.png)
 
 **8. API Key配置**：
 
 没有的可以选择 `no` 跳过：
 
-![API Key配置](https://upload.maynor1024.live/file/1770742264976_11-api-key-config.png)
+![安装向导 - 配置AI模型API密钥](https://upload.maynor1024.live/file/1770742264976_11-api-key-config.png)
 
 **9. 启用Hooks**：
 
 推荐启用这三个钩子（用于内容引导、日志和会话记录）：
 
-![启用Hooks](https://upload.maynor1024.live/file/1770742261487_12-enable-hooks.png)
+![安装向导 - 启用自动化钩子功能](https://upload.maynor1024.live/file/1770742261487_12-enable-hooks.png)
 
 **10. 完成配置**：
 
@@ -284,7 +284,7 @@ openclaw uninstall
 
 > 🪟 **Windows用户**：完全可用，但部分系统集成功能受限。
 
-![Windows部署示意图](https://upload.maynor1024.live/file/1770963301031_attachment_531c0e90-e8a2-469c-b6ec-b9811a55edfa_image.png)
+![Windows系统部署架构 - WSL2+Ubuntu方案](https://upload.maynor1024.live/file/1770963301031_attachment_531c0e90-e8a2-469c-b6ec-b9811a55edfa_image.png)
 
 ### 系统要求
 
@@ -688,7 +688,7 @@ openclaw onboard
      - 默认用户名（通常是 `lighthouse`）
      - 初始密码
 
-![腾讯云轻量服务器](https://upload.maynor1024.live/file/1770742212222_01-tencent-cloud-server.png)
+![腾讯云Lighthouse控制台 - 创建实例界面](https://upload.maynor1024.live/file/1770742212222_01-tencent-cloud-server.png)
 
 #### 💡 免费白嫖方案（可选）
 

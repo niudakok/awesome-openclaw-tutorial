@@ -468,7 +468,7 @@ openclaw logs --follow       # 查看实时日志
 2. 填写应用名称和描述
 3. 选择应用图标
 
-![创建飞书应用](https://upload.maynor1024.live/file/1770734336224_image_1770734318.jpg)
+![飞书开放平台 - 创建企业自建应用](https://upload.maynor1024.live/file/1770734336224_image_1770734318.jpg)
 
 #### 3. 获取应用凭证
 
@@ -478,7 +478,7 @@ openclaw logs --follow       # 查看实时日志
 
 ❗ **重要**：请妥善保管 App Secret，不要分享给他人。
 
-![获取应用凭证](https://upload.maynor1024.live/file/1770734332380_image_1770734319.jpg)
+![飞书应用凭证 - App ID和App Secret](https://upload.maynor1024.live/file/1770734332380_image_1770734319.jpg)
 
 #### 4. 配置应用权限
 
@@ -520,7 +520,7 @@ openclaw logs --follow       # 查看实时日志
 }
 ```
 
-![配置应用权限](https://upload.maynor1024.live/file/1770734343156_image_1770734320.jpg)
+![飞书应用权限配置 - 批量导入JSON权限](https://upload.maynor1024.live/file/1770734343156_image_1770734320.jpg)
 
 #### 5. 启用机器人能力
 
@@ -528,7 +528,7 @@ openclaw logs --follow       # 查看实时日志
 1. 开启机器人能力
 2. 配置机器人名称
 
-![启用机器人能力](https://upload.maynor1024.live/file/1770734349201_image_1770734321.jpg)
+![飞书机器人配置 - 启用机器人功能](https://upload.maynor1024.live/file/1770734349201_image_1770734321.jpg)
 
 #### 6. 配置事件订阅
 
@@ -542,7 +542,7 @@ openclaw logs --follow       # 查看实时日志
 
 ⚠️ **注意**：如果网关未启动或渠道未添加，长连接设置将保存失败。
 
-![配置事件订阅](https://upload.maynor1024.live/file/1770734352151_image_1770734322.jpg)
+![飞书事件订阅 - 使用长连接接收消息](https://upload.maynor1024.live/file/1770734352151_image_1770734322.jpg)
 
 **常见错误排查：**
 
@@ -812,7 +812,7 @@ openclaw pairing list feishu
 
 添加常用命令在菜单上
 
-![image-20260212134245771](https://upload.maynor1024.live/file/1770874980945_image-20260212134245771.png)
+![飞书机器人菜单 - 添加常用命令快捷入口](https://upload.maynor1024.live/file/1770874980945_image-20260212134245771.png)
 
 
 
@@ -820,7 +820,7 @@ openclaw pairing list feishu
 
 这里我新建了三个常用命令：新建对话，列出技能，继续。
 
-![image-20260212134300933](https://upload.maynor1024.live/file/1770874990637_image-20260212134300933.png)
+![自定义菜单示例 - 新建对话/列出技能/继续](https://upload.maynor1024.live/file/1770874990637_image-20260212134300933.png)
 
 
 
@@ -994,9 +994,9 @@ OpenClaw 支持同时管理多个飞书机器人，这在以下场景非常有�
 
 
 
-![image-20260212150740769](https://upload.maynor1024.live/file/1770880072503_image-20260212150740769.png)
+![飞书长连接配置 - WebSocket模式事件订阅](https://upload.maynor1024.live/file/1770880072503_image-20260212150740769.png)
 
-![image-20260212150708631](https://upload.maynor1024.live/file/1770880042274_image-20260212150708631.png)
+![飞书事件订阅成功 - 长连接已建立](https://upload.maynor1024.live/file/1770880042274_image-20260212150708631.png)
 
 
 
@@ -3736,7 +3736,7 @@ openclaw doctor --fix
 
 > 💡 **重要提示**：多 Agent 管理不仅可以用于飞书等 IM 平台，也完全支持本地使用。如果你不需要绑定飞书机器人，可以通过 Web UI、命令行或 TUI 界面直接使用多个 Agent。
 
-![本地多 Agent 管理](https://upload.maynor1024.live/file/1770944487857_image-20260213090121654.png)
+![本地多Agent管理界面 - Web UI/命令行/TUI三种方式](https://upload.maynor1024.live/file/1770944487857_image-20260213090121654.png)
 
 ### 本地使用方式
 

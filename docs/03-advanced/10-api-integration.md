@@ -528,7 +528,7 @@ generate_from_template(
 
 Notion是流行的知识管理工具，通过OpenClaw集成Notion API，可以实现自动化的数据同步和内容管理。
 
-![image-20260212120817415](https://upload.maynor1024.live/file/1770869312061_image-20260212120817415.png)
+![Notion工作空间 - 知识管理和协作平台](https://upload.maynor1024.live/file/1770869312061_image-20260212120817415.png)
 
 ### 10.2.1 为什么要集成Notion？
 
