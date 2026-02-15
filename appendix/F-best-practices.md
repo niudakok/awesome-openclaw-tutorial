@@ -271,9 +271,9 @@ openclaw config set monitoring.alerts.threshold 0.8  # 80%时警告
 openclaw skills search "file search"
 
 # ✅ 安装必备Skills
-openclaw skills install @openclaw/skill-file-search
-openclaw skills install @openclaw/skill-web-search
-openclaw skills install @openclaw/skill-calendar
+clawhub install @openclaw/skill-file-search
+clawhub install @openclaw/skill-web-search
+clawhub install @openclaw/skill-calendar
 
 # ✅ 定期浏览ClawHub
 # 访问：https://clawhub.ai
@@ -749,15 +749,15 @@ grep "upload" ~/.openclaw/logs/audit.log
 **❌ 错误做法**：
 ```bash
 # 安装所有Skills
-openclaw skills install --all
+clawhub install --all
 ```
 
 **✅ 正确做法**：
 ```bash
 # 只安装需要的Skills
-openclaw skills install @openclaw/skill-file-search
-openclaw skills install @openclaw/skill-web-search
-openclaw skills install @openclaw/skill-calendar
+clawhub install @openclaw/skill-file-search
+clawhub install @openclaw/skill-web-search
+clawhub install @openclaw/skill-calendar
 ```
 
 **原因**：

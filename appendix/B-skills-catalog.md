@@ -24,7 +24,7 @@
 
 **安装**：
 ```bash
-openclaw skills install peekaboo
+clawhub install peekaboo
 ```
 
 **使用示例**：
@@ -53,7 +53,7 @@ openclaw skills install peekaboo
 
 **安装**：
 ```bash
-openclaw skills install notes
+clawhub install notes
 ```
 
 **使用示例**：
@@ -82,7 +82,7 @@ openclaw skills install notes
 
 **安装**：
 ```bash
-openclaw skills install calendar
+clawhub install calendar
 ```
 
 **使用示例**：
@@ -111,7 +111,7 @@ openclaw skills install calendar
 
 **安装**：
 ```bash
-openclaw skills install mail
+clawhub install mail
 ```
 
 **使用示例**：
@@ -143,7 +143,7 @@ openclaw skills install mail
 
 **安装**：
 ```bash
-openclaw skills install file-manager
+clawhub install file-manager
 ```
 
 **使用示例**：
@@ -173,7 +173,7 @@ openclaw skills install file-manager
 
 **安装**：
 ```bash
-openclaw skills install pdf-tools
+clawhub install pdf-tools
 ```
 
 **使用示例**：
@@ -202,7 +202,7 @@ openclaw skills install pdf-tools
 
 **安装**：
 ```bash
-openclaw skills install image-tools
+clawhub install image-tools
 ```
 
 **使用示例**：
@@ -233,7 +233,7 @@ openclaw skills install image-tools
 
 **安装**：
 ```bash
-openclaw skills install web-search
+clawhub install web-search
 ```
 
 **使用示例**：
@@ -262,7 +262,7 @@ openclaw skills install web-search
 
 **安装**：
 ```bash
-openclaw skills install rss-reader
+clawhub install rss-reader
 ```
 
 **使用示例**：
@@ -293,7 +293,7 @@ openclaw skills install rss-reader
 
 **安装**：
 ```bash
-openclaw skills install code-assistant
+clawhub install code-assistant
 ```
 
 **使用示例**：
@@ -322,7 +322,7 @@ openclaw skills install code-assistant
 
 **安装**：
 ```bash
-openclaw skills install debug-helper
+clawhub install debug-helper
 ```
 
 **使用示例**：
@@ -355,7 +355,7 @@ openclaw skills install debug-helper
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/feishu
+clawhub install @openclaw/feishu
 ```
 
 **使用示例**：
@@ -384,7 +384,7 @@ openclaw skills install @openclaw/feishu
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/dingtalk
+clawhub install @openclaw/dingtalk
 ```
 
 **使用示例**：
@@ -413,7 +413,7 @@ openclaw skills install @openclaw/dingtalk
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/wecom
+clawhub install @openclaw/wecom
 ```
 
 **使用示例**：
@@ -444,7 +444,7 @@ openclaw skills install @openclaw/wecom
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/banana
+clawhub install @openclaw/banana
 ```
 
 **使用示例**：
@@ -473,7 +473,7 @@ openclaw skills install @openclaw/banana
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/video-gen
+clawhub install @openclaw/video-gen
 ```
 
 **使用示例**：
@@ -502,7 +502,7 @@ openclaw skills install @openclaw/video-gen
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/tts
+clawhub install @openclaw/tts
 ```
 
 **使用示例**：
@@ -533,7 +533,7 @@ openclaw skills install @openclaw/tts
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/data-analysis
+clawhub install @openclaw/data-analysis
 ```
 
 **使用示例**：
@@ -562,7 +562,7 @@ openclaw skills install @openclaw/data-analysis
 
 **安装**：
 ```bash
-openclaw skills install @openclaw/excel-tools
+clawhub install @openclaw/excel-tools
 ```
 
 **使用示例**：
@@ -676,34 +676,34 @@ openclaw skills install @openclaw/excel-tools
 
 **组合1：知识管理套装**
 ```bash
-openclaw skills install notes
-openclaw skills install web-search
-openclaw skills install pdf-tools
-openclaw skills install file-manager
+clawhub install notes
+clawhub install web-search
+clawhub install pdf-tools
+clawhub install file-manager
 ```
 
 **组合2：团队协作套装**
 ```bash
-openclaw skills install feishu
-openclaw skills install calendar
-openclaw skills install mail
-openclaw skills install file-manager
+clawhub install feishu
+clawhub install calendar
+clawhub install mail
+clawhub install file-manager
 ```
 
 **组合3：开发者套装**
 ```bash
-openclaw skills install code-assistant
-openclaw skills install debug-helper
-openclaw skills install peekaboo
-openclaw skills install file-manager
+clawhub install code-assistant
+clawhub install debug-helper
+clawhub install peekaboo
+clawhub install file-manager
 ```
 
 **组合4：创意工作套装**
 ```bash
-openclaw skills install banana
-openclaw skills install video-gen
-openclaw skills install tts
-openclaw skills install image-tools
+clawhub install banana
+clawhub install video-gen
+clawhub install tts
+clawhub install image-tools
 ```
 
 ---
@@ -718,4 +718,3 @@ openclaw skills install image-tools
 ---
 
 **提示**：本清单会随着新Skills的发布而更新，建议定期查看以获取最新信息。
-

@@ -333,17 +333,17 @@ openclaw skills info <skill>
 openclaw skills search "文件管理"
 
 # 安装Skills
-openclaw skills install peekaboo
-openclaw skills install @openclaw/feishu
+clawhub install peekaboo
+clawhub install @openclaw/feishu
 
 # 安装指定版本
-openclaw skills install peekaboo@1.0.0
+clawhub install peekaboo@1.0.0
 
 # 从URL安装
-openclaw skills install https://github.com/user/skill.git
+clawhub install https://github.com/user/skill.git
 
 # 从本地安装
-openclaw skills install ./my-skill/
+clawhub install ./my-skill/
 ```
 
 ### A.4.2 Skills管理
@@ -577,7 +577,7 @@ openclaw chat "测试"
 openclaw skills search "截图"
 
 # 2. 安装Skills
-openclaw skills install peekaboo
+clawhub install peekaboo
 
 # 3. 查看Skills配置
 openclaw skills config peekaboo
@@ -700,7 +700,7 @@ openclaw start
 ```bash
 # 批量安装Skills
 for skill in peekaboo feishu telegram; do
-  openclaw skills install $skill
+  clawhub install $skill
 done
 
 # 批量更新Skills
@@ -722,4 +722,3 @@ openclaw models list | xargs -I {} openclaw models test {}
 ---
 
 **提示**：本速查表会随OpenClaw版本更新而更新，建议收藏本页面以便随时查阅。
-

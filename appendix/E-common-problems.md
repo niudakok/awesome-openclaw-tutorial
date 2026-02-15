@@ -318,7 +318,7 @@ npm install @openclaw/skill-file-search
 
 **步骤3：从GitHub安装**
 ```bash
-openclaw skills install https://github.com/openclaw/skill-file-search
+clawhub install https://github.com/openclaw/skill-file-search
 ```
 
 ---
@@ -386,13 +386,13 @@ openclaw skills update @openclaw/skill-file-search
 openclaw skills uninstall @openclaw/skill-old-version
 
 # 重新安装
-openclaw skills install @openclaw/skill-file-search@latest
+clawhub install @openclaw/skill-file-search@latest
 ```
 
 **方案3：使用兼容版本**
 ```bash
 # 安装特定版本
-openclaw skills install @openclaw/skill-file-search@1.2.0
+clawhub install @openclaw/skill-file-search@1.2.0
 ```
 
 ---

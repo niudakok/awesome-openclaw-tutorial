@@ -859,9 +859,9 @@ read -r DEEPSEEK_KEY
 sed -i '' "s/sk-your-deepseek-api-key/$DEEPSEEK_KEY/g" ~/.openclaw/config.json
 
 # 安装必备Skills
-openclaw skills install @openclaw/skill-file-search
-openclaw skills install @openclaw/skill-web-search
-openclaw skills install @openclaw/skill-calendar
+clawhub install @openclaw/skill-file-search
+clawhub install @openclaw/skill-web-search
+clawhub install @openclaw/skill-calendar
 
 # 启动Gateway
 openclaw gateway run
