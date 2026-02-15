@@ -392,6 +392,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 - [附录F：避坑指南与最佳实践](appendix/F-best-practices.md) - 新手必看，前人经验总结
 - [附录G：文档链接验证](appendix/G-links-validation.md) - 所有链接状态检查
 - [附录H：配置文件模板](appendix/H-config-templates.md) - 开箱即用的配置示例
+- [附录I：思考题参考答案](appendix/I-thinking-questions-answers.md) - 各章节思考题详解
 
 ## 📊 项目数据
 
