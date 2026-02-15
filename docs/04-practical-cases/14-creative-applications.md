@@ -2507,8 +2507,8 @@ npx clawhub@latest install <skill-name>
 # 查看Skills列表
 openclaw skills list
 
-# 重新加载Skills
-openclaw skills reload
+# 检查Skills状态
+openclaw skills check
 
 # 重启OpenClaw
 openclaw restart
@@ -2549,8 +2549,8 @@ npx clawhub@latest list --outdated
 # 每周检查更新
 npx clawhub@latest list --outdated
 
-# 每月清理无用Skills
-openclaw skills cleanup
+# 定期检查Skills状态
+openclaw skills check
 
 # 每季度备份配置
 openclaw backup create
@@ -2569,14 +2569,17 @@ openclaw config set skills.cache.enabled true
 ### 进阶技巧
 
 **技巧1：创建Skills组合**
+**技巧1：使用配置文件管理Skills**
 ```bash
-# 创建内容创作组合
-openclaw skills group create "content-creation" \
-  --skills "fal-ai,video-agent,translator"
+# 创建内容创作配置
+cat > ~/.openclaw/profiles/content-creation.json <<EOF
+{
+  "skills": ["fal-ai", "video-agent", "translator"],
+  "description": "内容创作工具集"
+}
+EOF
+```
 
-# 使用组合
-openclaw skills group enable "content-creation"
-```text
 **技巧2：自定义快捷命令**
 ```bash
 # 创建快捷命令
@@ -2600,4 +2603,3 @@ openclaw batch run "translator" \
 ---
 
 **下一章预告**：第15章将学习常见问题与解决方案，包括安装配置、API连接、Skills加载和性能优化等问题的完整解决方案。
-

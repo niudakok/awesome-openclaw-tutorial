@@ -3704,13 +3704,13 @@ http://127.0.0.1:18789/?token=你的token
 
 ```bash
 # 直接发送消息
-openclaw chat "你好，帮我分析一下这个项目"
+openclaw agent --message "你好，帮我分析一下这个项目"
 
 # 使用管道输入
-echo "帮我总结这个文件的内容" | openclaw chat
+echo "帮我总结这个文件的内容" | openclaw agent --message
 
 # 指定输出文件
-openclaw chat "生成项目文档" --output docs.md
+openclaw agent --message "生成项目文档" --output docs.md
 ```text
 **优势**：
 - ✅ 快速执行单次任务
@@ -3893,19 +3893,19 @@ openclaw gateway status
 ```bash
 # 使用主助手处理通用任务
 openclaw agents switch main-agent
-openclaw chat "帮我整理今天的待办事项"
+openclaw agent --message "帮我整理今天的待办事项"
 
 # 使用内容助手创作文章
 openclaw agents switch content-agent
-openclaw chat "帮我写一篇关于 AI 的文章"
+openclaw agent --message "帮我写一篇关于 AI 的文章"
 
 # 使用代码助手开发项目
 openclaw agents switch code-agent
-openclaw chat "帮我优化这段 Python 代码"
+openclaw agent --message "帮我优化这段 Python 代码"
 
 # 使用研究助手搜集资料
 openclaw agents switch research-agent
-openclaw chat "帮我搜集关于量子计算的最新研究"
+openclaw agent --message "帮我搜集关于量子计算的最新研究"
 ```text
 ### 使用场景对比
 
@@ -3923,23 +3923,23 @@ openclaw chat "帮我搜集关于量子计算的最新研究"
 ```bash
 # 早上：使用主助手查看日程
 openclaw agents switch main-agent
-openclaw chat "显示今天的日程安排"
+openclaw agent --message "显示今天的日程安排"
 
 # 上午：使用代码助手开发项目
 openclaw agents switch code-agent
-openclaw chat "帮我实现用户登录功能"
+openclaw agent --message "帮我实现用户登录功能"
 
 # 中午：使用研究助手学习新技术
 openclaw agents switch research-agent
-openclaw chat "搜集 Rust 语言的学习资料"
+openclaw agent --message "搜集 Rust 语言的学习资料"
 
 # 下午：使用内容助手写文章
 openclaw agents switch content-agent
-openclaw chat "写一篇关于今天开发经验的博客"
+openclaw agent --message "写一篇关于今天开发经验的博客"
 
 # 晚上：使用主助手总结一天
 openclaw agents switch main-agent
-openclaw chat "生成今日工作总结"
+openclaw agent --message "生成今日工作总结"
 ```text
 ### 配置技巧
 
@@ -3984,7 +3984,7 @@ alias oc-research='openclaw agents switch research-agent'
 
 # 使用别名快速切换
 oc-code
-openclaw chat "帮我写一个排序算法"
+openclaw agent --message "帮我写一个排序算法"
 ```text
 **技巧3：为每个 Agent 配置独立的 Skills**
 

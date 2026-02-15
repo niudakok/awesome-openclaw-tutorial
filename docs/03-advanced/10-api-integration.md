@@ -2228,11 +2228,11 @@ npx clawhub@latest install <skill-name> --verbose
 # 查看Skills列表
 openclaw skills list
 
-# 重新加载Skills
-openclaw skills reload
-
 # 检查Skills状态
-openclaw skills status <skill-name>
+openclaw skills check
+
+# 查看Skill详细信息
+openclaw skills info <skill-name>
 
 # 重启OpenClaw
 openclaw restart
@@ -2273,8 +2273,8 @@ npx clawhub@latest uninstall <skill-name>
 # 卸载多个Skills
 npx clawhub@latest uninstall <skill1> <skill2> <skill3>
 
-# 清理无用依赖
-openclaw skills cleanup
+# 检查Skills依赖
+openclaw skills check
 ```text
 ### 最佳实践
 
@@ -2297,8 +2297,8 @@ openclaw skills cleanup
 # 每周检查更新
 npx clawhub@latest list --outdated
 
-# 每月清理无用Skills
-openclaw skills cleanup
+# 定期检查Skills状态
+openclaw skills check
 
 # 每季度备份配置
 openclaw backup create
@@ -2338,22 +2338,25 @@ openclaw cost export --format csv
 ```text
 ### 进阶技巧
 
-**技巧1：创建Skills组合**
+**技巧1：使用配置文件管理Skills**
 ```bash
-# 创建内容创作组合
-openclaw skills group create "content-creation" \
-  --skills "fal-ai,video-agent,elevenlabs,notion"
+# 创建内容创作配置
+cat > ~/.openclaw/profiles/content-creation.json <<EOF
+{
+  "skills": ["fal-ai", "video-agent", "elevenlabs", "notion"],
+  "description": "内容创作工具集"
+}
+EOF
 
-# 创建知识管理组合
-openclaw skills group create "knowledge-management" \
-  --skills "notion,notion-mcp,openai-tts"
+# 创建知识管理配置
+cat > ~/.openclaw/profiles/knowledge-management.json <<EOF
+{
+  "skills": ["notion", "notion-mcp", "openai-tts"],
+  "description": "知识管理工具集"
+}
+EOF
+```
 
-# 使用组合
-openclaw skills group enable "content-creation"
-
-# 切换组合
-openclaw skills group switch "knowledge-management"
-```text
 **技巧2：自定义快捷命令**
 ```bash
 # 创建快捷命令
@@ -2455,8 +2458,8 @@ openclaw workflow status "daily-content"
 
 解决方案：
 ```bash
-# 检查依赖
-openclaw skills check <skill-name>
+# 查看Skill依赖
+openclaw skills info <skill-name>
 
 # 重新安装依赖
 cd ~/.openclaw/skills/<skill-name>
@@ -2618,4 +2621,3 @@ openclaw cost detail --period 1d
 ---
 
 **下一章预告：** 第11章 高级配置（多模型切换/成本优化/性能调优）
-

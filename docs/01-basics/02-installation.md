@@ -2574,7 +2574,7 @@ openclaw models test deepseek/deepseek-chat
 **Q2：如何切换模型？**
 ```bash
 # 临时切换
-openclaw chat --model deepseek/deepseek-chat
+openclaw agent --message --model deepseek/deepseek-chat
 
 # 永久切换：修改配置文件中的 primary 字段
 ```text

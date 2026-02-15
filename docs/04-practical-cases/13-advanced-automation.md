@@ -105,44 +105,32 @@ mkdir -p "$OUTPUT_DIR"
 
 # 1. 收集RSS信息
 echo "📰 收集RSS信息..."
-openclaw skills run rss-reader \
-  --config ~/.openclaw/info-sources.json \
-  --output "$OUTPUT_DIR/rss-$DATE.json"
+openclaw agent --message "请使用 rss-reader skill 收集 ~/.openclaw/info-sources.json 中配置的RSS源，保存到 $OUTPUT_DIR/rss-$DATE.json"
 
 # 2. 收集GitHub热门
 echo "🔥 收集GitHub热门..."
-openclaw skills run github-trending \
-  --language python \
-  --since daily \
-  --output "$OUTPUT_DIR/github-$DATE.json"
+openclaw agent --message "请收集GitHub今日Python热门项目，保存到 $OUTPUT_DIR/github-$DATE.json"
 
 # 3. 搜索关键词
 echo "🔍 搜索关键词..."
-openclaw skills run brave-search \
-  --keywords "OpenClaw AI工具" \
-  --max-results 10 \
-  --output "$OUTPUT_DIR/search-$DATE.json"
+openclaw agent --message "请搜索'OpenClaw AI工具'相关信息，最多10条结果，保存到 $OUTPUT_DIR/search-$DATE.json"
 
 # 4. 合并和去重
 echo "🔄 合并和去重..."
-openclaw skills run duplicate-checker \
-  --input "$OUTPUT_DIR/*-$DATE.json" \
-  --output "$OUTPUT_DIR/merged-$DATE.json"
+openclaw agent --message "请合并 $OUTPUT_DIR/*-$DATE.json 中的所有信息并去重，保存到 $OUTPUT_DIR/merged-$DATE.json"
 
 # 5. 内容分析和评分
 echo "📊 内容分析..."
-openclaw skills run content-analyzer \
-  --input "$OUTPUT_DIR/merged-$DATE.json" \
-  --output "$OUTPUT_DIR/analyzed-$DATE.json"
+openclaw agent --message "请分析 $OUTPUT_DIR/merged-$DATE.json 中的内容并评分，保存到 $OUTPUT_DIR/analyzed-$DATE.json"
 
 # 6. 生成日报
-echo "📝 生成日报..."
-openclaw chat "请根据以下信息生成今日日报，按技术、产品、行业分类，每条信息包含标题、摘要、链接和推荐理由：
+echo "� 生成日报..."
+openclaw agent --message "请根据以下信息生成今日日报，按技术、产品、行业分类，每条信息包含标题、摘要、链接和推荐理由：
 $(cat $OUTPUT_DIR/analyzed-$DATE.json)" \
   --output "$OUTPUT_DIR/digest-$DATE.md"
 
 # 7. 推送到飞书
-echo "📤 推送到飞书..."
+echo "� 推送到飞书..."
 openclaw channels send feishu \
   --message "$(cat $OUTPUT_DIR/digest-$DATE.md)" \
   --title "📰 每日资讯 $DATE"
@@ -286,7 +274,7 @@ OpenClaw：已分析你的任务，建议执行顺序：
 
 ```bash
 # 创建项目
-openclaw chat "创建项目：OpenClaw教程优化
+openclaw agent --message "创建项目：OpenClaw教程优化
 任务列表：
 1. 修复Docker文档（2小时，已完成）
 2. 补充第13章内容（8小时，进行中）
@@ -350,7 +338,7 @@ openclaw skills run brave-search \
 
 # 2. 生成大纲
 echo "📋 生成大纲..."
-openclaw chat "根据以下资料生成文章大纲：
+openclaw agent --message "根据以下资料生成文章大纲：
 主题：$TOPIC
 资料：$(cat $OUTPUT_DIR/research.json)
 要求：
@@ -361,7 +349,7 @@ openclaw chat "根据以下资料生成文章大纲：
 
 # 3. 创作内容
 echo "✍️ 创作内容..."
-openclaw chat "根据大纲创作完整文章：
+openclaw agent --message "根据大纲创作完整文章：
 $(cat $OUTPUT_DIR/outline.md)
 要求：
 - 语言通俗易懂
@@ -371,7 +359,7 @@ $(cat $OUTPUT_DIR/outline.md)
 
 # 4. 优化排版
 echo "🎨 优化排版..."
-openclaw chat "优化文章排版：
+openclaw agent --message "优化文章排版：
 $(cat $OUTPUT_DIR/draft.md)
 要求：
 - 添加emoji
@@ -398,22 +386,20 @@ bash ~/.openclaw/scripts/content-creation.sh "OpenClaw自动化测试实战"
 
 ```bash
 # 周一：生成本周选题
-openclaw chat "分析最近的技术热点，生成3个博客选题"
+openclaw agent --message "分析最近的技术热点，生成3个博客选题"
 
 # 周二：创作第一篇
 bash ~/.openclaw/scripts/content-creation.sh "选题1"
 
 # 周三：审核和优化
-openclaw chat "审核文章，提出优化建议：
+openclaw agent --message "审核文章，提出优化建议：
 $(cat ~/.openclaw/content/final.md)"
 
 # 周四：生成配图
-openclaw skills run image-generator \
-  --prompt "技术博客配图" \
-  --style "简约科技风"
+openclaw agent --message "请生成技术博客配图，风格：简约科技风"
 
 # 周五：多平台发布
-openclaw chat "将文章发布到：
+openclaw agent --message "将文章发布到：
 - 个人博客
 - 掘金
 - CSDN
@@ -471,7 +457,7 @@ openclaw chat "将文章发布到：
 
 ```bash
 # 每日总结
-openclaw chat "生成今日效率报告"
+openclaw agent --message "生成今日效率报告"
 
 # OpenClaw自动生成：
 📊 今日效率报告 2026-02-11
@@ -655,7 +641,7 @@ clawhub install spaced-repetition
 openclaw workflow run learning
 
 # 或通过对话启动
-openclaw chat "我想学习Python异步编程，帮我制定学习计划"
+openclaw agent --message "我想学习Python异步编程，帮我制定学习计划"
 
 # OpenClaw自动执行：
 1. 搜索Python异步编程相关资源
@@ -729,7 +715,7 @@ blog-publisher + social-media-poster
 
 ```bash
 # 创建内容创作工作流
-openclaw chat "我要写一篇关于OpenClaw自动化的文章"
+openclaw agent --message "我要写一篇关于OpenClaw自动化的文章"
 
 # OpenClaw自动执行：
 
@@ -817,7 +803,7 @@ report-writer + insight-summarizer
 
 ```bash
 # 分析GitHub项目数据
-openclaw chat "分析OpenClaw项目的增长趋势"
+openclaw agent --message "分析OpenClaw项目的增长趋势"
 
 # OpenClaw自动执行：
 
@@ -1055,18 +1041,14 @@ OpenClaw（核心概念）
 ```bash
 # 从笔记中提取知识点
 clawhub install note-parser
-openclaw skills run note-parser \
-  --input ~/.openclaw/notes \
-  --output ~/.openclaw/knowledge/entities.json
+openclaw agent --message "请使用 note-parser skill 从 ~/.openclaw/notes 提取知识点，保存到 ~/.openclaw/knowledge/entities.json"
 
 # 从浏览历史提取
 clawhub install browser-history-analyzer
-openclaw skills run browser-history-analyzer \
-  --days 30 \
-  --output ~/.openclaw/knowledge/topics.json
+openclaw agent --message "请使用 browser-history-analyzer skill 分析最近30天的浏览历史，保存到 ~/.openclaw/knowledge/topics.json"
 
 # 从对话记录提取
-openclaw chat "分析我最近的对话，提取关键知识点"
+openclaw agent --message "分析我最近的对话，提取关键知识点"
 ```text
 **方法2：手动标注**
 
@@ -1090,7 +1072,7 @@ OpenClaw：已添加到知识图谱
 
 ```bash
 # 分析知识点之间的关系
-openclaw chat "分析我的知识库，提取知识点之间的关系"
+openclaw agent --message "分析我的知识库，提取知识点之间的关系"
 
 # OpenClaw自动分析：
 发现关系：
@@ -1163,7 +1145,7 @@ open ~/.openclaw/knowledge/graph.html
 
 ```bash
 # 搜索知识点
-openclaw chat "搜索：如何使用Skills"
+openclaw agent --message "搜索：如何使用Skills"
 
 # OpenClaw基于知识图谱返回：
 找到相关知识：
@@ -1190,7 +1172,7 @@ openclaw chat "搜索：如何使用Skills"
 **场景**：基于已学知识推荐新知识
 
 ```bash
-openclaw chat "根据我的知识图谱，推荐下一步学习内容"
+openclaw agent --message "根据我的知识图谱，推荐下一步学习内容"
 
 # OpenClaw分析知识图谱：
 你已掌握：
@@ -1219,7 +1201,7 @@ openclaw chat "根据我的知识图谱，推荐下一步学习内容"
 
 ```bash
 # 每周知识复盘
-openclaw chat "生成本周知识复盘报告"
+openclaw agent --message "生成本周知识复盘报告"
 
 # OpenClaw生成报告：
 📊 本周知识复盘 2026-02-11
@@ -1281,7 +1263,7 @@ openclaw chat "生成本周知识复盘报告"
 
 ```bash
 # 自动收集资源
-openclaw chat "收集Python异步编程的学习资源"
+openclaw agent --message "收集Python异步编程的学习资源"
 
 # OpenClaw收集：
 - 官方文档：5篇
@@ -1316,7 +1298,7 @@ Python异步编程
 **第四步：学习路径规划**
 
 ```bash
-openclaw chat "基于知识图谱，生成Python异步编程学习路径"
+openclaw agent --message "基于知识图谱，生成Python异步编程学习路径"
 
 # OpenClaw生成：
 📚 学习路径（预计20小时）
@@ -1356,7 +1338,7 @@ openclaw chat "基于知识图谱，生成Python异步编程学习路径"
 
 ```bash
 # 每周更新知识图谱
-openclaw chat "更新知识图谱"
+openclaw agent --message "更新知识图谱"
 
 # OpenClaw自动：
 1. 扫描新增笔记
@@ -1369,7 +1351,7 @@ openclaw chat "更新知识图谱"
 
 ```bash
 # 检查知识图谱质量
-openclaw chat "检查知识图谱质量"
+openclaw agent --message "检查知识图谱质量"
 
 # OpenClaw分析：
 质量报告：
@@ -1387,9 +1369,7 @@ openclaw chat "检查知识图谱质量"
 
 ```bash
 # 导出知识图谱
-openclaw skills run knowledge-exporter \
-  --format markdown \
-  --output ~/knowledge-base.md
+openclaw agent --message "请使用 knowledge-exporter skill 导出知识图谱为 markdown 格式，保存到 ~/knowledge-base.md"
 
 # 生成Markdown格式的知识库
 # 可以发布为个人博客或文档
@@ -1456,7 +1436,7 @@ openclaw skills run knowledge-exporter \
 
 ```bash
 # 查看实时效率数据
-openclaw chat "显示我的效率仪表盘"
+openclaw agent --message "显示我的效率仪表盘"
 
 # OpenClaw生成：
 📊 效率仪表盘 2026-02-11 15:30
@@ -1520,7 +1500,7 @@ ROI：1200%
 
 ```bash
 # 启动A/B测试
-openclaw chat "启动工作流A/B测试"
+openclaw agent --message "启动工作流A/B测试"
 
 # 第1周：使用方案A
 openclaw config set workflow "manual"
@@ -1529,7 +1509,7 @@ openclaw config set workflow "manual"
 openclaw config set workflow "automated"
 
 # 测试结束，生成对比报告
-openclaw chat "生成A/B测试报告"
+openclaw agent --message "生成A/B测试报告"
 
 # OpenClaw生成：
 📊 A/B测试报告
@@ -1571,7 +1551,7 @@ Plan（新计划）...
 **第1周：Plan（计划）**
 
 ```bash
-openclaw chat "制定本周效率优化计划"
+openclaw agent --message "制定本周效率优化计划"
 
 # OpenClaw生成：
 📋 本周优化计划
@@ -1594,7 +1574,7 @@ openclaw chat "制定本周效率优化计划"
 
 ```bash
 # 每天记录执行情况
-openclaw chat "记录今日执行情况"
+openclaw agent --message "记录今日执行情况"
 
 # OpenClaw自动跟踪：
 - 工作时长：7.5h ✓
@@ -1604,7 +1584,7 @@ openclaw chat "记录今日执行情况"
 **第7天：Check（检查）**
 
 ```bash
-openclaw chat "生成本周执行报告"
+openclaw agent --message "生成本周执行报告"
 
 # OpenClaw分析：
 📊 本周执行报告
@@ -1627,7 +1607,7 @@ openclaw chat "生成本周执行报告"
 **第8天：Act（改进）**
 
 ```bash
-openclaw chat "制定改进措施"
+openclaw agent --message "制定改进措施"
 
 # OpenClaw建议：
 💡 改进措施
@@ -1655,7 +1635,7 @@ openclaw chat "制定改进措施"
 
 ```bash
 # 分析时间使用情况
-openclaw chat "审计我的时间使用"
+openclaw agent --message "审计我的时间使用"
 
 # OpenClaw分析：
 ⏰ 时间审计报告
@@ -1685,7 +1665,7 @@ openclaw chat "审计我的时间使用"
 
 ```bash
 # 分析能量曲线
-openclaw chat "分析我的能量曲线"
+openclaw agent --message "分析我的能量曲线"
 
 # OpenClaw生成：
 📈 能量曲线分析
@@ -1718,7 +1698,7 @@ openclaw chat "分析我的能量曲线"
 
 ```bash
 # 追踪效率习惯
-openclaw chat "追踪我的效率习惯"
+openclaw agent --message "追踪我的效率习惯"
 
 # OpenClaw记录：
 📊 习惯追踪（30天）
@@ -1832,7 +1812,7 @@ OpenClaw：
 ```text
 **18:00 - 每日复盘**
 ```
-openclaw chat "生成今日复盘"
+openclaw agent --message "生成今日复盘"
 
 OpenClaw：
 📊 今日复盘 2026-02-11

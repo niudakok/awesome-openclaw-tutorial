@@ -177,7 +177,7 @@ nano ~/.openclaw/agents/tech-dev/openclaw.json
 openclaw config get --agent tech-dev
 
 # 测试连接
-openclaw chat --agent tech-dev "Hello"
+openclaw agent --message --agent tech-dev "Hello"
 ```text
 ### 优点和缺点
 
@@ -336,7 +336,7 @@ openclaw models list
 openclaw channels status
 
 # 5. 发送测试消息
-openclaw chat "Hello, test API Key"
+openclaw agent --message "Hello, test API Key"
 ```text
 ### 查看生效的配置
 
@@ -404,10 +404,10 @@ openclaw config set models.providers.openai.apiKey "sk-yyy" --agent content-writ
 
 # 方案2：使用环境变量（临时切换）
 export ANTHROPIC_API_KEY="sk-ant-xxx"
-openclaw chat --agent tech-dev "Hello"
+openclaw agent --message --agent tech-dev "Hello"
 
 export ANTHROPIC_API_KEY="sk-ant-yyy"
-openclaw chat --agent content-writer "Hello"
+openclaw agent --message --agent content-writer "Hello"
 ```text
 ---
 

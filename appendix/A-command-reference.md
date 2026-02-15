@@ -126,7 +126,7 @@ openclaw status
 
 ```bash
 # 发送消息
-openclaw chat "你好"
+openclaw agent --message "你好"
 openclaw message send "你好"
 
 # 查看对话历史
@@ -551,7 +551,7 @@ openclaw config set conversation.autoClean true
 openclaw gateway restart
 
 # 5. 测试连接
-openclaw chat "你好"
+openclaw agent --message "你好"
 ```
 
 ### 场景2：切换模型
@@ -567,7 +567,7 @@ openclaw config set model.name "deepseek-chat"
 openclaw gateway restart
 
 # 4. 测试新模型
-openclaw chat "测试"
+openclaw agent --message "测试"
 ```
 
 ### 场景3：安装新Skills
@@ -675,13 +675,13 @@ ocs list
 
 ```bash
 # 从文件读取内容发送
-cat report.txt | openclaw chat
+cat report.txt | openclaw agent --message
 
 # 保存输出到文件
-openclaw chat "总结一下OpenClaw的优势" > summary.txt
+openclaw agent --message "总结一下OpenClaw的优势" > summary.txt
 
 # 组合使用
-cat input.txt | openclaw chat | tee output.txt
+cat input.txt | openclaw agent --message | tee output.txt
 ```
 
 ### 技巧3：使用环境变量
